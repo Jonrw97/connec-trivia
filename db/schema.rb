@@ -10,9 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_141556) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_162122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assists", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "asker_id"
+    t.bigint "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asker_id"], name: "index_assists_on_asker_id"
+    t.index ["question_id"], name: "index_assists_on_question_id"
+    t.index ["receiver_id"], name: "index_assists_on_receiver_id"
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.string "content"
+    t.boolean "correct"
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_choices_on_question_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "asker_id"
+    t.bigint "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asker_id"], name: "index_friendships_on_asker_id"
+    t.index ["receiver_id"], name: "index_friendships_on_receiver_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "prompt"
+    t.string "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_choices", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "choice_id", null: false
+    t.index ["choice_id"], name: "index_user_choices_on_choice_id"
+    t.index ["user_id"], name: "index_user_choices_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +71,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_141556) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assists", "questions"
+  add_foreign_key "assists", "users", column: "asker_id"
+  add_foreign_key "assists", "users", column: "receiver_id"
+  add_foreign_key "choices", "questions"
+  add_foreign_key "friendships", "users", column: "asker_id"
+  add_foreign_key "friendships", "users", column: "receiver_id"
+  add_foreign_key "user_choices", "choices"
+  add_foreign_key "user_choices", "users"
 end
