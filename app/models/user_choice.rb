@@ -1,0 +1,2 @@
+class UserChoice < ApplicationRecord
+end
