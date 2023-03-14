@@ -18,11 +18,13 @@ Assist.destroy_all
 p "Creating users"
 
 User.create(
+  username: "Donald",
   email: "test1@test.com",
   password: 'test123'
 )
 
 user2 = User.create(
+  username: "Mickey",
   email: "test2@test.com",
   password: 'test123'
 )
