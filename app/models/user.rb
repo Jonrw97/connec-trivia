@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :assists_as_receiver, class_name: "Assist", foreign_key: :receiver_id, dependent: :destroy
   has_many :user_choices, dependent: :destroy
   has_many :choices, through: :user_choices
+
+  def unanswered_questions
+    Question.where.not(id: choices.map(&:question_id))
+  end
 end
