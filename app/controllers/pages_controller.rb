@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @users = User.all
+    @score = current_user.choices.count { |choice| choice.correct }
   end
 end
