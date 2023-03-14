@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'questions/show'
   devise_for :users
-  root to: "pages#home"
+  root to: "pages#dashboard"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users do
     resources :friendships, only: [:create]

@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  before_action :authenticate_user!, only: [:dashboard]
 
-  def home
+  def dashboard
+    @users = User.all
+    @score = current_user.choices.count { |choice| choice.correct }
+    @lifeline_count = current_user.lifeline_count
   end
 end
