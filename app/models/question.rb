@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
-  enum :difficulty, [ :easy, :medium, :hard ]
+  enum difficulty: %i[easy medium hard]
   validates :content, presence: true
 end
