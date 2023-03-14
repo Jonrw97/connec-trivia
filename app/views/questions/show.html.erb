@@ -1,7 +1,12 @@
 <h1>Questions</h1>
-
+<%= @questions %>
 <p><%= @question.prompt %></p>
 <%= simple_form_for(@user_choice) do |f| %>
-  <%= f.input :choice_id, collection: [@choices[0].content, @choices[1].content, @choices[2].content, @choices[3].content], as: :radio_buttons %>
+  <%= f.input :choice_id,
+    collection: [@choices[0].content,
+    @choices[1].content,
+    @choices[2].content,
+    @choices[3].content],
+    as: :radio_buttons %>
  <%= f.submit %>
 <% end %>
