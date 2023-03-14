@@ -15,11 +15,24 @@ Friendship.destroy_all
 Question.destroy_all
 Assist.destroy_all
 
+p "Creating users"
+
+User.create(
+  email: "test1@test.com",
+  password: 'test123'
+)
+
+user2 = User.create(
+  email: "test2@test.com",
+  password: 'test123'
+)
+
 p "Accessing api"
 url = "https://the-trivia-api.com/api/questions/"
 trivia_serialized = URI.open(url).read
 trivia = JSON.parse(trivia_serialized)
 p "creating questions"
+
 trivia.each do |t|
   question = Question.new
   question.prompt = t['question']
@@ -46,6 +59,12 @@ trivia.each do |t|
   choice4.content = t['incorrectAnswers'].pop
   choice4.correct = false
   choice4.save
+  choices = [choice1, choice2, choice3, choice4]
+  userchoice = UserChoice.create(
+    user_id: user2.id,
+    choice_id: choices.sample.id
+  )
+  p userchoice
 end
 
 p "created #{Question.count} questions"
