@@ -1,13 +1,22 @@
-<h1><%="Welcome #{current_user.username}"%></h1>
-<p>score</p>
-<p>Lifelines</p>
+<div class="container">
+  <h1><%="Welcome #{current_user.username}"%></h1>
+</div>
 
-<h2>Leaderboard</h2>
+<div class="container">
+  <p>score</p>
+  <p>Lifelines</p>
+</div>
 
-<ul>
-  <% @users.each do |user| %>
-    <li><%= user.username %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h2>Leaderboard</h2>
 
-<%= link_to "PLAY", root_path%>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.username %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="container">
+  <%= link_to "PLAY", root_path%>
+</div>
