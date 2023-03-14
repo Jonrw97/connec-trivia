@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :assists_as_asker, class_name: "Assist", foreign_key: :asker_id, dependent: :destroy
   has_many :assists_as_receiver, class_name: "Assist", foreign_key: :receiver_id, dependent: :destroy
   has_many :user_choices, dependent: :destroy
+  has_many :choices, through: :user_choices
 end
