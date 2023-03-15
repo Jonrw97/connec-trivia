@@ -8,3 +8,5 @@
     <p><%= choice.content %></p>
   <% end %>
 <% end %>
+
+<%= link_to "Next Question", question_path(current_user.unanswered_questions.sample)%>

@@ -1,6 +1,6 @@
 <h1>Questions</h1>
 
-<%= @questions.prompt %>
+<%= @question.prompt %>
 <div data-controller="correct-answers">
 <div data-correct-answers-target="answers">
     <!-- [...] -->
@@ -17,7 +17,7 @@
           as: :radio_buttons %>
       <%= f.submit %>
      <% end %>
-   
+
   <% else %>
 
     <%= simple_form_for(@user_choice,
@@ -46,3 +46,4 @@
     <li><a class="dropdown-item" href="#">Sorry, you dont have enough tokens!!!</a></li>
     <% end %>
   </ul>
+<p><%= link_to 'home', root_path %></p>
