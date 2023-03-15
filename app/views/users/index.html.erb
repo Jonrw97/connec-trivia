@@ -1,3 +1,14 @@
+<%= form_with url: users_path, method: :get, class: "d-flex mt-2" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a friend"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<br>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-8">
@@ -9,11 +20,3 @@
     </div>
   </div>
 </div>
-<%= form_with url: users_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a friend"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
