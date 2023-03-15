@@ -13,8 +13,14 @@
   <div class="row justify-content-center">
     <div class="col-sm-8">
       <div id="users">
-        <% @users.each do |user| %>
-          <h3><%= user.username %></h3>
+        <% if @users.empty? %>
+          <p>No users found.</p>
+        <% else %>
+          <ul>
+            <% @users.each do |user| %>
+              <h3><%= user.username %></h3>
+            <% end %>
+          </ul>
         <% end %>
       </div>
     </div>
