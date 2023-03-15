@@ -22,8 +22,9 @@
   </ul>
 </div>
 
-<div class="container">
-  <%= link_to "PLAY", questions_path%>
-</div>
-
+<% if !current_user.unanswered_questions.sample.nil? %>
+  <div class="container">
+    <%= link_to "PLAY", question_path(current_user.unanswered_questions.sample)%>
+  </div>
+<% end %>
 

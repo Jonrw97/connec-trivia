@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :user_choices, only: [:create]
 
-  resource :questions, only: [:show] do
+  resources :questions, only: [:show] do
     resources :assists, only: [:create]
   end
   # Defines the root path route ("/")
