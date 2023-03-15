@@ -11,6 +11,5 @@ Rails.application.routes.draw do
   resources :questions, only: [:show] do
     resources :assists, only: [:create]
   end
-  resource :users, only: [:show] do
-  end
+  resource :users, only: [:show]
 end
