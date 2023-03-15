@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :questions, only: [:show] do
     resources :assists, only: [:create]
   end
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resource :users, only: [:show] do
+  end
 end

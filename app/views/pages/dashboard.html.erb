@@ -22,8 +22,13 @@
   </ul>
 </div>
 
+
 <% if !current_user.unanswered_questions.sample.nil? %>
   <div class="container">
     <%= link_to "PLAY", question_path(current_user.unanswered_questions.sample)%>
   </div>
 <% end %>
+
+<div class="container">
+  <%= link_to "profile",user_path(current_user)%>
+</div>
