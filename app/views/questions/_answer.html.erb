@@ -1,0 +1,10 @@
+<% @user_choice.choice %>
+<% @choices.each do |choice| %>
+  <% if choice.correct %>
+    <p class="correct"><%= choice.content %></p>
+  <% elsif choice == @user_choice.choice  %>
+    <p class="incorrect"><%= choice.content %></p>
+  <% else %>
+    <p><%= choice.content %></p>
+  <% end %>
+<% end %>
