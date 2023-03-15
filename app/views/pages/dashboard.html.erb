@@ -24,6 +24,13 @@
 
 <% if !current_user.unanswered_questions.sample.nil? %>
   <div class="container">
+<<<<<<< HEAD
     <%= link_to "PLAY", questions_path%>
   </div>
 <% end %>
+=======
+    <%= link_to "PLAY", question_path(current_user.unanswered_questions.sample)%>
+  </div>
+<% end %>
+
+>>>>>>> master
