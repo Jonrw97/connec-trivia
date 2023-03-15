@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def fifty_fifty
+    current_user.update(lifeline_count: current_user.lifeline_count - 1)
     incorrect_answers = []
     @question.choices.each do |choice|
       if choice.correct

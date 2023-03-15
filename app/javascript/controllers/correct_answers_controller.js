@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="correct-answers"
 export default class extends Controller {
-  static targets = ["answers", "form"];
+  static targets = ["answers", "form", "answersdiv"];
   connect() {}
   send(event) {
     event.preventDefault();
@@ -17,7 +17,7 @@ export default class extends Controller {
         if (data.inserted_item) {
           this.answersTarget.insertAdjacentHTML("beforeend", data.inserted_item);
         }
-        this.formTarget.classList.add("d-none");
+        this.answersdivTarget.classList.add("d-none");
       });
   }
 }
