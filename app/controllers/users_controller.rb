@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     if params[:query].present?
       @users = User.where("username ILIKE ?", "%#{params[:query]}%")
     else
-      @users = User.all
+      @users = []
     end
   end
 end
