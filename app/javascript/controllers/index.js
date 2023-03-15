@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import CorrectAnswersController from "./correct_answers_controller"
+application.register("correct-answers", CorrectAnswersController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

@@ -1,6 +1,12 @@
 <h1>Questions</h1>
 <%= @questions.prompt %>
-<%= simple_form_for(@user_choice) do |f| %>
+<div data-controller="correct-answers">
+<div data-correct-answers-target="answers">
+    <!-- [...] -->
+  </div>
+<%= simple_form_for(@user_choice,
+    data: {correct_answers_target: "form",
+    action: "submit->correct-answers#send"}) do |f| %>
   <%= f.input :choice_id,
     collection: [@choices[0].content,
     @choices[1].content,
@@ -9,3 +15,4 @@
     as: :radio_buttons %>
  <%= f.submit %>
 <% end %>
+</div>
