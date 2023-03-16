@@ -5,6 +5,7 @@ class FriendshipsController < ApplicationController
   # render updated friend row
   def create
     receiver = User.find(params[:user_id])
+    @friends = []
 
     @friendship = Friendship.new
     @friendship.receiver = receiver
@@ -15,7 +16,7 @@ class FriendshipsController < ApplicationController
         format.html { redirect_to users_path, { message: 'Friend added successfully' }, status: :created }
         format.json
       else
-        format.html { render "user/index", status: :unprocessable_entity }
+        format.html { render users_path, { message: 'Error' }, status: :unprocessable_entity }
         format.json
       end
     end
