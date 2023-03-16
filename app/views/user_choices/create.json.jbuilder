@@ -4,5 +4,8 @@ if @user_choice.persisted?
                             locals: { user_choice: @user_choice,
                                       choices: @choices })
 else
-  json.form render("questions/show", status: :unprocessable_entity)
+  json.inserted_item render(partial: "questions/problem",
+                            formats: :html,
+                            locals: { user_choice: @user_choice,
+                                      choices: @choices })
 end

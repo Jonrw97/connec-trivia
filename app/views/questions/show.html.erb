@@ -14,7 +14,7 @@
             @choices[2].content,
             @choices[3].content],
             as: :radio_buttons %>
-        <%= f.submit %>
+        <%= f.submit 'Confirm Answer' %>
       <% end %>
     <% else %>
       <%= simple_form_for(@user_choice,
@@ -24,7 +24,7 @@
           collection: [@answers[0].content,
           @answers[1].content],
           as: :radio_buttons %>
-        <%= f.submit %>
+        <%= f.submit 'Confirm Answer'%>
       <% end %>
     <% end %>
 
@@ -44,4 +44,3 @@
     </div>
   </div>
 </div>
-<p><%= link_to 'home', root_path %></p>
