@@ -21,5 +21,6 @@ class UsersController < ApplicationController
       @users = []
 
     end
+    @friendship = Friendship.new
   end
 end
