@@ -1,34 +1,44 @@
-<div class="container">
-  <h1><%="Welcome #{current_user.username}"%></h1>
+<div class="dashboard">
+  <div class="container">
+    <div class="greeting">
+      <h1><%="Welcome #{current_user.username}"%></h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="score">
+      <div class="stats">
+        <p><i class="fa-solid fa-circle-check"></i></i></p>
+      <%= @answered %> /10
+    </div>
+    <div class="stats">
+      <p><i class="fa-solid fa-trophy"></i></p>
+      <%= @score %> /10
+    </div>
+    <div class="stats">
+      <p><i class="fa-solid fa-heart-pulse"></i></p>
+      <%= @lifeline_count %> /3
+    </div>
+  </div>
 </div>
-
 <div class="container">
-  <p><i class="fa-solid fa-circle-check"></i></i></p>
-  <%= @answered %> /10
-  <p><i class="fa-solid fa-trophy"></i></p>
-  <%= @score %>/10
-  <p><i class="fa-solid fa-heart-pulse"></i></p>
-  <%= @lifeline_count %> /3
+  <div class="leaderboard">
+    <div class="leaderboard-header">
+      <h2>Leaderboard</h2>
+    </div>
+    <div class="players">
+      <div class="player">
+        <ol>
+          <% @users.each do |user| %>
+            <li><%= user.username %>  <i class="fa-solid fa-trophy"></i> <%= @score = user.choices.count { |choice| choice.correct} %>/10</li>
+          </div>
+        <% end %>
+      </ol>
+    </div>
+  </div>
 </div>
-
-<div class="container">
-  <h2>Leaderboard</h2>
-
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= user.username %></li>
-      <li><i class="fa-solid fa-trophy"></i> <%= @score = user.choices.count { |choice| choice.correct} %>/10</li>
-    <% end %>
-  </ul>
-</div>
-
-
 <% if !current_user.unanswered_questions.sample.nil? %>
   <div class="container">
-    <%= link_to "PLAY", question_path(current_user.unanswered_questions.sample)%>
+    <%= link_to "PLAY", question_path(current_user.unanswered_questions.sample), :class=>"btn"%>
   </div>
 <% end %>
-
-<div class="container">
-  <%= link_to "profile",user_path(current_user)%>
 </div>
