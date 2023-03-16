@@ -119,60 +119,82 @@ trivia.each do |t|
   choice4.correct = false
   choice4.save
   choices = [choice, choice2, choice3, choice4]
-  userchoice = UserChoice.create(
+  UserChoice.create(
     user_id: user2.id,
     choice_id: choices.sample.id
   )
-  p userchoice
 end
 
 p "created #{Question.count} questions"
+
 friendship1 = Friendship.new
 friendship1.asker = user1
-friendship1.receiver = user2
+friendship1.receiver = user3
 friendship1.save
 
-friendship3 = Friendship.new
-friendship3.asker = user3
-friendship3.receiver = user2
-friendship3.save
+p "friendship #{friendship1.id} created"
+
+friendship2 = Friendship.new
+friendship2.asker = user1
+friendship2.receiver = user8
+friendship2.save
+
+p "friendship #{friendship2.id} created"
 
 friendship3 = Friendship.new
-friendship3.asker = user4
+friendship3.asker = user1
 friendship3.receiver = user6
 friendship3.save
 
+p "friendship #{friendship3.id} created"
+
 friendship4 = Friendship.new
-friendship4.asker = user3
+friendship4.asker = user1
 friendship4.receiver = user5
 friendship4.save
+
+p "friendship #{friendship4.id} created"
 
 friendship5 = Friendship.new
 friendship5.asker = user1
 friendship5.receiver = user7
 friendship5.save
 
+p "friendship #{friendship5.id} created"
+
 friendship6 = Friendship.new
-friendship6.asker = user9
+friendship6.asker = user2
 friendship6.receiver = user4
 friendship6.save
+
+p "friendship #{friendship6.id} created"
 
 friendship7 = Friendship.new
 friendship7.asker = user5
 friendship7.receiver = user4
 friendship7.save
 
+p "friendship #{friendship7.id} created"
+
 friendship8 = Friendship.new
 friendship8.asker = user7
 friendship8.receiver = user9
 friendship8.save
+
+p "friendship #{friendship8.id} created"
 
 friendship9 = Friendship.new
 friendship9.asker = user8
 friendship9.receiver = user9
 friendship9.save
 
+p "friendship #{friendship9.id} created"
+
 friendship10 = Friendship.new
 friendship10.asker = user10
 friendship10.receiver = user2
 friendship10.save
+
+p "friendship #{friendship10.id} created"
+
+p "seed has finished"
