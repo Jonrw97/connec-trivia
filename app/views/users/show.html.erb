@@ -4,22 +4,29 @@
   </div>
   <div class="container">
     <h1><%="Trivia results"%></h1>
-    <li> <%= @answered %> /10</li>
-    <li> <%= @score %>/10</li>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="contaainer" >
+      <li> Most recent game <%= @score %>/10</li>
+    </div>
   </div>
 </div>
-<div class="container">
-  <h1><%="Stats"%></h1>
-  <div class="container" >
-    Questions Correct
-    <li> <%=  @total_correct%></li>
-  </div>
-  <div class="container" >
-    Questions Answered
-    <li>  <%= @total_a%></li>
-  </div>
-  <div class="container" >
-    Badges
-    <li>  <%=@badge %></li>
-  </div>
+<h1><%="Stats"%></h1>
+<div class="container" >
+  Questions Correct
+  &nbsp;
+  <li> <%=  @total_correct%></li>
+</div>
+ 	&nbsp;
+<div class="container" >
+  Questions Answered
+  &nbsp;
+  <li>  <%= @total_a%></li>
+</div>
+	&nbsp;
+<div class="container" >
+  Badges
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <li>  <%=@badge %></li>
+</div>
+	&nbsp;
 </div>
