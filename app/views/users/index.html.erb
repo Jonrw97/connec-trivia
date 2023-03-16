@@ -6,12 +6,7 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-<br>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-8">
-      <div id="users">
-        <% if @users.empty? %>
+ <% if @users.empty? %>
           <p>Search for a friend</p>
         <% else %>
           <div data-controller="add-friendship">
