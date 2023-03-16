@@ -1,9 +1,56 @@
 .correct {
   background-color: green;
-  color: white;
+  color: #f0d8b2;
+  border-radius: 10px;
 }
 
 .incorrect {
   background-color: red;
-  color: white;
+  color: #f0d8b2;
+  border-radius: 10px;
+}
+
+.cards-question {
+  background-color: #398694;
+  padding: 20px;
+  margin: 5px 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card-question {
+  background-color: #f0d8b2;
+  color: #112847;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card-answers {
+  background-color: #112847;
+  color: #f0d8b2;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.buttons-question {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lifeline,
+#confirm-button {
+  background-color: #112847;
+  color: #f0d8b2;
+}
+
+.btn-next {
+  background-color: #112847;
+  color: #f0d8b2;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+legend {
+  display: none;
 }
