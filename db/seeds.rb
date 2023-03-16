@@ -102,23 +102,24 @@ trivia.each do |t|
   choice.question_id = question.id
   choice.content = t['correctAnswer']
   choice.correct = true
-  choice.save
+
   choice2 = Choice.new
   choice2.question_id = question.id
   choice2.content = t['incorrectAnswers'].pop
   choice2.correct = false
-  choice2.save
+
   choice3 = Choice.new
   choice3.question_id = question.id
   choice3.content = t['incorrectAnswers'].pop
   choice3.correct = false
-  choice3.save
+
   choice4 = Choice.new
   choice4.question_id = question.id
   choice4.content = t['incorrectAnswers'].pop
   choice4.correct = false
-  choice4.save
-  choices = [choice, choice2, choice3, choice4]
+
+  choices = [choice, choice2, choice3, choice4].shuffle
+  choices.each { |choice| choice.save}
   UserChoice.create(
     user_id: user2.id,
     choice_id: choices.sample.id
