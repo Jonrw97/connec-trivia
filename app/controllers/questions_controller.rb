@@ -1,8 +1,10 @@
 class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
+    @question = current_user.unanswered_questions.sample unless current_user.unanswered_questions.include?(@question)
+
     if params[:query].nil?
-      @choices = @question.choices.shuffle
+      @choices = @question.choices
     else
       fifty_fifty
     end
