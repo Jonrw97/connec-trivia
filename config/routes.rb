@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     resources :friendships, only: [:create]
   end
   resources :user_choices, only: [:create]
-
   resources :questions, only: [:show] do
     resources :assists, only: [:create]
   end
