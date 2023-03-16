@@ -1,55 +1,95 @@
 // Specific CSS for your home-page
 .container {
-  padding: 10px;
-  display: flex;
-  justify-content: center;
+  padding: 0px 30px;
 }
 
 .greeting {
-  box-shadow: 1px 1px 1px darkgrey;
   border: 1px solid black;
-  border-radius: 5px;
-  padding: 3px;
-  margin-top: 5px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px;
+  background-color: $beige;
+
+  h1 {
+    color: $blue;
+  }
 }
 
-.score {
-  display: flex;
-  justify-content: space-evenly;
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 5px;
-}
+.stats-board {
+  background-color: $blue;
+  border-radius: 8px;
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 10px;
 
-.leaderboard {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.players {
-  padding: 10px;
+  .avatar-main {
+    position: absolute;
+    top: -35px;
+    right: 40%;
+  }
 }
 
 .stats {
-  padding: 10px;
-  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 50px;
+  padding-bottom: 20px;
+
+  p {
+    color: $beige;
+  }
 }
 
-.player {
-  border: 1px solid black;
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.leaderboard {
+  margin: 5px;
+  padding: 2px;
+  margin-bottom: 5px;
+
+}
+
+.leaderboard-main {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: $beige;
+  width: 80%;
+
+  h2 {
+    color: $blue;
+    margin-bottom: 0px;
+  }
+}
+
+.player-info-card {
+  display: flex;
+  justify-content: space-around;
+  background-color: $lightblue;
+  margin: 10px;
   border-radius: 8px;
   padding: 5px;
-  text-align: center;
-  margin: 5px;
+  align-items: center;
+
+  p {
+    margin: 0px;
+    color: $blue;
+  }
 }
 
-.leaderboard-header {
-  border: 1px solid black;
-  margin-bottom: 5px;
-  padding: 3px;
-  border-radius: 5px;
-  margin-top: 5px;
-  text-align: center;
+#player-name {
+  background-color: $beige;
+  padding: 2px 20px;
+  border-radius: 8px;
+  opacity: 80%;
 }
