@@ -18,25 +18,22 @@
             <ul>
               <% @users.each do |user| %>
                 <h3><%= user.username %></h3>
-
+                <%# if user is part of @friends then show checkmark, otherwise show add friend %>
                 <%= simple_form_for([user, @friendship],
                   data: {
                     add_friendship_target: "form",
                       action: "submit->add-friendship#send"
                     }) do |f|
                     %>
-                  <%= f.submit "Add Friend" %>
-                <% end %>
-
-                <div data-add-friendship-target="result">
-                </div>
-                <%# link_to "Add #{user.username}", user_friendships_path(user), data: { "turbo-method": :post, add_friendship_target: "form", action: "submit->add-friendship#send" }   %>
-                <%# on btn click make post request to /users/user_id/friendships %>
+                <%= f.submit "Add Friend" %>
               <% end %>
-            </ul>
-          </div>
-        <% end %>
-      </div>
+              <div data-add-friendship-target="result">
+              </div>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>
