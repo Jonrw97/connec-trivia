@@ -1,12 +1,15 @@
 import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="correct-answers"
+// Connects to data-controller="add-friendship"
 export default class extends Controller {
-  static targets = ["answers", "form", "answersdiv"];
+  static targets = ["form", "result"];
+
   connect() {}
+
   send(event) {
     event.preventDefault();
-
+    console.log(this.formTarget);
+    console.log(this.formTarget.action);
     fetch(this.formTarget.action, {
       method: "POST",
       headers: { Accept: "application/json" },
@@ -15,9 +18,9 @@ export default class extends Controller {
       .then((response) => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          this.answersTarget.insertAdjacentHTML("beforeend", data.inserted_item);
+          this.resultTarget.insertAdjacentHTML("beforeend", data.inserted_item);
         }
-        this.answersdivTarget.classList.add("d-none");
+        this.formTarget.classList.add("d-none");
       });
   }
 }
