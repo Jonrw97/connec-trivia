@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-evenly;
   border: 1px solid black;
-  padding: 30px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -29,9 +29,7 @@
 }
 
 .players {
-  border: 1px solid black;
   padding: 10px;
-  border-radius: 5px;
 }
 
 .stats {
@@ -42,6 +40,9 @@
 .player {
   border: 1px solid black;
   border-radius: 8px;
+  padding: 5px;
+  text-align: center;
+  margin: 5px;
 }
 
 .leaderboard-header {
@@ -49,4 +50,6 @@
   margin-bottom: 5px;
   padding: 3px;
   border-radius: 5px;
+  margin-top: 5px;
+  text-align: center;
 }

@@ -26,13 +26,13 @@
       <h2>Leaderboard</h2>
     </div>
     <div class="players">
-      <div class="player">
-        <ol>
-          <% @users.each do |user| %>
-            <li><%= user.username %>  <i class="fa-solid fa-trophy"></i> <%= @score = user.choices.count { |choice| choice.correct} %>/10</li>
+    <% position = 1 %>
+        <% @users.each do |user| %>
+          <div class="player">
+            <p><%="#{position} #{user.username}"%>  <i class="fa-solid fa-trophy"></i> <%= @score = user.choices.count { |choice| choice.correct} %>/10</p>
           </div>
+          <% position += 1 %>
         <% end %>
-      </ol>
     </div>
   </div>
 </div>
