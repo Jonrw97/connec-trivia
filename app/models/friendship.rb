@@ -3,4 +3,5 @@ class Friendship < ApplicationRecord
   belongs_to :receiver, class_name: "User"
 
   validates :asker_id, uniqueness: { scope: :receiver_id }
+  validates :receiver_id, uniqueness: { scope: :asker_id }
 end

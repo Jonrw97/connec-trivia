@@ -6,29 +6,29 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
- <% if @users.empty? %>
-          <p>Search for a friend</p>
-        <% else %>
-          <div data-controller="add-friendship">
-            <ul>
-              <% @users.each do |user| %>
-                <h3><%= user.username %></h3>
-                <%# if user is part of @friends then show checkmark, otherwise show add friend %>
-                <%= simple_form_for([user, @friendship],
+<% if @users.empty? %>
+  <p>Search for a friend</p>
+<% else %>
+  <% @users.each do |user| %>
+    <div data-controller="add-friendship">
+      <ul>
+        <h3><%= user.username %></h3>
+        <%# if user is part of @friends then show checkmark, otherwise show add friend %>
+        <%= simple_form_for([user, @friendship],
                   data: {
                     add_friendship_target: "form",
                       action: "submit->add-friendship#send"
                     }) do |f|
                     %>
-                <%= f.submit "Add Friend" %>
-              <% end %>
-              <div data-add-friendship-target="result">
-              </div>
-            <% end %>
-          </ul>
-        </div>
+        <%= f.submit "Add Friend" %>
       <% end %>
-    </div>
+      <div data-add-friendship-target="result">
+      </div>
+    </ul>
   </div>
+<% end %>
+<% end %>
+</div>
+</div>
 </div>
 </div>
