@@ -6,21 +6,35 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-
 <br>
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-8">
       <div id="users">
         <% if @users.empty? %>
-          <p>No users found.</p>
+          <p>Search for a friend</p>
         <% else %>
-          <ul>
-            <% @users.each do |user| %>
-              <h3><%= user.username %></h3>
-            <% end %>
-          </ul>
+          <div data-controller="add-friendship">
+            <ul>
+              <% @users.each do |user| %>
+                <h3><%= user.username %></h3>
+
+                <%= simple_form_for([user, @friendship],
+                  data: {
+                    add_friendship_target: "form",
+                      action: "submit->add-friendship#send"
+                    }) do |f|
+                    %>
+                  <%= f.submit "Add Friend" %>
+                <% end %>
+
+                <div data-add-friendship-target="result">
+                </div>
+                <%# link_to "Add #{user.username}", user_friendships_path(user), data: { "turbo-method": :post, add_friendship_target: "form", action: "submit->add-friendship#send" }   %>
+                <%# on btn click make post request to /users/user_id/friendships %>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
       </div>
     </div>
