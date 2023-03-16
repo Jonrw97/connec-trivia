@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @user = current_user
     @score = current_user.choices.count { |choice| choice.correct }
@@ -22,5 +21,6 @@ class UsersController < ApplicationController
       @users = []
 
     end
+    @friendship = Friendship.new
   end
 end
