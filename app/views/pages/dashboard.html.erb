@@ -29,7 +29,7 @@
         <%= image_tag "mickey.jpg", class:"avatar" %>
         <p id= "player-name"><%= user.username %></p>
         <div class="player-score">
-          <p><%= @score = user.choices.count { |choice| choice.correct} %>/10</p>
+          <p><%= user.score %>/10</p>
         </div>
       </div>
     <% end %>
