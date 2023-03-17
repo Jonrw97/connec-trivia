@@ -37,6 +37,7 @@
 
   p {
     color: $beige;
+    font-size: 20px;
   }
 }
 
@@ -92,4 +93,9 @@
   padding: 2px 20px;
   border-radius: 8px;
   opacity: 80%;
+  width: 55%;
+}
+
+.center-div {
+  margin: auto;
 }
