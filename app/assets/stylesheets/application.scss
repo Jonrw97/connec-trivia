@@ -14,5 +14,15 @@
 @import "pages/profile";
 
 body {
-  background-color: $green ;
+  background-color: $green;
+  font-family: $body-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headers-font;
 }
