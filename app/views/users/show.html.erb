@@ -1,10 +1,8 @@
-<div class="home">
-  <h1>H</h1>
-</div>
-
 <div class="container">
   <div class="profile-game">
-    <%= image_tag "mickey.jpg", class:"avatar-profile" %>
+    <div class="avatar-div">
+      <%= image_tag "mickey.jpg", class:"avatar-profile" %>
+    </div>
     <div class="triv-results">
       <h5>Trivia Results</h5>
       <p><%= @score %>/10</p>
@@ -12,12 +10,14 @@
   </div>
 
   <div class="profile-stats">
-    <h1>Stats</h1>
-    <div class="profile-stat">
+    <div class="profile-stat profile-stat-mb">
+      <h1>Stats</h1>
+    </div>
+    <div class="profile-stat profile-stat-mb">
       <h1>Questions Answered</h1>
       <h3><%= @total_a%></h3>
     </div>
-    <div class="profile-stat">
+    <div class="profile-stat profile-stat-mb">
       <h1>Correct Answers</h1>
       <h3><%=  @total_correct%></h3>
     </div>
