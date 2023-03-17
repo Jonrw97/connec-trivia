@@ -4,7 +4,9 @@
 
 <div class="container">
   <div class="profile-game">
-    <%= image_tag "mickey.jpg", class:"avatar-profile" %>
+    <div class="avatar-div">
+      <%= image_tag "mickey.jpg", class:"avatar-profile" %>
+    </div>
     <div class="triv-results">
       <h5>Trivia Results</h5>
       <p><%= @score %>/10</p>

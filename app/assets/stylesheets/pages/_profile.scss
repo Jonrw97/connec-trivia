@@ -1,22 +1,48 @@
 .home {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border: 1px solid black;
+  border-radius: 8px;
   background-color: #F0D8B2;
-  margin: 2px;
-  padding: 2px;
+  margin: 4%;
+  padding: 2%;
   width: 10%;
   height: 10%;
 }
 
 .profile-game {
+  display: flex;
+  justify-content: space-between;
   border: 1px solid #398694;
+  border-radius: 10px;
   background-color: #112847;
-  margin: 2px;
-  padding: 2px;
+  // padding: 5px;
+  // width: 90%;
+}
+
+.avatar-div {
+  padding: 5px;
+  margin: 7px;
+  width: 45%;
+}
+
+.avatar-profile {
+  display: flex;
+  position: absolute;
+  left: 60px;
+  margin: 0%;
 }
 
 .triv-results {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 20px;
   color: #D34934;
   background-color: #F0D8B2;
+  padding: 10px;
+  margin: 5px;
+  width: 70%;
 }
 
 h1 {
