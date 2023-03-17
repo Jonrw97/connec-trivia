@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <div class="container-fluid d-flex justify-content-between">
+    <%= link_to root_path, class: "navbar-brand" do %>
+       <%=image_tag("data:image/png;base64,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") %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,19 +12,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+              <%= link_to "Profile",user_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+              <%= link_to "Add Friend", users_path, class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile",user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Add Friend", users_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
+          <li class="nav-item">
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>

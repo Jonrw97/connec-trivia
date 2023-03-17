@@ -7,11 +7,12 @@
   border: 1px solid black;
   border-radius: 8px;
   text-align: center;
-  margin: 20px;
+  margin: 20px 0px;
   background-color: $beige;
 
   h1 {
     color: $blue;
+    margin-top: 10px;
   }
 }
 
@@ -34,10 +35,16 @@
   justify-content: space-evenly;
   padding-top: 50px;
   padding-bottom: 20px;
+  margin-top: 50px;
 
   p {
     color: $beige;
     font-size: 20px;
+  }
+
+  h3 {
+    color: $beige;
+    font-size: 32px;
   }
 }
 
@@ -66,6 +73,7 @@
   border-radius: 8px;
   background-color: $beige;
   width: 80%;
+  margin-top: 20px;
 
   h2 {
     color: $blue;
@@ -79,7 +87,7 @@
   background-color: $lightblue;
   margin: 10px;
   border-radius: 8px;
-  padding: 5px;
+  padding: 6px;
   align-items: center;
 
   p {
@@ -94,6 +102,8 @@
   border-radius: 8px;
   opacity: 80%;
   width: 55%;
+  color:$blue;
+  font-weight: bolder;
 }
 
 .center-div {
