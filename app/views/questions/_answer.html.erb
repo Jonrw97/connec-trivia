@@ -9,7 +9,7 @@
   <% end %>
 <% end %>
 <% if !current_user.unanswered_questions.sample.nil? %>
-  <%= link_to "Next Question", question_path(current_user.unanswered_questions.sample)%>
+  <%= link_to "Next Question", question_path(current_user.unanswered_questions.sample), class: "btn-next"%>
 <% else %>
   <p>You have no more questions today!</p>
 <% end %>
