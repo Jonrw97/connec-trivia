@@ -5,7 +5,7 @@
 </div>
 
   <div data-controller="correct-answers" class="card-answers">
-    <div data-correct-answers-target="answers"></div>
+    <div data-correct-answers-target="answers" class="card-answers"></div>
     <div data-correct-answers-target="answersdiv">
       <%if params[:query].nil? %>
         <%= simple_form_for(@user_choice,
