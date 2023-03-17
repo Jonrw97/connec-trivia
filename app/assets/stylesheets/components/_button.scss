@@ -1,3 +1,16 @@
+
+.play-btn {
+  background-color: $blue;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+
+  a {
+    color: $red;
+    text-decoration: none;
+  }
+}
 .btn {
   background-color: #112847;
   color: #f0d8b2;
