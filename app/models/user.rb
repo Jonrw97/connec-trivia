@@ -18,10 +18,31 @@ class User < ApplicationRecord
 
   has_many :users
 
-  def unanswered_questions
-    Question.where.not(id: choices.map(&:question_id))
-  end
   include PgSearch::Model
   pg_search_scope :search_by_username, against: [:username]
   # , using: { search: { prefix: true } }
+
+  def unanswered_questions
+    Question.where.not(id: choices.map(&:question_id))
+  end
+
+  def score
+    choices.count(&:correct)
+  end
+
+  def answered
+    choices.count
+  end
+
+  def all_friends
+    users = []
+    friendships_as_asker.each do |friendship|
+      users << User.find(friendship.receiver_id)
+    end
+
+    friendships_as_receiver.each do |friendship|
+      users << User.find(friendship.asker_id)
+    end
+    users
+  end
 end

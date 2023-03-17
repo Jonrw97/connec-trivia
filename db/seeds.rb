@@ -119,9 +119,30 @@ trivia.each do |t|
   choice4.correct = false
 
   choices = [choice, choice2, choice3, choice4].shuffle
-  choices.each { |choice| choice.save}
+  choices.each(&:save)
+
   UserChoice.create(
     user_id: user2.id,
+    choice_id: choices.sample.id
+  )
+
+  UserChoice.create(
+    user_id: user3.id,
+    choice_id: choices.sample.id
+  )
+
+  UserChoice.create(
+    user_id: user8.id,
+    choice_id: choices.sample.id
+  )
+
+  UserChoice.create(
+    user_id: user6.id,
+    choice_id: choices.sample.id
+  )
+
+  UserChoice.create(
+    user_id: user5.id,
     choice_id: choices.sample.id
   )
 end
