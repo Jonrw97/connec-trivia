@@ -46,7 +46,7 @@ user4 = User.create(
 )
 
 user5 = User.create(
-  username: "Adem sandler",
+  username: "Adam Sandler",
   email: "test5@test.com",
   password: 'test123',
   lifeline_count: 3
@@ -67,7 +67,7 @@ user7 = User.create(
 )
 
 user8 = User.create(
-  username: "Saj",
+  username: "Saaj",
   email: "test8@test.com",
   password: 'test123',
   lifeline_count: 3
