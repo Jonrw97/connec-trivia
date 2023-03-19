@@ -1,11 +1,12 @@
 .correct {
   background-color: green;
-  color: #f0d8b2;
+  color: #112847;
   border-radius: 10px;
 }
 
 .incorrect {
-  background-color: red;
+  margin-top: 15px;
+  background-color: #D34934 1px solid;
   color: #f0d8b2;
   border-radius: 10px;
 }
@@ -16,21 +17,30 @@
   margin: 5px 15px;
   border-radius: 10px;
   text-align: center;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .card-question {
+  font-size: 25px;
   background-color: #f0d8b2;
   color: #112847;
   padding: 10px;
   border-radius: 10px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
-.card-answers {
-  background-color: #112847;
-  color: #f0d8b2;
-  padding: 20px;
-  margin-top: 40px;
-  border-radius: 10px;
+// .card-answers {
+  // background-color: #112847;
+  // color: #f0d8b2;
+  // padding: 20px;
+  // margin-top: 40px;
+  // border-radius: 10px;
+  // box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+// }
+
+.card-results {
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .buttons-question {
@@ -53,4 +63,17 @@
 
 legend {
   display: none;
+}
+.form-check {
+  font-size: 20px;
+  color: #f0d8b2;
+  border: #112847;
+  border-radius: 8px;
+  background-color: #112847;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.card-answers {
+  font-size: 20px;
 }
