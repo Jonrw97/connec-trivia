@@ -42,9 +42,9 @@
       </div>
     <% end %>
   </div>
-  <% if !current_user.unanswered_questions.sample.nil? %>
+  <% if !current_user.unanswered_questions.to_a.pop.nil? %>
     <div class="play-btn center-div">
-      <%= link_to "PLAY", question_path(current_user.unanswered_questions.sample)%>
+      <%= link_to "PLAY", question_path(current_user.unanswered_questions.to_a.pop)%>
     </div>
   <% end %>
 </div>

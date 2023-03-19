@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
-    @question = current_user.unanswered_questions.sample unless current_user.unanswered_questions.include?(@question)
+    @question = current_user.unanswered_questions.to_a.pop unless current_user.unanswered_questions.include?(@question)
 
     if params[:query].nil?
       @choices = @question.choices
