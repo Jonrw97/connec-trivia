@@ -17,12 +17,18 @@ Assist.destroy_all
 
 p "Creating users"
 
-user1 = User.create(
-  username: "Donald",
+url = "https://rickandmortyapi.com/api/character/1/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user1 = User.new(
+  username: rm_users['name'],
   email: "test@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+p user1
+user1.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user1.save
 
 user2 = User.create(
   username: "Mickey",
@@ -132,17 +138,17 @@ trivia.each do |t|
   )
 
   UserChoice.create(
-    user_id: user8.id,
-    choice_id: choices.sample.id
-  )
-
-  UserChoice.create(
-    user_id: user6.id,
+    user_id: user4.id,
     choice_id: choices.sample.id
   )
 
   UserChoice.create(
     user_id: user5.id,
+    choice_id: choices.sample.id
+  )
+
+  UserChoice.create(
+    user_id: user6.id,
     choice_id: choices.sample.id
   )
 end
@@ -151,21 +157,21 @@ p "created #{Question.count} questions"
 
 friendship1 = Friendship.new
 friendship1.asker = user1
-friendship1.receiver = user3
+friendship1.receiver = user2
 friendship1.save
 
 p "friendship #{friendship1.id} created"
 
 friendship2 = Friendship.new
 friendship2.asker = user1
-friendship2.receiver = user8
+friendship2.receiver = user3
 friendship2.save
 
 p "friendship #{friendship2.id} created"
 
 friendship3 = Friendship.new
 friendship3.asker = user1
-friendship3.receiver = user6
+friendship3.receiver = user4
 friendship3.save
 
 p "friendship #{friendship3.id} created"
@@ -179,28 +185,28 @@ p "friendship #{friendship4.id} created"
 
 friendship5 = Friendship.new
 friendship5.asker = user1
-friendship5.receiver = user7
+friendship5.receiver = user6
 friendship5.save
 
 p "friendship #{friendship5.id} created"
 
 friendship6 = Friendship.new
 friendship6.asker = user2
-friendship6.receiver = user4
+friendship6.receiver = user3
 friendship6.save
 
 p "friendship #{friendship6.id} created"
 
 friendship7 = Friendship.new
-friendship7.asker = user5
+friendship7.asker = user2
 friendship7.receiver = user4
 friendship7.save
 
 p "friendship #{friendship7.id} created"
 
 friendship8 = Friendship.new
-friendship8.asker = user7
-friendship8.receiver = user9
+friendship8.asker = user2
+friendship8.receiver = user5
 friendship8.save
 
 p "friendship #{friendship8.id} created"

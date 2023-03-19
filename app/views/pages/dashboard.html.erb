@@ -3,7 +3,7 @@
     <h1><%="Welcome #{current_user.username}"%></h1>
   </div>
   <div class="stats-board">
-    <%= image_tag "https://w7.pngwing.com/pngs/170/977/png-transparent-donald-duck-internet-meme-know-your-meme-donald-duck-white-face-heroes-thumbnail.png",class:"avatar-main" %>
+    <%= cl_image_tag current_user.photo.key, class:"avatar-main" %>
     <div class="stats">
       <div class="stat">
         <h3><i class="fa-solid fa-circle-check"></i></h3>
