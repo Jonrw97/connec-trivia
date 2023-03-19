@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   has_many :users
 
+  has_one_attached :photo
+
   include PgSearch::Model
   pg_search_scope :search_by_username, against: [:username]
   # , using: { search: { prefix: true } }

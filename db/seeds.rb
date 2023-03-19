@@ -15,89 +15,162 @@ Friendship.destroy_all
 Question.destroy_all
 Assist.destroy_all
 
-p "Creating users"
+##############
+# making users
+p "Creating Rick & Morty"
 
-user1 = User.create(
-  username: "Donald",
-  email: "test@test.com",
+url = "https://rickandmortyapi.com/api/character/1/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+
+rick = User.new(
+  username: rm_users['name'],
+  email: "rick@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+rick.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+rick.save
 
-user2 = User.create(
-  username: "Mickey",
-  email: "test2@test.com",
+url = "https://rickandmortyapi.com/api/character/2/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+morty = User.new(
+  username: rm_users['name'],
+  email: "morty@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+morty.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+morty.save
 
-user3 = User.create(
-  username: "Skoot",
+friendship1 = Friendship.new
+friendship1.asker = rick
+friendship1.receiver = morty
+friendship1.save
+p "Rick & Morty Created"
+
+p "Creating Background Characters"
+
+url = "https://rickandmortyapi.com/api/character/3/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user3 = User.new(
+  username: rm_users['name'],
   email: "test3@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+user3.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user3.save
+p "#{rm_users['name']} created with id #{user3.id}"
 
-user4 = User.create(
-  username: "Mandela",
+url = "https://rickandmortyapi.com/api/character/4/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user4 = User.new(
+  username: rm_users['name'],
   email: "test4@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+user4.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user4.save
+p "#{rm_users['name']} created with id #{user4.id}"
 
-user5 = User.create(
-  username: "Adam Sandler",
+url = "https://rickandmortyapi.com/api/character/5/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user5 = User.new(
+  username: rm_users['name'],
   email: "test5@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+user5.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user5.save
+p "#{rm_users['name']} created with id #{user5.id}"
 
-user6 = User.create(
-  username: "Broom",
+url = "https://rickandmortyapi.com/api/character/150/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user6 = User.new(
+  username: rm_users['name'],
   email: "test6@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+user6.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user6.save
+p "#{rm_users['name']} created with id #{user6.id}"
 
-user7 = User.create(
-  username: "Jackey",
+url = "https://rickandmortyapi.com/api/character/242/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user7 = User.new(
+  username: rm_users['name'],
   email: "test7@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+user7.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user7.save
+p "#{rm_users['name']} created with id #{user7.id}"
 
-user8 = User.create(
-  username: "Saaj",
+url = "https://rickandmortyapi.com/api/character/244/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user8 = User.new(
+  username: rm_users['name'],
   email: "test8@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+user8.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user8.save
+p "#{rm_users['name']} created with id #{user8.id}"
 
-user9 = User.create(
-  username: "Kamool",
+url = "https://rickandmortyapi.com/api/character/118/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user9 = User.new(
+  username: rm_users['name'],
+  email: "evil@test.com",
+  password: 'test123',
+  lifeline_count: 3
+)
+user9.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user9.save
+p "#{rm_users['name']} created with id #{user9.id}"
+
+url = "https://rickandmortyapi.com/api/character/122/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user10 = User.new(
+  username: rm_users['name'],
   email: "test9@test.com",
   password: 'test123',
   lifeline_count: 3
 )
+user10.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user10.save
+p "#{rm_users['name']} created with id #{user10.id}"
 
-user10 = User.create(
-  username: "Jesus",
-  email: "test10@test.com",
-  password: 'test123',
-  lifeline_count: 3
-)
-p "Accessing api"
+p "Background Characters Created"
+
+users = [user3, user4, user5, user6, user7, user8, user9, user10]
+
+#################
+# making questions
+
+p "Accessing Trivia api"
 url = "https://the-trivia-api.com/api/questions/"
 trivia_serialized = URI.open(url).read
 trivia = JSON.parse(trivia_serialized)
 p "creating questions"
 
 trivia.each do |t|
-  question = Question.new
-  question.prompt = t['question']
-  question.difficulty = t['difficulty']
-  question.save
-  p "created question with id#{question.id}"
+  question = Question.create( prompt: t['question'], difficulty: t['difficulty'])
   choice = Choice.new
   choice.question_id = question.id
   choice.content = t['correctAnswer']
@@ -121,102 +194,27 @@ trivia.each do |t|
   choices = [choice, choice2, choice3, choice4].shuffle
   choices.each(&:save)
 
-  UserChoice.create(
-    user_id: user2.id,
-    choice_id: choices.sample.id
-  )
-
-  UserChoice.create(
-    user_id: user3.id,
-    choice_id: choices.sample.id
-  )
-
-  UserChoice.create(
-    user_id: user8.id,
-    choice_id: choices.sample.id
-  )
-
-  UserChoice.create(
-    user_id: user6.id,
-    choice_id: choices.sample.id
-  )
-
-  UserChoice.create(
-    user_id: user5.id,
-    choice_id: choices.sample.id
-  )
+  users.each do |user|
+    UserChoice.create(
+      user_id: user.id,
+      choice_id: choices.sample.id
+    )
+  end
 end
-
 p "created #{Question.count} questions"
-
-friendship1 = Friendship.new
-friendship1.asker = user1
-friendship1.receiver = user3
-friendship1.save
-
-p "friendship #{friendship1.id} created"
-
-friendship2 = Friendship.new
-friendship2.asker = user1
-friendship2.receiver = user8
-friendship2.save
-
-p "friendship #{friendship2.id} created"
-
-friendship3 = Friendship.new
-friendship3.asker = user1
-friendship3.receiver = user6
-friendship3.save
-
-p "friendship #{friendship3.id} created"
-
-friendship4 = Friendship.new
-friendship4.asker = user1
-friendship4.receiver = user5
-friendship4.save
-
-p "friendship #{friendship4.id} created"
-
-friendship5 = Friendship.new
-friendship5.asker = user1
-friendship5.receiver = user7
-friendship5.save
-
-p "friendship #{friendship5.id} created"
-
-friendship6 = Friendship.new
-friendship6.asker = user2
-friendship6.receiver = user4
-friendship6.save
-
-p "friendship #{friendship6.id} created"
-
-friendship7 = Friendship.new
-friendship7.asker = user5
-friendship7.receiver = user4
-friendship7.save
-
-p "friendship #{friendship7.id} created"
-
-friendship8 = Friendship.new
-friendship8.asker = user7
-friendship8.receiver = user9
-friendship8.save
-
-p "friendship #{friendship8.id} created"
-
-friendship9 = Friendship.new
-friendship9.asker = user8
-friendship9.receiver = user9
-friendship9.save
-
-p "friendship #{friendship9.id} created"
-
-friendship10 = Friendship.new
-friendship10.asker = user10
-friendship10.receiver = user2
-friendship10.save
-
-p "friendship #{friendship10.id} created"
-
+######################
+# friendships
+p "creating friendships"
+users.each do |user|
+  # rick
+  friendship = Friendship.new
+  friendship.asker = rick
+  friendship.receiver = user
+  friendship.save
+  # morty
+  friendship = Friendship.new
+  friendship.asker = morty
+  friendship.receiver = user
+  friendship.save
+end
 p "seed has finished"

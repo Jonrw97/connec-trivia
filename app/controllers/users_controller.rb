@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @total_a = total_a + @answered
     total_correct = 26
     @total_correct = total_correct + @score
-    @badge = @score == 10 ? "🎖" : "no badges"
+    @badge = @score == 10 ? "🎖" : "No badges yet"
   end
 
   def index
