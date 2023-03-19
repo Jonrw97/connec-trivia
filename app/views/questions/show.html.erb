@@ -4,9 +4,11 @@
   <h4><%= @question.prompt %></h4>
 </div>
 
-  <div data-controller="correct-answers">
-    <div data-correct-answers-target="answers" class="card-results"></div>
-    <div data-correct-answers-target="answersdiv"  class="card-answers">
+
+  <div data-controller="correct-answers" class="card-answers">
+    <div data-correct-answers-target="answers" class="card-answers"></div>
+    <div data-correct-answers-target="answersdiv">
+
       <%if params[:query].nil? %>
         <%= simple_form_for(@user_choice,
               data: {correct_answers_target: "form",

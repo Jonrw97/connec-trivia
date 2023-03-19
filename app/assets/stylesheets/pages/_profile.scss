@@ -1,25 +1,12 @@
-// .home {
-//   display: flex;
-//   justify-content: center;
-//   text-align: center;
-//   border: 1px solid black;
-//   border-radius: 8px;
-//   background-color: #F0D8B2;
-//   margin: 4%;
-//   padding: 2%;
-//   width: 10%;
-//   height: 10%;
-// }
-
 .profile-game {
   display: flex;
   justify-content: space-between;
   border: 1px solid #398694;
   border-radius: 10px;
   background-color: #112847;
-  // padding: 5px;
-  // width: 90%;
   margin-top: 50px;
+  padding: 5px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .avatar-div {
@@ -60,8 +47,8 @@ h1 {
   background-color: #112847;
   margin: 2px;
   padding: 10px;
-  // height: 500px;
   margin-top: 70px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .profile-stat {
@@ -70,7 +57,7 @@ h1 {
   border: 1px solid black;
   border-radius: 8px;
   margin: 5%;
-  // margin-bottom: 10%;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .profile-stat-mb {
