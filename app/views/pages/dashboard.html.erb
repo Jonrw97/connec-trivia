@@ -26,7 +26,7 @@
     <% @users.each_with_index do |user, index| %>
       <div class="player-info-card">
         <%= index + 1 %>
-        <%= image_tag "https://w7.pngwing.com/pngs/170/977/png-transparent-donald-duck-internet-meme-know-your-meme-donald-duck-white-face-heroes-thumbnail.png", class:"avatar" %>
+        <%= cl_image_tag user.photo.key, class:"avatar-main" %>
         <p id= "player-name"><%= user.username %></p>
         <div class="player-score">
           <p><%= user.score %>/10</p>
