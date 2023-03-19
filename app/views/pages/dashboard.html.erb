@@ -3,7 +3,11 @@
     <h1><%="Welcome #{current_user.username}"%></h1>
   </div>
   <div class="stats-board">
-    <%= cl_image_tag current_user.photo.key, class:"avatar-main" %>
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class:"avatar-main" %>
+    <% else %>
+      <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-main") %>
+    <% end %>
     <div class="stats">
       <div class="stat">
         <h3><i class="fa-solid fa-circle-check"></i></h3>
@@ -26,7 +30,11 @@
     <% @users.each_with_index do |user, index| %>
       <div class="player-info-card">
         <%= index + 1 %>
-        <%= cl_image_tag user.photo.key, class:"avatar-main" %>
+        <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo.key, class:"avatar-main" %>
+        <% else %>
+          <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-main") %>
+        <% end %>
         <p id= "player-name"><%= user.username %></p>
         <div class="player-score">
           <p><%= user.score %>/10</p>
