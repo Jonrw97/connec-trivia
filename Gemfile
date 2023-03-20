@@ -80,3 +80,5 @@ end
 gem "pg_search"
 gem "cloudinary"
 gem "chartkick"
+gem "sidekiq"
+gem "sidekiq-failures", "~> 1.0"

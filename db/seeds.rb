@@ -144,7 +144,8 @@ user9 = User.new(
   username: rm_users['name'],
   email: "evil@test.com",
   password: 'test123',
-  lifeline_count: 3
+  lifeline_count: 3,
+  admin: true
 )
 user9.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
 user9.save
