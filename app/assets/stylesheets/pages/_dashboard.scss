@@ -86,14 +86,18 @@
 }
 
 .player-info-card {
-  display: flex;
-  justify-content: space-between;
   background-color: $lightblue;
   margin: 20px 0px;
   border-radius: 8px;
   padding: 6px;
-  align-items: center;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  align-items: center;
 
   p {
     margin: 0px;
@@ -120,4 +124,10 @@
   position: fixed;
   bottom: 20px;
   right: 100px;
+}
+
+.blocks {
+  display:flex;
+  justify-content: center;
+  margin: auto;
 }
