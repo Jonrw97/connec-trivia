@@ -6,8 +6,8 @@
 
 .incorrect {
   margin-top: 15px;
-  background-color: #D34934 1px solid;
-  color: #f0d8b2;
+  background-color: #D34934;
+  color: #112847;
   border-radius: 10px;
 }
 
@@ -24,6 +24,7 @@
   font-size: 25px;
   background-color: #f0d8b2;
   color: #112847;
+  margin-top: 10px;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
@@ -59,6 +60,7 @@
   color: #f0d8b2;
   border-radius: 10px;
   padding: 10px;
+  text-decoration: none;
 }
 
 legend {
@@ -74,6 +76,8 @@ legend {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-top: 20px;
+  margin-left: 4px;
+  box-shadow: 2px 2px 4px 2px #8a9db6;
 }
 
 .card-answers {
