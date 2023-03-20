@@ -35,7 +35,6 @@
             <%= cl_image_tag user.photo.key, class:"avatar-leaderboard" %>
           <% else %>
             <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
-        </div>
           <% end %>
         <p id= "player-name"><%= user.username %></p>
         <div class="player-score">
