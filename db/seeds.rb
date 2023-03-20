@@ -1,5 +1,6 @@
 require "json"
 require "open-uri"
+require "date"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -163,14 +164,14 @@ users = [user3, user4, user5, user6, user7, user8, user9, user10]
 #################
 # making questions
 
-p "Accessing Trivia api"
+p "Accessing Trivia api for todays questions"
 url = "https://the-trivia-api.com/api/questions/"
 trivia_serialized = URI.open(url).read
 trivia = JSON.parse(trivia_serialized)
 p "creating questions"
 
 trivia.each do |t|
-  question = Question.create( prompt: t['question'], difficulty: t['difficulty'])
+  question = Question.create( prompt: t['question'], difficulty: t['difficulty'], question_date: Date.today)
   choice = Choice.new
   choice.question_id = question.id
   choice.content = t['correctAnswer']
@@ -201,6 +202,51 @@ trivia.each do |t|
     )
   end
 end
+
+#####################
+# user history
+users.push(rick)
+users.push(morty)
+p "Accessing Trivia api for users history"
+url = "https://the-trivia-api.com/api/questions/"
+trivia_serialized = URI.open(url).read
+trivia = JSON.parse(trivia_serialized)
+p "creating questions"
+
+trivia.each do |t|
+  question = Question.create( prompt: t['question'], difficulty: t['difficulty'], question_date: Date.yesterday)
+  choice = Choice.new
+  choice.question_id = question.id
+  choice.content = t['correctAnswer']
+  choice.correct = true
+
+  choice2 = Choice.new
+  choice2.question_id = question.id
+  choice2.content = t['incorrectAnswers'].pop
+  choice2.correct = false
+
+  choice3 = Choice.new
+  choice3.question_id = question.id
+  choice3.content = t['incorrectAnswers'].pop
+  choice3.correct = false
+
+  choice4 = Choice.new
+  choice4.question_id = question.id
+  choice4.content = t['incorrectAnswers'].pop
+  choice4.correct = false
+
+  choices = [choice, choice2, choice3, choice4].shuffle
+  choices.each(&:save)
+
+  users.each do |user|
+    UserChoice.create(
+      user_id: user.id,
+      choice_id: choices.sample.id
+    )
+  end
+end
+
+
 p "created #{Question.count} questions"
 ######################
 # friendships
