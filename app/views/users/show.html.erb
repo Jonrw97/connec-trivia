@@ -13,7 +13,7 @@
     </div>
   </div>
   <% incorrect = @total_a - @total_correct %>
-  <%= pie_chart({"Total Q's Answered" => @total_correct, "Correct Answered" => incorrect },  library: { legend: { position: "left", labels: { fontSize: 100 } } }, colors: ["#112847", "#F0D8B2"]) %>
+  <%= pie_chart({"Correct Answers" => @total_correct, "Incorrect Answers" => incorrect },  library: { legend: { position: "left", labels: { fontSize: 100 } } }, colors: ["#112847", "#F0D8B2"]) %>
   <div class="profile-stats">
     <div class="profile-stat profile-stat-mb">
       <h1>Stats</h1>
