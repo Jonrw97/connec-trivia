@@ -25,7 +25,7 @@ class User < ApplicationRecord
   # , using: { search: { prefix: true } }
 
   def unanswered_questions
-    Question.where.not(id: choices.map(&:question_id))
+    Question.where.not(id: choices.map(&:question_id)).where(question_date: Date.today)
   end
 
   def score
@@ -34,6 +34,22 @@ class User < ApplicationRecord
 
   def answered
     choices.count
+  end
+
+  def score_today
+    score_today = []
+    choices.each do |choice|
+      score_today.push(choice) if choice.question.question_date == Date.today
+    end
+    score_today.count(&:correct)
+  end
+
+  def answered_today
+    answered_today = []
+    choices.each do |choice|
+      answered_today.push(choice) if choice.question.question_date == Date.today
+    end
+    answered_today.count
   end
 
   def all_friends
