@@ -12,7 +12,6 @@
       <p><%= @score %>/10</p>
     </div>
   </div>
-
   <div class="profile-stats">
     <div class="profile-stat profile-stat-mb">
       <h1>Stats</h1>
@@ -27,7 +26,7 @@
     </div>
     <div class="profile-stat">
       <h1>Badges</h1>
-      <h3><%=@badge %></h3>
+      <h3><%=@badges.join('   ') %></h3>
     </div>
   </div>
 </div>

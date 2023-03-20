@@ -4,7 +4,7 @@
 }
 
 .greeting {
-  border: 1px solid black;
+  padding: 1px;
   border-radius: 8px;
   text-align: center;
   margin: 20px 0px;
@@ -87,9 +87,9 @@
 
 .player-info-card {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: $lightblue;
-  margin: 10px;
+  margin: 20px 0px;
   border-radius: 8px;
   padding: 6px;
   align-items: center;
@@ -99,6 +99,10 @@
     margin: 0px;
     color: $blue;
   }
+}
+
+.player-info-cards {
+  margin-bottom: 120px;
 }
 
 #player-name {
