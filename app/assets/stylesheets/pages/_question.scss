@@ -84,7 +84,17 @@ legend {
   font-size: 20px;
 }
 
-.form-check-input {
-  background-color: whitesmoke;
+.progress {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #f0d8b2;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);;
+}
 
+.form-check-input {
+  display: none;
 }
