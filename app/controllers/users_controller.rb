@@ -15,14 +15,13 @@ class UsersController < ApplicationController
     @badges << "🎉" if @total_a >= 10
 
   end
-end
 
   def index
     if params[:query].present?
       @users = User.where("username ILIKE ?", "%#{params[:query]}%")
     else
       @users = []
-
     end
     @friendship = Friendship.new
   end
+end
