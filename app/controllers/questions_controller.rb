@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question = current_user.unanswered_questions.to_a.pop unless current_user.unanswered_questions.include?(@question)
 
-    @answered_today = current_user.answered + 1
+    @answered_today = current_user.answered_today + 1
 
     if params[:query].nil?
       @choices = @question.choices
