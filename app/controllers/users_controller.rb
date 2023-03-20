@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
   def show
-    @score = current_user.score
-    @answered = current_user.answered
-    total_a = 40
-    @total_a = total_a + @answered
-    total_correct = 26
-    @total_correct = total_correct + @score
+    @score = current_user.score_today
+    @answered = current_user.answered_today
+    @total_a = current_user.answered
+    @total_correct = current_user.score
     @badge = @score == 10 ? "🎖" : "No badges yet"
   end
 

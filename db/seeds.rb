@@ -16,6 +16,12 @@ Friendship.destroy_all
 Question.destroy_all
 Assist.destroy_all
 
+p User.all
+p UserChoice.all
+p Choice.all
+p Friendship.all
+p Question.all
+p Assist.all
 ##############
 # making users
 p "Creating Rick & Morty"
@@ -161,6 +167,21 @@ p "Background Characters Created"
 
 users = [user3, user4, user5, user6, user7, user8, user9, user10]
 
+# friendships
+p "creating friendships"
+users.each do |user|
+  # rick
+  friendship = Friendship.new
+  friendship.asker = rick
+  friendship.receiver = user
+  friendship.save
+  # morty
+  friendship = Friendship.new
+  friendship.asker = morty
+  friendship.receiver = user
+  friendship.save
+end
+
 #################
 # making questions
 
@@ -249,18 +270,5 @@ end
 
 p "created #{Question.count} questions"
 ######################
-# friendships
-p "creating friendships"
-users.each do |user|
-  # rick
-  friendship = Friendship.new
-  friendship.asker = rick
-  friendship.receiver = user
-  friendship.save
-  # morty
-  friendship = Friendship.new
-  friendship.asker = morty
-  friendship.receiver = user
-  friendship.save
-end
+
 p "seed has finished"
