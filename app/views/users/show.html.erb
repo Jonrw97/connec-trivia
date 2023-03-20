@@ -29,7 +29,9 @@
     </div>
     <div class="profile-stat">
       <h1>Badges</h1>
-      <h3><%=@badges.join('   ') %></h3>
+      <% @badges.each do |badge| %>
+      <p  data-toggle="tooltip" data-placement="top" title="<%= badge[:title] %>"><%= badge[:icon] %></p>
+      <% end %>
     </div>
   </div>
 </div>
