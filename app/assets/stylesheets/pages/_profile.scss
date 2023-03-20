@@ -4,7 +4,8 @@
   border: 1px solid #398694;
   border-radius: 10px;
   background-color: #112847;
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 25px;
   padding: 5px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
@@ -27,8 +28,8 @@
   text-align: center;
   border: 1px solid black;
   border-radius: 20px;
-  color: #D34934;
-  background-color: #F0D8B2;
+  color: $blue;
+  background-color: $beige;
   padding: 10px;
   margin: 5px;
   width: 70%;
@@ -44,17 +45,18 @@ h1 {
   background-color: #F0D8B2;
   border: 1px solid #398694;
   border-radius: 28px;
-  background-color: #112847;
+  background-color: $lightblue;
   margin: 2px;
   padding: 10px;
-  margin-top: 70px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .profile-stat {
-  color: #D34934;
+  color: $blue;
   background-color: #F0D8B2;
-  border: 1px solid black;
+  border: 1px solid $blue;
   border-radius: 8px;
   margin: 5%;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);

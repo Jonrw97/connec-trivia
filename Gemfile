@@ -79,3 +79,4 @@ end
 
 gem "pg_search"
 gem "cloudinary"
+gem "chartkick"

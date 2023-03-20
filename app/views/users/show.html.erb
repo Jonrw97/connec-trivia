@@ -8,7 +8,7 @@
       <% end %>
     </div>
     <div class="triv-results">
-      <h5>Trivia Results</h5>
+      <h5>Today's Results</h5>
       <p><%= @score %>/10</p>
     </div>
   </div>
@@ -16,6 +16,8 @@
     <div class="profile-stat profile-stat-mb">
       <h1>Stats</h1>
     </div>
+    <% incorrect = @total_a - @total_correct %>
+  <%= pie_chart({"Correct Answers" => @total_correct, "Incorrect Answers" => incorrect },  library: { legend: { position: "left", labels: { fontSize: 100 } } }, colors: ["#112847", "#F0D8B2"]) %>
     <div class="profile-stat profile-stat-mb">
       <h1>Questions Answered</h1>
       <h3><%= @total_a%></h3>
