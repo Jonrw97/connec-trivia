@@ -44,12 +44,16 @@ class User < ApplicationRecord
     score_today.count(&:correct)
   end
 
-  def answered_today
+  def answered_today_block
     answered_today = []
     choices.each do |choice|
       answered_today.push(choice) if choice.question.question_date == Date.today
     end
-    answered_today.count
+    answered_today
+  end
+
+  def answered_today
+    answered_today_block.count
   end
 
   def all_friends
