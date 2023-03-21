@@ -1,14 +1,28 @@
+.answers-card {
+  font-size: 20px;
+  border: #112847;
+  border-radius: 8px;
+  padding: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 20px;
+  margin-left: 4px;
+  box-shadow: 2px 2px 4px 2px #8a9db6;
+}
+
 .correct {
   background-color: green;
   color: #112847;
-  border-radius: 10px;
 }
 
 .incorrect {
-  margin-top: 15px;
-  background-color: #D34934;
+  background-color: #d34934;
   color: #112847;
-  border-radius: 10px;
+}
+
+.other-answers {
+  background-color: #112847;
+  color: #f0d8b2;
 }
 
 .cards-question {
@@ -29,15 +43,6 @@
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
-
-// .card-answers {
-  // background-color: #112847;
-  // color: #f0d8b2;
-  // padding: 20px;
-  // margin-top: 40px;
-  // border-radius: 10px;
-  // box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-// }
 
 .card-results {
   margin-top: 20px;
@@ -82,7 +87,7 @@ legend {
 }
 
 .selected_answer {
-  background-color:$red ;
+  background-color: $red;
 }
 
 .card-answers {
@@ -97,7 +102,7 @@ legend {
   height: 20px;
   border-radius: 5px;
   background-color: #f0d8b2;
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .form-check-input {
