@@ -90,7 +90,7 @@ legend {
   display: none;
 }
 
-.form-check {
+.form-check .new_user_choice {
   font-size: 20px;
   color: #f0d8b2;
   border: #112847;
@@ -123,11 +123,11 @@ legend {
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
-.form-check-input {
+.form-check-input .new_user_choice {
   display: none;
 }
 
-.simple_form input {
+.new_user_choice input {
   background-color: $red;
   border-radius: 8px;
   padding: 10px;
