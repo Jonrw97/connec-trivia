@@ -25,7 +25,6 @@
             collection: [@answers[0].content,
             @answers[1].content],
             as: :radio_buttons %>
-            <div class="buttons-question">
               <%= f.submit 'Confirm Answer', id: 'confirm-button' %>
           <% end %>
 
@@ -40,27 +39,26 @@
               @choices[3].content],
               as: :radio_buttons %>
           <div class="buttons-question">
+            <div class="dropdown">
+              <button class="dropdown-toggle lifeline-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <% if current_user.lifeline_count > 0 %>
+                  <li><%= link_to "50/50", question_path(@question, :query => "50-50"), class: "dropdown-item" %></li>
+                  <li><a class="dropdown-item" href="#">Ask a friend</a></li>
+                  <% unless @ask_the_players.empty? %>
+                    <li><%= link_to "Ask The Players", question_path(@question, :query => "ask-the-players"), class: "dropdown-item" %></li>
+                  <% end %>
+                <% else %>
+                  <li><a class="dropdown-item" href="#">Sorry, you dont have enough tokens!!!</a></li>
+                <% end %>
+              </ul>
+            </div>
             <%= f.submit 'Confirm Answer' %>
+          </div>
           <% end %>
         <% end %>
-
-        <div class="dropdown">
-          <button class="dropdown-toggle lifeline" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-heart-pulse"></i>
-          </button>
-          <ul class="dropdown-menu">
-            <% if current_user.lifeline_count > 0 %>
-              <li><%= link_to "50/50", question_path(@question, :query => "50-50"), class: "dropdown-item" %></li>
-              <li><a class="dropdown-item" href="#">Ask a friend</a></li>
-              <% unless @ask_the_players.empty? %>
-                <li><%= link_to "Ask The Players", question_path(@question, :query => "ask-the-players"), class: "dropdown-item" %></li>
-              <% end %>
-            <% else %>
-              <li><a class="dropdown-item" href="#">Sorry, you dont have enough tokens!!!</a></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
     </div>
   </div>
 </div>
