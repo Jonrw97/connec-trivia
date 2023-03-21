@@ -12,3 +12,6 @@ application.register("correct-answers", CorrectAnswersController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import HighlightAnswersController from "./highlight_answers_controller"
+application.register("highlight-answers", HighlightAnswersController)
