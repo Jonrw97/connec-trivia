@@ -4,16 +4,14 @@ class QuestionsController < ApplicationController
     @question = current_user.unanswered_questions.to_a.pop unless current_user.unanswered_questions.include?(@question)
 
     @answered_today = current_user.answered_today + 1
+    @choices = @question.choices
+    user_choices = UserChoice.all
+    @ask_the_players = user_choices.select { |user_choice| user_choice.choice.question == @question}.group_by(&:choice)
 
-    # @correct_sound = audio_tag("correct.mp3", autoplay: true)
-    # @incorrect_sound = audio_tag("incorrect.mp3", autoplay: true)
-
-    if params[:query].nil?
-      @choices = @question.choices
-    elsif params[:query] == "50-50"
+    if  params[:query] == "50-50"
       fifty_fifty
     elsif params[:query] == "ask-the-players"
-      ask_the_players
+      ask_the_players(@ask_the_players)
     end
     @user_choice = UserChoice.new
   end
@@ -31,6 +29,10 @@ class QuestionsController < ApplicationController
     @answers = [@correct_answer, incorrect_answers.sample]
   end
 
-  def ask_the_players
+  def ask_the_players(grouped_choices)
+    current_user.update(lifeline_count: current_user.lifeline_count - 1)
+
+    @ask_the_players = {}
+    @choices.each { |c| @ask_the_players[c.content] = grouped_choices[c].nil? ? 0 : grouped_choices[c].count}
   end
 end
