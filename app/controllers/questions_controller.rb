@@ -5,6 +5,9 @@ class QuestionsController < ApplicationController
 
     @answered_today = current_user.answered_today + 1
 
+    # @correct_sound = audio_tag("correct.mp3", autoplay: true)
+    # @incorrect_sound = audio_tag("incorrect.mp3", autoplay: true)
+
     if params[:query].nil?
       @choices = @question.choices
     elsif params[:query] == "50-50"
@@ -29,6 +32,5 @@ class QuestionsController < ApplicationController
   end
 
   def ask_the_players
-
   end
 end

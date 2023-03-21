@@ -1,9 +1,11 @@
 <% @user_choice.choice %>
 <% @choices.each do |choice| %>
   <% if choice.correct %>
+   <%= audio_tag("correct.mp3", autoplay: true) %>
     <p class="correct"><%= choice.content %></p>
   <% elsif choice == @user_choice.choice  %>
     <p class="incorrect"><%= choice.content %></p>
+    <%= audio_tag("incorrect.mp3", autoplay: true) %>
   <% else %>
     <p><%= choice.content %></p>
   <% end %>
@@ -13,11 +15,11 @@
 <% else %>
   <p>You have no more questions today!</p>
 <% end %>
-  <div class="questions-return d-flex justify-content-space-between">
-    <div class="return-btn">
-      <%= link_to "View Leaderboard", root_path(@current_user) %>
-    </div>
-    <div class="profile-return-btn">
-      <%= link_to "View Stats", user_path(current_user) %>
-    </div>
+<div class="questions-return d-flex justify-content-space-between">
+  <div class="return-btn">
+    <%= link_to "View Leaderboard", root_path(@current_user) %>
   </div>
+  <div class="profile-return-btn">
+    <%= link_to "View Stats", user_path(current_user) %>
+  </div>
+</div>
