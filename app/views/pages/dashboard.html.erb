@@ -56,8 +56,10 @@
       <% end %>
     </div>
     <% if !current_user.unanswered_questions.to_a.pop.nil? %>
-      <div class="play-btn center-div">
-        <%= link_to "PLAY", question_path(current_user.unanswered_questions.to_a.pop)%>
-      </div>
+      <%= link_to question_path(current_user.unanswered_questions.to_a.pop) do%>
+        <div class="play-btn center-div">
+          <h4>PLAY</h4>
+        </div>
+      <% end %>
     <% end %>
   </div>
