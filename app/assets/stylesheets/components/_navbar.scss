@@ -8,6 +8,7 @@
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
   text-align: right;
+  padding: 10px;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -33,4 +34,8 @@
   margin-top: 12px;
   margin-bottom: 12px;
   font-size: 40px;
+ }
+
+ .nav-item {
+  font-size:larger;
  }
