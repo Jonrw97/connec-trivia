@@ -13,3 +13,11 @@
 <% else %>
   <p>You have no more questions today!</p>
 <% end %>
+  <div class="questions-return d-flex justify-content-space-between">
+    <div class="return-btn">
+      <%= link_to "Return to home", root_path(@current_user) %>
+    </div>
+    <div class="profile-return-btn">
+      <%= link_to "View Stats", user_path(current_user) %>
+    </div>
+  </div>

@@ -19,5 +19,6 @@ export default class extends Controller {
         }
         this.answersdivTarget.classList.add("d-none");
       });
+
+    }
   }
-}
