@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-image: url("background.svg");
+  background-position: center;
+  background-size: cover;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,7 +14,9 @@
 }
 
 .navbar {
-  background-color: $green;
+  background-image: url("background.svg");
+  background-position: center;
+  background-size: cover;
 }
 
 .logo {
@@ -23,8 +27,9 @@
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   margin-top: 5px;
 }
- .navbar-brand h1 {
+.navbar-brand h1 {
   font-size: 35px;
-  margin-top: 11px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   font-size: 40px;
  }
