@@ -66,6 +66,7 @@
 legend {
   display: none;
 }
+
 .form-check {
   font-size: 20px;
   color: #f0d8b2;
@@ -78,6 +79,10 @@ legend {
   margin-top: 20px;
   margin-left: 4px;
   box-shadow: 2px 2px 4px 2px #8a9db6;
+}
+
+.selected_answer {
+  background-color:green ;
 }
 
 .card-answers {
