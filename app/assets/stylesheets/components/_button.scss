@@ -6,6 +6,7 @@
   justify-content: center;
   width: 50%;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  animation: glowing 1300ms infinite;
 
   a {
     color: $beige;
@@ -14,6 +15,21 @@
     font-weight: bolder;
   }
 }
+
+ @keyframes glowing {
+        0% {
+          background-color: #D34934;
+          box-shadow: 0 0 5px #D34934;
+        }
+        50% {
+          background-color: hsl(21, 98%, 51%);
+          box-shadow: 0 0 20px hsl(13, 98%, 51%);;
+        }
+        100% {
+          background-color: #D34934;
+          box-shadow: 0 0 5px #D34934;
+        }
+      }
 
 .btn {
   background-color: #112847;
