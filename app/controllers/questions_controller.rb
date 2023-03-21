@@ -7,8 +7,10 @@ class QuestionsController < ApplicationController
 
     if params[:query].nil?
       @choices = @question.choices
-    else
+    elsif params[:query] == "50-50"
       fifty_fifty
+    elsif params[:query] == "ask-the-players"
+      ask_the_players
     end
     @user_choice = UserChoice.new
   end
@@ -24,5 +26,9 @@ class QuestionsController < ApplicationController
       end
     end
     @answers = [@correct_answer, incorrect_answers.sample]
+  end
+
+  def ask_the_players
+
   end
 end
