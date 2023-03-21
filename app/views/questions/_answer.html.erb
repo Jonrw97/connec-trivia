@@ -1,11 +1,15 @@
 <% @user_choice.choice %>
+<% if @user_choice.choice.correct %>
+  <% p ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" %>
+  <%= audio_tag("correct.mp3", autoplay: true) %>
+<% else %>
+  <%= audio_tag("incorrect.mp3", autoplay: true) %>
+<% end %>
 <% @choices.each do |choice| %>
   <% if choice.correct %>
-   <%= audio_tag("correct.mp3", autoplay: true) %>
     <p class="correct"><%= choice.content %></p>
   <% elsif choice == @user_choice.choice  %>
     <p class="incorrect"><%= choice.content %></p>
-    <%= audio_tag("incorrect.mp3", autoplay: true) %>
   <% else %>
     <p><%= choice.content %></p>
   <% end %>
