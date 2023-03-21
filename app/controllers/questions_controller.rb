@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
   end
 
   def ask_the_players
+    users = User.includes(:choices).all
 
   end
 end
