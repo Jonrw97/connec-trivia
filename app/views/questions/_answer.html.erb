@@ -1,4 +1,10 @@
 <% @user_choice.choice %>
+<% if @user_choice.choice.correct %>
+  <% p ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" %>
+  <%= audio_tag("correct.mp3", autoplay: true) %>
+<% else %>
+  <%= audio_tag("incorrect.mp3", autoplay: true) %>
+<% end %>
 <% @choices.each do |choice| %>
   <% if choice.correct %>
     <p class="correct"><%= choice.content %></p>
@@ -16,11 +22,11 @@
   <p>You used <%= 3 - current_user.lifeline_count %> lifelines</p>
   <p>Thanks for playing! See you tomorrow!</p>
 <% end %>
-  <div class="questions-return d-flex justify-content-space-between">
-    <div class="return-btn">
-      <%= link_to "View Leaderboard", root_path(@current_user) %>
-    </div>
-    <div class="profile-return-btn">
-      <%= link_to "View Stats", user_path(current_user) %>
-    </div>
+<div class="questions-return d-flex justify-content-space-between">
+  <div class="return-btn">
+    <%= link_to "View Leaderboard", root_path(@current_user) %>
   </div>
+  <div class="profile-return-btn">
+    <%= link_to "View Stats", user_path(current_user) %>
+  </div>
+</div>
