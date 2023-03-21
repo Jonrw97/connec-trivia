@@ -35,4 +35,35 @@ a {
   text-decoration: none;
 }
 
+.return-btn {
+  display: flex;
+  justify-content: center;
+  position:inherit;
+  background-color: #f0d8b2;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  width: 47%;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
 
+.profile-return-btn {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  position:inherit;
+  background-color: #f0d8b2;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  width: 47%;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.questions-return {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
