@@ -5,7 +5,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
   has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id, dependent: :destroy
   has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
 
@@ -61,6 +60,5 @@ class User < ApplicationRecord
     friendships_as_receiver.each do |friendship|
       users << User.find(friendship.asker_id)
     end
-    users
   end
 end

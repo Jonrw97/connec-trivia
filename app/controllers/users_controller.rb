@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user
   def show
-
     @score = current_user.score_today
     @answered = current_user.answered_today
     @total_a = current_user.answered
@@ -22,5 +22,10 @@ class UsersController < ApplicationController
       @users = []
     end
     @friendship = Friendship.new
+  end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
   end
 end

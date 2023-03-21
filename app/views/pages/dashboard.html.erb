@@ -49,4 +49,10 @@
       <%= link_to "PLAY", question_path(current_user.unanswered_questions.to_a.pop)%>
     </div>
   <% end %>
+     <%if current_user.following (@user)%>
+      <%button_to "unfriend", unfollow_path(@user) %>
+      <%= button_to "cancel friend request", cancel_path(@user)%>
+      <% else %>
+      <%= button_to "friend", follow_path(@user) %>
+      <% end %>
 </div>
