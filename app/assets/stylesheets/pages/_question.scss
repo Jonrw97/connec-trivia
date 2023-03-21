@@ -54,12 +54,6 @@
   justify-content: space-between;
 }
 
-.lifeline,
-#confirm-button {
-  background-color: #112847;
-  color: #f0d8b2;
-}
-
 .btn-next {
   background-color: #112847;
   color: #f0d8b2;
@@ -107,4 +101,15 @@ legend {
 
 .form-check-input {
   display: none;
+}
+
+.simple_form input {
+  background-color: $red;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  color: $beige;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bolder;
 }
