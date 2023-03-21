@@ -67,4 +67,16 @@ class User < ApplicationRecord
     end
     users
   end
+
+  def all_pending_friends
+    users = []
+    friendships_as_asker.each do |friendship|
+      users << User.find(friendship.receiver_id)
+    end
+
+    friendships_as_receiver.each do |friendship|
+      users << User.find(friendship.asker_id)
+    end
+    users
+  end
 end

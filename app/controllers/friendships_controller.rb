@@ -10,7 +10,6 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new
     @friendship.receiver = receiver
     @friendship.asker = current_user
-
     respond_to do |format|
       if @friendship.save
         format.html { redirect_to users_path, { message: 'Friend added successfully' }, status: :created }
@@ -21,4 +20,9 @@ class FriendshipsController < ApplicationController
       end
     end
   end
+ def destroy
+  @friendship = Friendship.find(params[:id])
+  @friendship.destroy
+  redirect_to users_path
+ end
 end
