@@ -39,10 +39,14 @@
 }
 
 .sign-up-btn {
+  display: flex;
+  justify-content: center;
   background-color: #112847;
   color: #f0d8b2;
   border-radius: 10px;
   padding: 10px;
+  font-size: 20px;
+  width: 40%;
 }
 
 a {
