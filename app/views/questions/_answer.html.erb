@@ -11,7 +11,7 @@
 <% if !current_user.unanswered_questions.to_a.pop.nil? %>
   <%= link_to "Next Question", question_path(current_user.unanswered_questions.to_a.pop), class: "btn-next"%>
 <% else %>
-  <p>You have no more questions today!</p>
+  <p>You completed all the questions today!</p>
   <p>Your Score was <%= current_user.score_today %>/10</p>
   <p>You used <%= 3 - current_user.lifeline_count %> lifelines</p>
   <p>Thanks for playing! See you tomorrow!</p>
