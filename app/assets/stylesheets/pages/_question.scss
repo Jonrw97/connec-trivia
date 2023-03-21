@@ -55,11 +55,35 @@
 }
 
 .btn-next {
-  background-color: #112847;
-  color: #f0d8b2;
+  animation: glowing 3300ms infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: #f0d8b2;
+  color: $beige;
   border-radius: 10px;
-  padding: 10px;
-  text-decoration: none;
+  padding: 20px;
+  font-size: 20px;
+  width: 80%;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-color: $blue;
+    box-shadow: 0 0 5px $blue;
+  }
+  50% {
+    background-color: $lightblue;
+    box-shadow: 0 0 20px $blue;
+  }
+  100% {
+    background-color: $blue;
+    box-shadow: 0 0 5px $blue;
+  }
 }
 
 legend {
