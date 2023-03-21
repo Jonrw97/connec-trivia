@@ -15,13 +15,14 @@ Choice.destroy_all
 Friendship.destroy_all
 Question.destroy_all
 Assist.destroy_all
+p "listing empty tables"
 
-p User.all
-p UserChoice.all
-p Choice.all
-p Friendship.all
-p Question.all
-p Assist.all
+p "Users #{User.count}"
+p "UserChoice #{UserChoice.count}"
+p "Choice #{Choice.count}"
+p "Friendship #{Friendship.count}"
+p "Question #{Question.count}"
+p "Assist#{Assist.count}"
 ##############
 # making users
 p "Creating Rick & Morty"
@@ -184,6 +185,23 @@ users.each do |user|
 end
 
 #################
+# smart users
+p "making smart users"
+smart_users = []
+count = 1
+6.times do
+  user = User.new(
+    username: "smart#{count}",
+    email: "smart#{count}@test.com",
+    password: 'test123',
+    lifeline_count: 3
+  )
+  user.save
+  smart_users.push(user)
+  count += 1
+end
+
+#################
 # making questions
 
 p "Accessing Trivia api for todays questions"
@@ -221,6 +239,13 @@ trivia.each do |t|
     UserChoice.create(
       user_id: user.id,
       choice_id: choices.sample.id
+    )
+  end
+  smart_choice = choices.select(&:correct)
+  smart_users.each do |user|
+    UserChoice.create(
+      user_id: user.id,
+      choice_id: smart_choice[0].id
     )
   end
 end
