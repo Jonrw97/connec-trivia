@@ -14,7 +14,9 @@
 @import "pages/profile";
 
 body {
-  background-color: $green;
+  background-image: url("background.svg");
+  background-position: center;
+  background-size: cover;
   font-family: $body-font;
 }
 
