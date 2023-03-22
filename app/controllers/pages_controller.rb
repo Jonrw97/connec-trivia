@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:dashboard]
 
   def dashboard
-    friends = current_user.all_friends
+    friends = current_user.all_friends_confirmed
     friends.push(current_user)
     @users = friends.sort_by(&:score_today).reverse
     @answered = current_user.answered_today

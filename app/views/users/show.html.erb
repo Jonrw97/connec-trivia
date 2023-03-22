@@ -30,7 +30,8 @@
     <div class="profile-stat">
       <h1>Badges</h1>
       <% @badges.each do |badge| %>
-      <p  data-toggle="tooltip" data-placement="top" title="<%= badge[:title] %>"><%= badge[:icon] %></p>
+      <p  data-toggle="button" data-placement="top" title="<%= badge[:title] %>"><%= badge[:icon] %></p>
+
       <% end %>
     </div>
   </div>
