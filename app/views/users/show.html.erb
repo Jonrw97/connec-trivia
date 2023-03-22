@@ -32,7 +32,7 @@
     <div class="profile-stat">
       <h1>Badges</h1>
       <% @badges.each do |badge| %>
-        <p  data-toggle="tooltip" data-placement="top" title="<%= badge[:title] %>"><%= badge[:icon] %></p>
+ <%=image_tag(badge[:url]) %>
       <% end %>
     </div>
   </div>
