@@ -10,7 +10,7 @@ class AssistsController < ApplicationController
     @assist.question = Question.find(params[:question_id])
     @assist.asker = current_user
     if @assist.save
-      redirect_to question_path(current_user.unanswered_questions.to_a.pop)
+      redirect_to question_path(current_user.next_question)
     else
       render :new, status: :unprocessable_entity
     end
