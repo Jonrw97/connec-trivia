@@ -31,7 +31,6 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find(params[:id])
     @friendship.status = 1
     @friendship.save
-
     redirect_to users_path
   end
 end
