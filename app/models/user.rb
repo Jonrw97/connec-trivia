@@ -68,6 +68,18 @@ class User < ApplicationRecord
     users
   end
 
+  def all_friends_confirmed
+    users = []
+    friendships_as_asker.where(status: 1).each do |friendship|
+      users << User.find(friendship.receiver_id)
+    end
+
+    friendships_as_receiver.where(status: 1).each do |friendship|
+      users << User.find(friendship.asker_id)
+    end
+    users
+  end
+
   def all_pending_friends
     users = []
     friendships_as_asker.each do |friendship|
