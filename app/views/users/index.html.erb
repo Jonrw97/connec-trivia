@@ -44,11 +44,10 @@
       <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
     <% end %>
     <%= friendship.asker.username %>
-    <%= link_to "accept", friendship_path(friendship), data: {turbo_method: :patch}, class:"accept-btn"%>
-    <%= link_to "Delete",
-  friendship_path(friendship),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class:"delete-btn"
-%>
+    <%= link_to "Accept", friendship_path(friendship), data: {turbo_method: :patch}, class:"accept-btn"%>
+    <%= link_to "Delete", friendship_path(friendship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class:"delete-btn" %>
     <br>
-  <% end %>
+    <br>
+    <% end %>
+  </div>
 </div>
