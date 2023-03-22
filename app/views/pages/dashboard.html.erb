@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class = "blocks">
-            <% user.answered_today_block.each do |block| %>
+            <% user.answered_today_block.reverse.each do |block| %>
               <% if block %>
                 <%= "✅" %>
               <% elsif block == nil %>
