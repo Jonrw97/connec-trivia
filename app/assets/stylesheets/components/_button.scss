@@ -35,7 +35,7 @@
   border-radius: 10px;
   padding: 10px;
   font-size: 20px;
-  width: 60%;
+  width: 40%;
 }
 
 .sign-up-btn {
@@ -98,7 +98,7 @@ a {
 }
 
 .accept-btn {
-  background-color: #f0d8b2;
+  background-color: $lightblue;
   border: #112847 1px solid;
   border-radius: 5px;
   padding: 10px;
@@ -107,9 +107,20 @@ a {
 }
 
 .delete-btn {
-  background-color: #f0d8b2;
+  background-color: $red;
   border: #112847 1px solid;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 15px;
+  margin-left: 5px;
+  font-size: larger;
+}
+
+.new_friendship input {
+  background-color: $beige;
+  border: #112847 1px solid;
+  border-radius: 5px;
   font-size: large;
+  padding: 3px;
+  height: 40px;
+  width: 80px;
 }
