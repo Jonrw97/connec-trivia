@@ -7,6 +7,8 @@ export default class extends Controller {
   send(event) {
     event.preventDefault();
 
+    console.log(this.formTarget);
+
     fetch(this.formTarget.action, {
       method: "POST",
       headers: { Accept: "application/json" },
@@ -19,6 +21,5 @@ export default class extends Controller {
         }
         this.answersdivTarget.classList.add("d-none");
       });
-
-    }
   }
+}
