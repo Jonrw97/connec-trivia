@@ -32,8 +32,10 @@
     <div class="profile-stat">
       <h1>Badges</h1>
       <% @badges.each do |badge| %>
- <%=image_tag(badge[:url]) %>
+    <div class="flex-container"  >
+ <%= image_tag(badge[:url], style: ' border: 2px solid #112847; border-radius: 50%;height:7vw;width:7vw;margin-bottom:20px;;margin-right:10px;;margin-left:30px')%><small><%=badge[:title]%></small>
       <% end %>
-    </div>
+       </div>
+       </div>
   </div>
 </div>
