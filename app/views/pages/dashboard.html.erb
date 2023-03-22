@@ -40,15 +40,13 @@
             <p id= "player-name"><%= user.username %></p>
             <div class="player-score">
               <p><%= user.score_today %>/10</p>
-              <%user_blocks = user.answered_today_block.map {|q| q.correct} %>
             </div>
           </div>
           <div class = "blocks">
-            <% user_blocks.each do |block| %>
-            <%= block %>
+            <% user.answered_today_block.each do |block| %>
               <% if block %>
                 <%= "✅" %>
-              <% elsif %>
+              <% elsif block == nil %>
                 <%= "❔" %>
               <% else %>
                 <%= "❌" %>

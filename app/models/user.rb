@@ -45,11 +45,19 @@ class User < ApplicationRecord
   end
 
   def answered_today_block
-    answered_today = []
-    choices.each do |choice|
-      answered_today.push(choice) if choice.question.question_date == Date.today
+    # get 10 qs for the day
+    questions = Question.today
+    questions.map do |question|
+      question_choice = choices.find { |choice| choice.question == question }
+      # if user has choice for the q
+      next nil unless question_choice
+
+
+      question_choice.correct
+      # if choice is correct - true
+      # if incorrect - false
+      # if user doesnt have choice for q - nil
     end
-    answered_today
   end
 
   def answered_today
