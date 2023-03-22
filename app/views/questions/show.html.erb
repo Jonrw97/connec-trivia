@@ -1,10 +1,13 @@
+<div class="cards-question">
 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
   <div class="progress-bar" style="width: <%= @answered_today * 10 %>%"> <%= @answered_today %> </div>
 </div>
-<div class="cards-question">
   <div class="card-question">
     <h4><%= @question.prompt %></h4>
   </div>
+  <% if !@assist.empty? %>
+  <%= render "askfriend" %>
+  <% end %>
   <div class="bar-chart">
     <% if params[:query] == "ask-the-players" %>
       <%= bar_chart(@ask_the_players, colors: ["#112847", "#F0D8B2"]) %>
@@ -42,7 +45,9 @@
               <ul class="dropdown-menu">
                 <% if current_user.lifeline_count > 0 %>
                   <li><%= link_to "50/50", question_path(@question, :query => "50-50"), class: "dropdown-item" %></li>
-                  <li><%= link_to "Ask a Friend", new_question_assist_path(@question), class: "dropdown-item" %></li>
+                  <% if @assist.empty? %>
+                    <li><%= link_to "Ask a Friend", new_question_assist_path(@question), class: "dropdown-item" %></li>
+                  <% end %>
                   <% unless @ask_the_players.empty? %>
                     <li><%= link_to "Ask The Players", question_path(@question, :query => "ask-the-players"), class: "dropdown-item" %></li>
                   <% end %>

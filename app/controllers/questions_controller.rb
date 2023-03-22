@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
     @choices = @question.choices
     user_choices = UserChoice.all
     @ask_the_players = user_choices.select { |user_choice| user_choice.choice.question == @question }.group_by(&:choice)
+    @assist = @question.assists.where(asker_id: current_user.id)
 
     if  params[:query] == "50-50"
       fifty_fifty

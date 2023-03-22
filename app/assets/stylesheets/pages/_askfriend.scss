@@ -1,0 +1,53 @@
+.message-input {
+  font-size: 20px;
+  color: #f0d8b2;
+  border-radius: 8px;
+  background-color: #112847;
+  padding: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin-top: 20px;
+  margin-left: 4px;
+  box-shadow: 2px 2px 4px 2px #8a9db6;
+}
+
+.edit_assist input {
+  background-color: $red;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  color: $beige;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.message-label {
+  color: $beige;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.choice-ask-friend {
+  font-size: 20px;
+  color: #f0d8b2;
+  border-radius: 8px;
+  background-color: #112847;
+  padding: 10px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 20px;
+  margin-left: 4px;
+  box-shadow: 2px 2px 4px 2px #8a9db6;
+}
+
+.card-message {
+  font-size: 18px;
+  background-color: #f0d8b2;
+  color: #112847;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+}

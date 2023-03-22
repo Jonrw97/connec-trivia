@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :assists, only: %i[create new]
   end
 
+  resources :assists, only: %i[index edit update]
+
   resource :users, only: [:show]
 
   require "sidekiq/web"
