@@ -18,7 +18,7 @@
                     add_friendship_target: "form",
                         action: "submit->add-friendship#send"
                     }) do |f| %>
-                    <div class="add-friend-profile mt-2">
+                    <div class="add-friend-profile d-flex mt-3 m-1">
                       <% if user.photo.attached? %>
                         <%= cl_image_tag user.photo.key, class:"avatar-leaderboard" %>
                       <% else %>
