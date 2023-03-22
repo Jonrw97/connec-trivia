@@ -176,6 +176,7 @@ users.each do |user|
   friendship = Friendship.new
   friendship.asker = rick
   friendship.receiver = user
+  friendship.status = 1
   friendship.save
   # morty
   friendship = Friendship.new
