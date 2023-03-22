@@ -24,6 +24,18 @@ class User < ApplicationRecord
   pg_search_scope :search_by_username, against: [:username]
   # , using: { search: { prefix: true } }
 
+  def next_question
+    questions = []
+    unanswered_questions.each do |question|
+      if assists_as_asker.find_by(question_id: question.id).nil?
+        questions.push(question)
+      else
+        questions.unshift(question)
+      end
+    end
+    questions.pop
+  end
+
   def unanswered_questions
     Question.where.not(id: choices.map(&:question_id)).where(question_date: Date.today)
   end

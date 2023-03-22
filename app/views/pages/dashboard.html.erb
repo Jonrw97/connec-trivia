@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class = "blocks">
-            <% user.answered_today_block.each do |block| %>
+            <% user.answered_today_block.reverse.each do |block| %>
               <% if block %>
                 <%= "✅" %>
               <% elsif block == nil %>
@@ -57,7 +57,7 @@
       <% end %>
     </div>
     <% if !current_user.unanswered_questions.to_a.pop.nil? %>
-      <%= link_to question_path(current_user.unanswered_questions.to_a.pop) do%>
+      <%= link_to question_path(current_user.next_question) do%>
         <div class="play-btn center-div">
           PLAY
         </div>

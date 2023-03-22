@@ -16,7 +16,7 @@
 <% end %>
 <br>
 <% if !current_user.unanswered_questions.to_a.pop.nil? %>
-  <%= link_to "Next Question", question_path(current_user.unanswered_questions.to_a.pop), class: "btn-next"%>
+  <%= link_to "Next Question", question_path(current_user.next_question), class: "btn-next"%>
 <% else %>
   <p>You completed all the questions today!</p>
   <p>Your Score was <%= current_user.score_today %>/10</p>
