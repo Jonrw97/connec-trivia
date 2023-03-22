@@ -16,14 +16,19 @@ class UsersController < ApplicationController
 
   def index
     if params[:query].present?
-      @users = User.where("username ILIKE ?", "%#{params[:query]}%")
+      users = User.where("username ILIKE ?", "%#{params[:query]}%")
+      friends = current_user.all_friends
+      @users = []
+      users.each do |user|
+        @users.push(user) unless friends.include?(user)
+      end
     else
       @users = []
     end
     @friendship = Friendship.new
     @pending_friendships = Friendship.where(status: "pending", receiver_id: current_user.id)
     p @pending_friendships.count
-    
+
     @accepted_friendships = Friendship.where(status: "accept", receiver_id: current_user.id)
   end
 end
