@@ -21,5 +21,7 @@ class UsersController < ApplicationController
       @users = []
     end
     @friendship = Friendship.new
+    @pending_friendships = Friendship.where(status: "pending", receiver_id: current_user.id)
+    p @pending_friendships.count
   end
 end
