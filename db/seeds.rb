@@ -52,10 +52,6 @@ morty = User.new(
 morty.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
 morty.save
 
-friendship1 = Friendship.new
-friendship1.asker = rick
-friendship1.receiver = morty
-friendship1.save
 p "Rick & Morty Created"
 
 p "Creating Background Characters"
