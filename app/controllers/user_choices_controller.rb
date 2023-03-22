@@ -8,7 +8,7 @@ class UserChoicesController < ApplicationController
     @choices = @user_choice.choice.question.choices
     respond_to do |format|
       if @user_choice.save
-        format.html { redirect_to question_path(current_user.unanswered_questions.to_a.pop) }
+        format.html { redirect_to question_path(current_user.next_question) }
         format.json # Follow the classic Rails flow and look for a create.json view
       else
         format.html { render "questions/show", status: :unprocessable_entity }

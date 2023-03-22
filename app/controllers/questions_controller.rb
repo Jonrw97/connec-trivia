@@ -1,12 +1,11 @@
 class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
-    @question = current_user.unanswered_questions.to_a.pop unless current_user.unanswered_questions.include?(@question)
 
     @answered_today = current_user.answered_today + 1
     @choices = @question.choices
     user_choices = UserChoice.all
-    @ask_the_players = user_choices.select { |user_choice| user_choice.choice.question == @question}.group_by(&:choice)
+    @ask_the_players = user_choices.select { |user_choice| user_choice.choice.question == @question }.group_by(&:choice)
 
     if  params[:query] == "50-50"
       fifty_fifty
