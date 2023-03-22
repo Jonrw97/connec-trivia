@@ -45,8 +45,11 @@
           </div>
           <div class = "blocks">
             <% user_blocks.each do |block| %>
+            <%= block %>
               <% if block %>
                 <%= "✅" %>
+              <% elsif %>
+                <%= "❔" %>
               <% else %>
                 <%= "❌" %>
               <% end %>
