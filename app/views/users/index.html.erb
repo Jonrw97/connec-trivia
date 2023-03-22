@@ -30,7 +30,8 @@
 <% end %>
 <% @pending_friendships.each do |friendship|  %>
   <%= friendship.asker.username %>
-  <button type="submit" formaction="/action_one">accept</button>
+  <%= link_to "accept", friendship_path(friendship), data: {turbo_method: :patch}%>
+
 <%= link_to "Delete",
   friendship_path(friendship),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
