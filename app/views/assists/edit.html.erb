@@ -1,0 +1,15 @@
+<div class="cards-question">
+  <div class="card-question">
+  <%= @question.prompt %>
+  </div>
+  <% @choices.each do |choice| %>
+  <div class="choice-ask-friend">
+  <%= choice.content %>
+  </div>
+  <% end %>
+  <br>
+    <%= simple_form_for(@assist) do |f| %>
+      <%= f.input :message , label_html: { class: 'card-question' }, input_html: { class: 'message-input' }%>
+      <%= f.submit "Send message" %>
+    <% end   %>
+</div>

@@ -1,0 +1,8 @@
+<div class="card-message">
+  <% if @assist.first.message.nil? %>
+   <p><%= @assist.first.receiver.username %> hasn't given an answer to your question</p>
+  <% else %>
+    <p><%= @assist.first.receiver.username %> message for you</p>
+    <p><%= @assist.first.message %></p>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<h2>Ask a Friend</h2>
+<h3>Asking</h3>
+<% @assists_asker.each do |ask| %>
+  <p><%= link_to ask.receiver.username, question_path(ask.question) %></p>
+<% end %>
+<h3>receiving</h3>
+<% @assists_reciever.each do |receive|  %>
+ <p><%= link_to receive.asker.username, edit_assist_path(receive)  %></p>
+<% end  %>

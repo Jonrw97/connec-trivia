@@ -1,4 +1,11 @@
 class AssistsController < ApplicationController
+  def index
+    @assists_reciever = current_user.assists_as_receiver.select { |r| r.message.nil? }
+    @assists_asker = current_user.assists_as_asker.reject do |a|
+      !current_user.choices.where(question_id: a.question.id).first.nil?
+    end
+  end
+
   def new
     @friends = current_user.all_friends
     @question = Question.find(params[:question_id])
@@ -6,7 +13,7 @@ class AssistsController < ApplicationController
   end
 
   def create
-    @assist = Assist.new(safe_params)
+    @assist = Assist.new(assist_params)
     @assist.question = Question.find(params[:question_id])
     @assist.asker = current_user
     if @assist.save
@@ -16,9 +23,25 @@ class AssistsController < ApplicationController
     end
   end
 
+  def edit
+    @assist = Assist.find(params[:id])
+    @question = @assist.question
+    @choices = @question.choices
+  end
+
+  def update
+    @assist = Assist.find(params[:id])
+    @assist.update(safe_params)
+    redirect_to assists_path
+  end
+
   private
 
   def safe_params
+    params.require(:assist).permit(:message)
+  end
+
+  def assist_params
     params.require(:assist).permit(:receiver_id)
   end
 end

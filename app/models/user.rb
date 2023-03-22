@@ -73,7 +73,7 @@ class User < ApplicationRecord
   end
 
   def answered_today
-    answered_today_block.count
+    choices.count { |c| c.question.question_date == Date.today }
   end
 
   def all_friends
