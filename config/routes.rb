@@ -6,15 +6,18 @@ Rails.application.routes.draw do
   resources :users do
     resources :friendships, only: [:create]
   end
+
   resources :user_choices, only: [:create]
+
   resources :questions, only: [:show] do
-    resources :assists, only: [:create]
+    resources :assists, only: %i[create new]
   end
+
   resource :users, only: [:show]
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
-  resources :friendships, only: [:destroy, :update]
+  resources :friendships, only: %i[destroy update]
 end

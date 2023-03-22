@@ -1,0 +1,6 @@
+<% @friends.each do |friend| %>
+  <%= simple_form_for [@question, @assist] do |f| %>
+    <%= f.hidden_field :receiver_id, value: friend.id %>
+    <%= f.submit friend.username, class: "btn" %>
+  <% end %>
+<% end %>
