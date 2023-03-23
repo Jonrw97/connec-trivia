@@ -9,8 +9,8 @@ export default class extends Controller {
         selectedAnswers.forEach((element) => {
           element.classList.remove("selected_answer");
         });
-
         event.currentTarget.classList.toggle("selected_answer");
+        event.currentTarget.firstElementChild.click()
       });
     });
   }

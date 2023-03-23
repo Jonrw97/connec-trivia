@@ -1,12 +1,12 @@
 <div class="cards-question">
-<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar" style="width: <%= @answered_today * 10 %>%"> <%= @answered_today %> </div>
-</div>
+  <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: <%= @answered_today * 10 %>%"> <%= @answered_today %> </div>
+  </div>
   <div class="card-question">
     <h4><%= @question.prompt %></h4>
   </div>
   <% if !@assist.empty? %>
-  <%= render "askfriend" %>
+    <%= render "askfriend" %>
   <% end %>
   <div class="bar-chart">
     <% if params[:query] == "ask-the-players" %>
@@ -21,7 +21,7 @@
         <%= simple_form_for(@user_choice,
             data: {correct_answers_target: "form",
             action: "submit->correct-answers#send"}) do |f| %>
-            <%= f.input :choice_id,
+          <%= f.input :choice_id,
             collection: [[@answers[0].content, @answers[0].id],
             [@answers[1].content, @answers[1].id]],
             as: :radio_buttons %>

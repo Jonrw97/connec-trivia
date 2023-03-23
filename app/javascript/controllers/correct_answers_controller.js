@@ -6,8 +6,8 @@ export default class extends Controller {
   connect() {}
   send(event) {
     event.preventDefault();
-
-    console.log(this.formTarget);
+    const form_data = new FormData(this.formTarget)
+    console.log( form_data.getAll('user_choice[choice_id]') );
 
     fetch(this.formTarget.action, {
       method: "POST",

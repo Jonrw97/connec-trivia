@@ -5,12 +5,13 @@ class UsersController < ApplicationController
     @total_a = current_user.answered
     @total_correct = current_user.score
     @badges = []
+
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503551/__lhzpoi.jpg", title: "10/10 for the day! Well done!" } if @score >= 10
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503484/Winning_Trophy_Clipart_Hd_PNG_Brain_Winning_A_Trophy_Illustration_Vector_On_White_Background_Brain_Clipart_Vector_Smart_PNG_Image_For_Free_Download_xsyqda.jpg",  title: "Wow! 100 questions answered already!" } if @total_a == 100
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503484/Winning_Trophy_Clipart_Hd_PNG_Brain_Winning_A_Trophy_Illustration_Vector_On_White_Background_Brain_Clipart_Vector_Smart_PNG_Image_For_Free_Download_xsyqda.jpg", title: "First 10 answered correctly!" }  if @total_correct >= 10
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503502/The_Duck02_kfkc94.png",title: "0/10 correct but keep trying!" }  if @score.zero?
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503532/Pin_On_Smilies_Emoji_zqy8wb.jpg",  title: "1 correct answer, keep going!" } if @total_correct >= 1
-    @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503484/Winning_Trophy_Clipart_Hd_PNG_Brain_Winning_A_Trophy_Illustration_Vector_On_White_Background_Brain_Clipart_Vector_Smart_PNG_Image_For_Free_Download_xsyqda.jpg", title: "First 20 answered!Keep going! " } if @total_a >= 20
+    @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503484/https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503551/__lhzpoi.jpg", title: "first 20 big boi", title: "First 20 answered!Keep going! " } if @total_a >= 20
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503522/Premium_Vector___Trophy_and_gold_medal_vector_cartoon_illustration__winning_award_champion_gold_trophy_u9pxce.jpg", title: "First 10 answered, good start!" } if @total_a >= 10
 
   end
