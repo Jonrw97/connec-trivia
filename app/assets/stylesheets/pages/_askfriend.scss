@@ -1,8 +1,8 @@
 .message-input {
   font-size: 25px;
-  color: #f0d8b2;
+  color: $blue;
   border-radius: 8px;
-  background-color: #112847;
+  background-color: $beige;
   padding: 10px;
   padding-right: 25px;
   padding-left: 25px;
@@ -96,4 +96,17 @@
   padding: 3px;
   height: 40px;
   width: 80px;
+}
+
+.help-friends {
+  background-color: $lightblue;
+  margin: 10px;
+}
+
+.cards-question {
+ margin-bottom: 20px;
+}
+
+.ask-friend h3 {
+  margin: auto;
 }

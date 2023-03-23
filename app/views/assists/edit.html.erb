@@ -9,7 +9,10 @@
   <% end %>
   <br>
     <%= simple_form_for(@assist) do |f| %>
-      <%= f.input :message , label_html: { class: 'card-question' }, input_html: { class: 'message-input' }%>
+      <%= f.input :message ,
+                  label_html: { class: 'd-none' },
+                  input_html: { class: 'message-input' },
+                  placeholder: 'Write your message here'%>
       <%= f.submit "Send message" %>
     <% end   %>
 </div>

@@ -1,35 +1,45 @@
-<div class="cards-question">
-  <div class="card-question">
-    Ask a Friend
-  </div>
-  <div class="message-input">
-    Asking
-  </div>
-  <% @assists_asker.each do |ask| %>
-    <%= link_to question_path(ask.question)  do%>
-      <div class= "add-friend">
-        <% if ask.receiver.photo.attached? %>
-          <%= cl_image_tag ask.receiver.photo.key, class:"avatar-leaderboard" %>
-        <% else %>
-          <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
-        <% end %>
-        <h3><%= ask.receiver.username %></h3>
-      </div>
+  <% unless @assists_asker.empty? %>
+  <div class="cards-question">
+    <div class="message-input">
+      Friends Helping You
+    </div>
+    <% @assists_asker.each do |ask| %>
+      <%= link_to question_path(ask.question)  do%>
+        <div class= "add-friend">
+          <% if ask.receiver.photo.attached? %>
+            <%= cl_image_tag ask.receiver.photo.key, class:"avatar-leaderboard" %>
+          <% else %>
+            <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
+          <% end %>
+          <h3><%= ask.receiver.username %></h3>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <div class="message-input">
-    Your Friends Need Help
   </div>
-  <% @assists_reciever.each do |receive|  %>
-    <%= link_to edit_assist_path(receive)  do%>
-      <div class= "add-friend">
-        <% if receive.asker.photo.attached? %>
-          <%= cl_image_tag receive.asker.photo.key, class:"avatar-leaderboard" %>
-        <% else %>
-          <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
-        <% end %>
-        <h3><%= receive.asker.username %></h3>
-      </div>
-    <% end %>
-  <% end  %>
-</div>
+<% end %>
+<% unless @assists_receiver.nil? %>
+  <div class="cards-question">
+    <div class="message-input">
+      Help Your Friends
+    </div>
+    <% @assists_receiver.each do |receive|  %>
+      <%= link_to edit_assist_path(receive)  do%>
+        <div class= "add-friend">
+          <% if receive.asker.photo.attached? %>
+            <%= cl_image_tag receive.asker.photo.key, class:"avatar-leaderboard" %>
+          <% else %>
+            <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
+          <% end %>
+          <h3><%= receive.asker.username %></h3>
+        </div>
+      <% end %>
+    <% end  %>
+  </div>
+<% end %>
+<% if @assists_receiver.nil? && @assists_asker.empty?%>
+  <div class="cards-question">
+    <div class="message-input">
+      You have no notifications!
+    </div>
+  </div>
+<% end %>
