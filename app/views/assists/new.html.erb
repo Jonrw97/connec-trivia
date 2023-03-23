@@ -1,10 +1,10 @@
-<div class="cards-question" data-controller="ask-friend">
+<div class="cards-question">
   <div class="card-question">
     <h4>Ask a Friend</h4>
   </div>
   <% @friends.each do |friend| %>
 
-    <div data-ask-friend-target="friend" class= "ask-friend-card">
+    <div class= "ask-friend-card">
       <div class= "ask-friend-info">
         <% if friend.photo.attached? %>
           <%= cl_image_tag friend.photo.key, class:"avatar-leaderboard" %>
