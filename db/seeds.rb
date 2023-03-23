@@ -169,7 +169,7 @@ p "#{rm_users['name']} created with id #{user10.id}"
 
 p "Background Characters Created"
 
-users = [user3, user4, user5, user6, user7, user8, user9]
+users = [user3, user4, user5, user6, user7, user8, user10]
 
 # friendships
 p "creating friendships"
