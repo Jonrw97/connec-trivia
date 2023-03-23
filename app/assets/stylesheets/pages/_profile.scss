@@ -72,3 +72,39 @@ h1 {
   border-radius: 8px;
   padding: 5px;
 }
+
+.badge-header {
+  color: $blue;
+}
+
+// .badges {
+//   background-color: $beige;
+//   display: flex;
+//   flex-direction: column;
+//   border-radius: 8px;
+//   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+// }
+
+.badge {
+  margin: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  background-color: $beige;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+
+  p {
+    margin: auto;
+    color: $blue;
+    font-size: 15px;
+    padding: 10px;
+    font-weight: lighter;
+  }
+}
+
+.avatar-badge {
+  border-radius: 8px;
+  width: 60px;
+  height: 70px;
+  border: 1px solid darkgrey;
+}
