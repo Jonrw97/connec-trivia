@@ -79,10 +79,10 @@ h1 {
 .badge {
   margin: 10px;
   border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
   background-color: $beige;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  width: 95%;
+  padding: 8px;
 
   p {
     margin: auto;
@@ -90,12 +90,30 @@ h1 {
     font-size: 15px;
     padding: 10px;
     font-weight: lighter;
+    white-space: normal;
+
   }
 }
 
 .avatar-badge {
   border-radius: 8px;
-  width: 60px;
-  height: 70px;
+  width: 90px;
+  height: 100px;
+  object-fit: cover;
   border: 1px solid darkgrey;
+}
+
+.badge-main {
+  display: flex;
+  justify-content: space-evenly;
+
+  h3 {
+    margin: auto;
+    color: $blue;
+  }
+}
+
+.badge-info {
+  display: flex;
+  flex-direction: column;
 }
