@@ -167,10 +167,22 @@ user10.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name
 user10.save
 p "#{rm_users['name']} created with id #{user10.id}"
 
+url = "https://rickandmortyapi.com/api/character/196/"
+rm_serialized = URI.open(url).read
+rm_users = JSON.parse(rm_serialized)
+user11 = User.new(
+  username: rm_users['name'],
+  email: "test10@test.com",
+  password: 'test123',
+  lifeline_count: 3
+)
+user11.photo.attach(io: URI.open(rm_users['image']), filename: "#{rm_users['name']}.jpeg", content_type: "image/png")
+user11.save
+p "#{rm_users['name']} created with id #{user10.id}"
+
 p "Background Characters Created"
 
-users = [user3, user4, user5, user6, user7, user8, user10]
-
+users = [user3, user4, user5, user6, user7, user8, user11]
 # friendships
 p "creating friendships"
 users.each do |user|
@@ -182,8 +194,8 @@ users.each do |user|
   friendship.save
   # morty
   friendship = Friendship.new
-  friendship.asker = morty
-  friendship.receiver = user
+  friendship.receiver = morty
+  friendship.asker = user
   friendship.save
 end
 
@@ -275,14 +287,14 @@ trivia_serialized = URI.open(url).read
 trivia = JSON.parse(trivia_serialized)
 p "creating questions"
 
-8.times do
+20.times do
   trivia.each do |t|
     question = Question.create( prompt: t['question'], difficulty: t['difficulty'], question_date: Date.yesterday)
     choice = Choice.new
     choice.question_id = question.id
     choice.content = t['correctAnswer']
     choice.correct = true
-
+    p t['incorrectAnswers']
     choice2 = Choice.new
     choice2.question_id = question.id
     choice2.content = t['incorrectAnswers'].pop
