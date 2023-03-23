@@ -20,7 +20,6 @@
   display: flex;
   position: absolute;
   left: 40px;
-  top: 140px;
   margin: 0%;
 }
 
@@ -76,14 +75,6 @@ h1 {
 .badge-header {
   color: $blue;
 }
-
-// .badges {
-//   background-color: $beige;
-//   display: flex;
-//   flex-direction: column;
-//   border-radius: 8px;
-//   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-// }
 
 .badge {
   margin: 10px;
