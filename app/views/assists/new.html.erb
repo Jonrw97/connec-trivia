@@ -1,6 +1,24 @@
-<% @friends.each do |friend| %>
-  <%= simple_form_for [@question, @assist] do |f| %>
-    <%= f.hidden_field :receiver_id, value: friend.id %>
-    <%= f.submit friend.username, class: "btn" %>
+<div class="cards-question" data-controller="ask-friend">
+  <div class="card-question">
+    <h4>Ask a Friend</h4>
+  </div>
+  <% @friends.each do |friend| %>
+
+    <div data-ask-friend-target="friend" class= "ask-friend-card">
+      <div class= "ask-friend-info">
+        <% if friend.photo.attached? %>
+          <%= cl_image_tag friend.photo.key, class:"avatar-leaderboard" %>
+        <% else %>
+          <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
+        <% end %>
+        <h3><%= friend.username %></h3>
+      </div>
+      <div class="d-flex justify-content-end">
+        <%= simple_form_for [@question, @assist] do |f| %>
+          <%= f.hidden_field :receiver_id, value: friend.id %>
+          <%= f.submit "Ask"%>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-<% end %>
+</div>

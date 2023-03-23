@@ -1,5 +1,5 @@
 .message-input {
-  font-size: 20px;
+  font-size: 25px;
   color: #f0d8b2;
   border-radius: 8px;
   background-color: #112847;
@@ -8,7 +8,7 @@
   padding-left: 25px;
   margin-top: 20px;
   margin-left: 4px;
-  box-shadow: 2px 2px 4px 2px #8a9db6;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .edit_assist input {
@@ -50,4 +50,50 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-ask-friend {
+  display: flex;
+  width: 100%;
+  font-size: 20px;
+  justify-content: space-around;
+  color: #f0d8b2;
+  border-radius: 8px;
+  background-color: #112847;
+  padding: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin-top: 20px;
+  margin-left: 4px;
+  box-shadow: 2px 2px 4px 2px #8a9db6;
+}
+
+.ask-center {
+  margin: auto;
+}
+
+.ask-friend-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ask-friend-card {
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  color: $blue;
+  padding: 10px;
+  margin: 10px;
+  background-color: $green;
+  margin-top: 20px;
+}
+
+.new_assist input {
+  background-color: $beige;
+  border: #112847 1px solid;
+  border-radius: 5px;
+  font-size: large;
+  padding: 3px;
+  height: 40px;
+  width: 80px;
 }
