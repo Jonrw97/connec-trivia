@@ -15,6 +15,3 @@ application.register("hello", HelloController);
 
 import HighlightAnswersController from "./highlight_answers_controller";
 application.register("highlight-answers", HighlightAnswersController);
-
-import AskFriendController from "./ask_friend_controller";
-application.register("ask_friend", AskFriendController);
