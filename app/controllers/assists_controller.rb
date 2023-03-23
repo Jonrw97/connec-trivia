@@ -1,6 +1,6 @@
 class AssistsController < ApplicationController
   def index
-    @assists_reciever = current_user.assists_as_receiver.select { |r| r.message.nil? }
+    @assists_receiver = current_user.assists_as_receiver.select { |r| r.message.nil? }
     @assists_asker = current_user.assists_as_asker.reject do |a|
       !current_user.choices.where(question_id: a.question.id).first.nil?
     end
