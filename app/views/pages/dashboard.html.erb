@@ -10,11 +10,11 @@
     <% end %>
     <div class="stats">
       <div class="stat">
-        <h3><i class="fa-solid fa-circle-check"></i></h3>
-        <p><%= @answered %>/10</p>
+        <h3><i class="fa-solid fa-circle-question"></i></h3>
+        <p><%= 10 - @answered %></p>
       </div>
       <div class="stat">
-        <h3><i class="fa-solid fa-trophy"></i></h3>
+        <h3><i class="fa-solid fa-circle-check"></i></h3>
         <p><%= @score %>/10</p>
       </div>
       <div class="stat">

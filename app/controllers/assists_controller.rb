@@ -13,6 +13,7 @@ class AssistsController < ApplicationController
   end
 
   def create
+    current_user.update(lifeline_count: current_user.lifeline_count - 1)
     @assist = Assist.new(assist_params)
     @assist.question = Question.find(params[:question_id])
     @assist.asker = current_user
