@@ -163,7 +163,7 @@ p "#{rm_users['name']} created with id #{user10.id}"
 
 p "Background Characters Created"
 
-users = [user3, user4, user5, user6, user7, user8, user9, user10]
+users = [user3, user4, user5, user6, user7, user8]
 
 # friendships
 p "creating friendships"
@@ -250,14 +250,13 @@ end
 #####################
 # user history
 users.push(rick)
-users.push(morty)
 p "Accessing Trivia api for users history"
 url = "https://the-trivia-api.com/api/questions/"
 trivia_serialized = URI.open(url).read
 trivia = JSON.parse(trivia_serialized)
 p "creating questions"
 
-20.times do
+8.times do
   trivia.each do |t|
     question = Question.create( prompt: t['question'], difficulty: t['difficulty'], question_date: Date.yesterday)
     choice = Choice.new
