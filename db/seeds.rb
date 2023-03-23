@@ -15,14 +15,7 @@ Choice.destroy_all
 Friendship.destroy_all
 Question.destroy_all
 Assist.destroy_all
-p "listing empty tables"
 
-p "Users #{User.count}"
-p "UserChoice #{UserChoice.count}"
-p "Choice #{Choice.count}"
-p "Friendship #{Friendship.count}"
-p "Question #{Question.count}"
-p "Assist#{Assist.count}"
 ##############
 # making users
 p "Creating Rick & Morty"
@@ -294,7 +287,7 @@ p "creating questions"
     choice.question_id = question.id
     choice.content = t['correctAnswer']
     choice.correct = true
-    p t['incorrectAnswers']
+
     choice2 = Choice.new
     choice2.question_id = question.id
     choice2.content = t['incorrectAnswers'].pop
