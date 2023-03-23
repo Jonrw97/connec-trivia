@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     @total_correct = current_user.score
     @badges = []
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503551/__lhzpoi.jpg", title: "10/10 for the day WooHoo" } if @score >= 10
-    @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503551/__lhzpoi.jpg",  title: "100 total correct you sexy " } if @total_correct == 100
-    @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503690/I_m_In_-_Rick_and_Morty_an0cdr.jpg", title: "First 3 correct" }  if @total_correct >= 3
+    @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503484/Winning_Trophy_Clipart_Hd_PNG_Brain_Winning_A_Trophy_Illustration_Vector_On_White_Background_Brain_Clipart_Vector_Smart_PNG_Image_For_Free_Download_xsyqda.jpg",  title: "100 total correct you sexy " } if @total_correct == 100
+    @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503484/Winning_Trophy_Clipart_Hd_PNG_Brain_Winning_A_Trophy_Illustration_Vector_On_White_Background_Brain_Clipart_Vector_Smart_PNG_Image_For_Free_Download_xsyqda.jpg", title: "First 3 correct" }  if @total_correct >= 3
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503502/The_Duck02_kfkc94.png",title: "0/10 you sir are an academic weapon" }  if @score.zero?
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503532/Pin_On_Smilies_Emoji_zqy8wb.jpg",  title: "1 correct answer amazing congrats" } if @total_correct >= 1
     @badges << { url: "https://res.cloudinary.com/ddrxkfzlk/image/upload/v1679503484/Winning_Trophy_Clipart_Hd_PNG_Brain_Winning_A_Trophy_Illustration_Vector_On_White_Background_Brain_Clipart_Vector_Smart_PNG_Image_For_Free_Download_xsyqda.jpg", title: "first 20 big boi" } if @total_a >= 20
