@@ -101,6 +101,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_162644) do
     t.string "username"
     t.integer "lifeline_count", default: 3
     t.boolean "admin", default: false, null: false
+    t.integer "sash_id"
+    t.integer "level", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

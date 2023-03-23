@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @ask_the_players = user_choices.select { |user_choice| user_choice.choice.question == @question }.group_by(&:choice)
     @assist = @question.assists.where(asker_id: current_user.id)
 
-    if  params[:query] == "50-50"
+    if params[:query] == "50-50"
       fifty_fifty
     elsif params[:query] == "ask-the-players"
       ask_the_players(@ask_the_players)
