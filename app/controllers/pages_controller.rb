@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     friends.push(current_user)
     @users = friends.sort_by(&:score_today).reverse
     @answered = current_user.answered_today
-    @score = current_user.score_today
+    @score = User.includes(choices: :question).find(current_user.id).score_today
     @lifeline_count = current_user.lifeline_count
   end
 end
