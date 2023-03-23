@@ -38,22 +38,21 @@
 <div class="friend-request-header">
   <h3>Friend Requests</h3>
 </div>
-<div class="friend-request">
   <% @pending_friendships.each do |friendship|  %>
-    <% if friendship.asker.photo.attached? %>
-      <%= cl_image_tag friendship.asker.photo.key, class:"avatar-leaderboard" %>
-    <% else %>
-      <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
+    <div class="friend-request">
+      <% if friendship.asker.photo.attached? %>
+        <%= cl_image_tag friendship.asker.photo.key, class:"avatar-leaderboard" %>
+      <% else %>
+        <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
+      <% end %>
+      <h4><%= friendship.asker.username %></h4>
+      <%= link_to friendship_path(friendship), data: {turbo_method: :patch}, class: "accept-btn" do %>
+        <i class="fa-solid fa-check"></i>
+      <% end %>
+      <%= link_to friendship_path(friendship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class:"delete-btn" do %>
+        <i class="fa-solid fa-xmark"></i>
     <% end %>
-    <h4><%= friendship.asker.username %></h4>
-    <%= link_to friendship_path(friendship), data: {turbo_method: :patch}, class: "accept-btn" do %>
-      <i class="fa-solid fa-check"></i>
-    <% end %>
-    <%= link_to friendship_path(friendship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class:"delete-btn" do %>
-      <i class="fa-solid fa-xmark"></i>
-    <% end %>
-  </div>
+    </div>
   <br>
-  <br>
-<% end %>
 </div>
+<% end %>
