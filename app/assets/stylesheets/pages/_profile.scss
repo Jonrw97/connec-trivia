@@ -19,7 +19,8 @@
 .avatar-profile {
   display: flex;
   position: absolute;
-  left: 60px;
+  left: 40px;
+  top: 140px;
   margin: 0%;
 }
 
@@ -29,10 +30,10 @@
   border: 1px solid black;
   border-radius: 20px;
   color: $blue;
-  background-color: $beige;
+  background-color: $lightblue;
   padding: 10px;
   margin: 5px;
-  width: 70%;
+  width: 150%;
 }
 
 h1 {
