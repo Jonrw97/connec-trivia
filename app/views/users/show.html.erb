@@ -9,7 +9,17 @@
     </div>
     <div class="triv-results">
       <h5>Today's Results</h5>
-      <p><%= @score %>/10</p>
+      <div class = "blocks">
+            <% current_user.answered_today_block.reverse.each do |block| %>
+              <% if block %>
+                <%= "✅" %>
+              <% elsif block == nil %>
+                <%= "❔" %>
+              <% else %>
+                <%= "❌" %>
+              <% end %>
+            <% end %>
+          </div>
     </div>
   </div>
   <div class="profile-stats">
