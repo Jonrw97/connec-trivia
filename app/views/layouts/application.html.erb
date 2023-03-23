@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag %>
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
@@ -26,7 +27,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <%# <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
@@ -42,8 +43,7 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <%= favicon_link_tag %>
+    <meta name="theme-color" content="#ffffff"> %>
   </head>
   <body><%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
