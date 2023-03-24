@@ -97,15 +97,15 @@ h1 {
 
 .avatar-badge {
   border-radius: 8px;
-  width: 90px;
-  height: 100px;
+  width: 60px;
   object-fit: cover;
   border: 1px solid darkgrey;
+  object-fit: cover;
 }
 
 .badge-main {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   h3 {
     margin: auto;
@@ -116,4 +116,8 @@ h1 {
 .badge-info {
   display: flex;
   flex-direction: column;
+
+  p {
+    font-weight: 600;
+  }
 }

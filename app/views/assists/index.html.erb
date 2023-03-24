@@ -1,7 +1,7 @@
   <% unless @assists_asker.empty? %>
   <div class="cards-question">
     <div class="message-input">
-      Friends Helping You
+      <strong><%= "Friends Helping You" %></strong>
     </div>
     <% @assists_asker.each do |ask| %>
       <%= link_to question_path(ask.question)  do%>
@@ -20,7 +20,7 @@
 <% unless @assists_receiver.empty? %>
   <div class="cards-question">
     <div class="message-input">
-      Help Your Friends
+      <strong><%= "Help Your Friends" %></strong>
     </div>
     <% @assists_receiver.each do |receive|  %>
       <%= link_to edit_assist_path(receive)  do%>
