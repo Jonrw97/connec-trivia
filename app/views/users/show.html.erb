@@ -39,26 +39,28 @@
     </div>
     <div class="profile-stat">
       <h4>Questions Answered</h4>
-      <h4><%= @total_a %></h4>
+      <h5><%= "Total:" %><%= @total_a %></h5>
+      <div class="pie-chart">
+        <% incorrect = @total_a - @total_correct %>
+        <%= pie_chart({"Correct Answers" => @total_correct,
+  "Incorrect Answers" => incorrect }, colors: ["#008000 ", "#d34934"]) %>
+      </div>
     </div>
-    <div class="pie-chart">
-      <% incorrect = @total_a - @total_correct %>
-      <%= pie_chart({"Correct Answers" => @total_correct,
-  "Incorrect Answers" => incorrect }, colors: ["#112847", "#F0D8B2"]) %>
-    </div>
-    <div class="badge-header">
-      <h1>Badges <i class="fa-solid fa-award"></i></h1>
-    </div>
-    <% @badges.each do |badge| %>
-      <div class="badge">
-        <div class="badge-main">
-          <%= image_tag(badge[:url], class: "avatar-badge")%>
-          <div class="badge-info">
-            <h3><%=badge[:header]%></h3>
-            <p><%=badge[:title]%></p>
+    <div class="badges profile-stat">
+      <div class="badge-header">
+        <h1>Badges <i class="fa-solid fa-award"></i></h1>
+      </div>
+      <% @badges.each do |badge| %>
+        <div class="badge">
+          <div class="badge-main">
+            <%= image_tag(badge[:url], class: "avatar-badge")%>
+            <div class="badge-info">
+              <h3><%=badge[:header]%></h3>
+              <p><%=badge[:title]%></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
