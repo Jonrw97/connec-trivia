@@ -60,14 +60,22 @@ h1 {
   border-radius: 8px;
   margin: 5%;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+
+  h4 {
+    margin-top: 10px;
+  }
 }
 
 .profile-stat-mb {
   margin-bottom: 30px;
 }
 
+.profile-stats {
+  padding: 10px;
+}
+
 .pie-chart {
-  background-color: aliceblue;
+  background-color: $beige;
   border-radius: 8px;
   padding: 5px;
   margin: 5%;
@@ -81,7 +89,6 @@ h1 {
   margin: 10px;
   border-radius: 8px;
   background-color: $beige;
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   width: 95%;
   padding: 8px;
 
@@ -95,11 +102,21 @@ h1 {
   }
 }
 
+.badges {
+  background-color: $beige;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+
+  h1 {
+    margin-top: 23px;
+    padding-top: 20px;
+  }
+}
+
 .avatar-badge {
   border-radius: 8px;
   width: 60px;
   object-fit: cover;
-  border: 1px solid darkgrey;
   object-fit: cover;
 }
 
@@ -116,6 +133,7 @@ h1 {
 .badge-info {
   display: flex;
   flex-direction: column;
+  padding-top: 7px;
 
   p {
     font-weight: 600;

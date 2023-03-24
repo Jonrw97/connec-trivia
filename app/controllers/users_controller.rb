@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     @total_correct = current_user.score
     @badges = []
 
-    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679645023/legend_nxzipa.png", header: "Brainiac Boss", title: "10/10 for the day! Well done!" } if @score >= 10
-    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679645023/genius_kzr8uj.png",header: "Trivia Titan", title: "Wow! 100 questions done!!!" } if @total_a >= 100
-    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679645023/smart_ugeofy.png",header: "Smarty Pants", title: "First 10 answered correctly!" }  if @total_correct >= 10
-    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679645023/fighter_ay0ly2.png",header: "Academic Weapon",title: "0/10 correct but keep trying!" }  if @score.zero?
-    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679645023/warrior_fjsz8j.png",header: "One-hit Wonder",title: "1 correct but keep going!!!" } if @total_correct >= 1
-    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679645023/mentalist_hzw14u.png",header: "Trivia T-rex", title: "First 20 answered, Awesome!!! " } if @total_a >= 20
-    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679645023/spartan_kmcbzt.png",header: "Game Guru", title: "First 10 answered, good start!" } if @total_a >= 10
+    @badges << { url: "  https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Legend_1_bsyd6t.png", header: "Brainiac Boss", title: "10/10 for the day! Well done!" } if @score >= 10
+    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Genius_1_qlceix.png         ",header: "Trivia Titan", title: "Wow! 100 questions done!!!" } if @total_a >= 100
+    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656559/Smart_1_xochug.png              ",header: "Smarty Pants", title: "First 10 answered correctly!" }  if @total_correct >= 10
+    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Fighter_1_nxaywn.png ",header: "Academic Weapon",title: "0/10 correct but keep trying!" }  if @score.zero?
+    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Warrior_1_etfouc.png",header: "One-hit Wonder",title: "1 correct but keep going!!!" } if @total_correct >= 1
+    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Mentalist_1_ytsdlw.png",header: "Trivia T-rex", title: "First 20 answered, Awesome!!! " } if @total_a >= 20
+    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656559/Spartan_1_pj4f1k.png",header: "Game Guru", title: "First 10 answered, good start!" } if @total_a >= 10
 
   end
 

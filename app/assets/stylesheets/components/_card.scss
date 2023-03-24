@@ -4,9 +4,9 @@
   border-radius: 8px;
   color: $blue;
   padding: 5px 10px;
-  margin: 10px;
+  margin: -4px 12px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -39,4 +39,9 @@
 
 .form-control {
   border-radius: 8px;
+}
+
+.request-btn {
+  display: flex;
+  justify-content: end;
 }

@@ -11,13 +11,13 @@
 }
 
 .correct {
-  background-color: green;
-  color: #112847;
+  background-color: #008000;
+  color: $beige;
 }
 
 .incorrect {
   background-color: #d34934;
-  color: #112847;
+  color: $beige;
 }
 
 .other-answers {
