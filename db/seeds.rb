@@ -174,6 +174,14 @@ user11.save
 p "#{rm_users['name']} created with id #{user10.id}"
 
 p "Background Characters Created"
+users = [user3, user4, user5, user7]
+
+users.each do |user|
+  friendship = Friendship.new
+  friendship.receiver = morty
+  friendship.asker = user
+  friendship.save
+end
 
 users = [user3, user4, user5, user6, user7, user8, user11]
 # friendships
@@ -184,11 +192,6 @@ users.each do |user|
   friendship.asker = rick
   friendship.receiver = user
   friendship.status = 1
-  friendship.save
-  # morty
-  friendship = Friendship.new
-  friendship.receiver = morty
-  friendship.asker = user
   friendship.save
 end
 
@@ -242,6 +245,8 @@ trivia.each do |t|
 
   choices = [choice, choice2, choice3, choice4].shuffle
   choices.each(&:save)
+  p t['question']
+  p t['correctAnswer']
 
   users.each do |user|
     UserChoice.create(
