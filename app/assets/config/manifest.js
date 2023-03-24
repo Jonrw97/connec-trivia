@@ -3,3 +3,4 @@
 //= link_tree ../builds
 //= link incorrect.mp3
 //= link correct.mp3
+//= link manifest.json

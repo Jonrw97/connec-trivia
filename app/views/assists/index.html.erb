@@ -17,7 +17,7 @@
     <% end %>
   </div>
 <% end %>
-<% unless @assists_receiver.nil? %>
+<% unless @assists_receiver.empty? %>
   <div class="cards-question">
     <div class="message-input">
       <strong><%= "Help Your Friends" %></strong>
@@ -36,7 +36,7 @@
     <% end  %>
   </div>
 <% end %>
-<% if @assists_receiver.nil? && @assists_asker.empty?%>
+<% if @assists_receiver.empty? && @assists_asker.empty?%>
   <div class="cards-question">
     <div class="message-input">
       You have no notifications!

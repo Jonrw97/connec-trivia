@@ -10,7 +10,18 @@
     <div class="triv-results">
       <h5>Today's Results</h5>
       <div class = "blocks">
-        <% current_user.answered_today_block.reverse.each do |block| %>
+        <% current_user.answered_today_block.reverse.slice(0,5).each do |block| %>
+          <% if block %>
+            <%= "✅" %>
+          <% elsif block == nil %>
+            <%= "❔" %>
+          <% else %>
+            <%= "❌" %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class = "blocks">
+        <% current_user.answered_today_block.reverse.slice(5,5).each do |block| %>
           <% if block %>
             <%= "✅" %>
           <% elsif block == nil %>
