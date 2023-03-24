@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @total_correct = current_user.score
     @badges = []
 
-    # @badges << { url: "  https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Legend_1_bsyd6t.png", header: "Brainiac Boss", title: "10/10 for the day! Well done!" } if @score >= 10
+    @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679659608/Legend_1_pyknt2.png", header: "Brainiac Boss", title: "10/10 for the day! Well done!" } if @score >= 10
     @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Genius_1_qlceix.png         ",header: "Trivia Titan", title: "Wow! 100 questions done!!!" } if @total_a >= 100
     @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656559/Smart_1_xochug.png              ",header: "Smarty Pants", title: "First 10 answered correctly!" }  if @total_correct >= 10
     @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Fighter_1_nxaywn.png ",header: "Academic Weapon",title: "0/10 correct but keep trying!" }  if @score.zero?
