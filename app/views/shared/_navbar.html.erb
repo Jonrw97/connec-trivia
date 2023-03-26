@@ -4,9 +4,18 @@
     <div class="navbar-brand logo">
       <%= link_to image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png"), root_path %>
     </div>
-  <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+
+  <% if @notify_friendships.nil? && @notify_receiver.nil? && @notify_asker.nil? %>
+    <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <% else %>
+    <button class="navbar-toggler hamburger notify" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <% end %>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
       <% if user_signed_in? %>
@@ -14,10 +23,11 @@
           <%= link_to "Profile",user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Add Friend", users_path, class: "nav-link" %>
+          <%= link_to @notify_friendships.nil? ? "Add Friend":"❕ Add Friend", users_path, class: "nav-link" %>
         </li>
+        <% notification =  @notify_receiver.nil? && @notify_asker.nil? %>
         <li class="nav-item">
-          <%= link_to "Notifications", assists_path, class: "nav-link" %>
+          <%= link_to  notification ? "Notifications":"❕ Notifications", assists_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %>

@@ -31,7 +31,25 @@
   margin-top: 5px;
 }
 
+.notify {
+  animation: notification 1300ms infinite;
+}
 
- .nav-item {
-  font-size:larger;
- }
+@keyframes notification {
+  0% {
+    background-color: $lightblue;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    background-color: transparent;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    background-color: $lightblue;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.nav-item {
+  font-size: larger;
+}
