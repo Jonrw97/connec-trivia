@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     # for navbar notify
     @pending_friendships = Friendship.where(status: "pending", receiver_id: current_user.id)
     @assists_receiver = current_user.assists_as_receiver.select { |r| r.message.nil? }
-    @assists_asker_notify = current_user.assists_as_asker.reject { |a| a.message.nil? }
+    @notify_asker = current_user.assists_as_asker.reject { |a| a.message.nil? || !current_user.choices.where(question_id: a.question.id).first.nil? }[0]
   end
 
   def index
