@@ -8,7 +8,7 @@ class AssistsController < ApplicationController
     # for navbar notify
     @notify_friendships = Friendship.where(status: "pending", receiver_id: current_user.id)[0]
     @notify_receiver = @assists_receiver[0]
-    @notify_asker = current_user.assists_as_asker.reject { |a| a.message.nil? }[0]
+    @notify_asker = current_user.assists_as_asker.reject { |a| a.message.nil? || !current_user.choices.where(question_id: a.question.id).first.nil? }[0]
   end
 
   def new
