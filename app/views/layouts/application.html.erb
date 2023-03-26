@@ -5,21 +5,21 @@
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
-      <!-- Facebook Open Graph data -->
-      <meta property="og:title" content="<%= meta_title %>" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="<%= request.original_url %>" />
-      <meta property="og:image" content="<%= meta_image %>" />
-      <meta property="og:description" content="<%= meta_description %>" />
-      <meta property="og:site_name" content="<%= meta_title %>" />
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
 
-      <!-- Twitter Card data -->
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
-      <meta name="twitter:title" content="<%= meta_title %>">
-      <meta name="twitter:description" content="<%= meta_description %>">
-      <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
-      <meta name="twitter:image:src" content="<%= meta_image %>">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
 
     <%# PWA %>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,11 +27,6 @@
 
     <title>ConnecTrivia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -46,11 +41,16 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body><%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
