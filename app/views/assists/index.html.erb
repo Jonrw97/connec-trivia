@@ -11,7 +11,10 @@
           <% else %>
             <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679233516/download_riwhuo.png", class:"avatar-leaderboard") %>
           <% end %>
-          <h3><%= ask.receiver.username %></h3>
+          <div>
+            <h3><%= ask.receiver.username %></h3>
+            <p class="text-end"><%= ask.message.nil? ? "Pending":"Answered" %></p>
+          </div>
         </div>
       <% end %>
     <% end %>

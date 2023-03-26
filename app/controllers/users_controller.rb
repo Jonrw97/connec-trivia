@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656558/Mentalist_1_ytsdlw.png",header: "Trivia T-rex", title: "First 20 answered, Awesome!!! " } if @total_a >= 20
     @badges << { url: "https://res.cloudinary.com/dvvbk1j65/image/upload/v1679656559/Spartan_1_pj4f1k.png",header: "Game Guru", title: "First 10 answered, good start!" } if @total_a >= 10
 
+    # for navbar notify
+    @pending_friendships = Friendship.where(status: "pending", receiver_id: current_user.id)
+    @assists_receiver = current_user.assists_as_receiver.select { |r| r.message.nil? }
+    @assists_asker_notify = current_user.assists_as_asker.reject { |a| a.message.nil? }
   end
 
   def index
@@ -31,5 +35,10 @@ class UsersController < ApplicationController
     @pending_friendships = Friendship.where(status: "pending", receiver_id: current_user.id)
 
     @accepted_friendships = Friendship.where(status: "accept", receiver_id: current_user.id)
+
+    # for navbar notify
+    @notify_friendships = @pending_friendships[0]
+    @notify_receiver = current_user.assists_as_receiver.select { |r| r.message.nil? }[0]
+    @notify_asker = current_user.assists_as_asker.reject { |a| a.message.nil? }[0]
   end
 end

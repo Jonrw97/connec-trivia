@@ -33,7 +33,7 @@
           <div class="player-info">
             <%= index + 1 %>
             <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, class:"avatar-leaderboard" %>
+              <%= cl_image_tag user.photo.key, :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
             <% else %>
               <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-leaderboard") %>
             <% end %>
