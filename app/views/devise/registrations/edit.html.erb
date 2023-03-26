@@ -1,11 +1,13 @@
-<div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="cards-question">
+  <h2>Edit Account Details</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
       <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :username, required: true, autofocus: true %>
+      <%= f.input :photo, as: :file %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -28,10 +30,8 @@
       <%= f.button :submit, "Update" %>
     </div>
   <% end %>
+  <br>
 
-  <h3>Cancel my account</h3>
+  <div><%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure you want to delete your account?", turbo_confirm: "Are you sure you want to delete your account?" }, method: :delete, class: "delete-btn" %></div>
 
-  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-  <%= link_to "Back", :back %>
 </div>
