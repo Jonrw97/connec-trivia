@@ -6,10 +6,18 @@ class NewGameJob < ApplicationJob
 
   def perform
     update_players_lifeline
-    url = "https://the-trivia-api.com/api/questions/"
-    trivia_serialized = URI.open(url).read
-    trivia = JSON.parse(trivia_serialized)
-    create_questions(trivia)
+    urls = [
+      'https://the-trivia-api.com/api/questions?limit=3&difficulty=easy',
+      'https://the-trivia-api.com/api/questions?limit=4&difficulty=medium',
+      'https://the-trivia-api.com/api/questions?limit=3&difficulty=hard'
+    ]
+    trivia = []
+    urls.each do |url|
+      data_serialized = URI.open(url).read
+      data = JSON.parse(data_serialized)
+      data.each { |d| trivia.push(d) }
+    end
+    create_questions(trivia.shuffle)
   end
 
   private
