@@ -24,6 +24,8 @@ class User < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_username, against: [:username]
   # , using: { search: { prefix: true } }
+  validates :username, presence: true, uniqueness: true, length: { maximum: 12,
+    too_long: "12 characters is the maximum allowed" }
 
   def next_question
     questions = []
