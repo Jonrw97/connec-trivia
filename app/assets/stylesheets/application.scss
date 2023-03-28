@@ -1,21 +1,21 @@
 // Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+@import 'config/fonts';
+@import 'config/colors';
+@import 'config/bootstrap_variables';
 
 // External libraries
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome";
+@import 'bootstrap/scss/bootstrap';
+@import 'font-awesome';
 
 // Your CSS partials
-@import "components/index";
-@import "pages/index";
-@import "pages/question";
-@import "pages/profile";
-@import "pages/askfriend";
+@import 'components/index';
+@import 'pages/index';
+@import 'pages/question';
+@import 'pages/profile';
+@import 'pages/askfriend';
 
 body {
-  background-image: url("background.svg");
+  background-image: url('background.svg');
   background-position: center;
   background-size: cover;
   font-family: $body-font;
