@@ -104,4 +104,8 @@ class User < ApplicationRecord
     end
     users
   end
+
+  def have_answered?(question)
+    choices.where(question: question).any?
+  end
 end

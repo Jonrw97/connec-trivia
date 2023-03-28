@@ -14,5 +14,6 @@ class PagesController < ApplicationController
     @notify_asker = current_user.assists_as_asker.reject do |a|
                       a.message.nil? || !current_user.choices.where(question_id: a.question.id).first.nil?
                     end[0]
+    @questions_today = Question.today
   end
 end
