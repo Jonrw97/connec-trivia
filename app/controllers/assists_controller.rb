@@ -1,16 +1,14 @@
 class AssistsController < ApplicationController
   def index
     @assists_receiver = current_user.assists_as_receiver.select { |r| r.message.nil? }
-    @assists_asker = current_user.assists_as_asker.select do |a|
-      current_user.choices.where(question_id: a.question.id).first.nil?
+    @assists_asker = current_user.assists_as_asker.reject do |a|
+      !current_user.choices.where(question_id: a.question.id).first.nil?
     end
 
     # for navbar notify
     @notify_friendships = Friendship.where(status: "pending", receiver_id: current_user.id)[0]
     @notify_receiver = @assists_receiver[0]
-    @notify_asker = current_user.assists_as_asker.reject do |a|
-                      a.message.nil? || !current_user.choices.where(question_id: a.question.id).first.nil?
-                    end[0]
+    @notify_asker = current_user.assists_as_asker.reject { |a| a.message.nil? || !current_user.choices.where(question_id: a.question.id).first.nil? }[0]
   end
 
   def new

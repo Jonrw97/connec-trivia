@@ -1,6 +1,7 @@
 require 'pg_search'
 
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,7 +25,7 @@ class User < ApplicationRecord
   pg_search_scope :search_by_username, against: [:username]
   # , using: { search: { prefix: true } }
   validates :username, presence: true, uniqueness: true, length: { maximum: 12,
-                                                                   too_long: "12 characters is the maximum allowed" }
+    too_long: "12 characters is the maximum allowed" }
 
   def next_question
     questions = []
@@ -66,6 +67,7 @@ class User < ApplicationRecord
       # if user has choice for the q
       next nil unless question_choice
 
+
       question_choice.correct
       # if choice is correct - true
       # if incorrect - false
@@ -78,17 +80,25 @@ class User < ApplicationRecord
   end
 
   def all_friends
-    friendships_as_asker.map(&:receiver) + friendships_as_receiver.map(&:asker)
-  end
-
-  def all_confirmed_friends
     users = []
-    friendships_as_asker.where(status: :accept).each do |friendship|
-      users << friendship.receiver
+    friendships_as_asker.each do |friendship|
+      users << User.find(friendship.receiver_id)
     end
 
-    friendships_as_receiver.where(status: :accept).each do |friendship|
-      users << friendship.asker
+    friendships_as_receiver.each do |friendship|
+      users << User.find(friendship.asker_id)
+    end
+    users
+  end
+
+  def all_friends_confirmed
+    users = []
+    friendships_as_asker.where(status: 1).each do |friendship|
+      users << User.find(friendship.receiver_id)
+    end
+
+    friendships_as_receiver.where(status: 1).each do |friendship|
+      users << User.find(friendship.asker_id)
     end
     users
   end
@@ -103,9 +113,5 @@ class User < ApplicationRecord
       users << User.find(friendship.asker_id)
     end
     users
-  end
-
-  def have_answered?(question)
-    choices.where(question: question).any?
   end
 end
