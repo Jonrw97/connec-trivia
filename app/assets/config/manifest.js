@@ -4,4 +4,3 @@
 //= link incorrect.mp3
 //= link correct.mp3
 //= link manifest.json
-//= link application.js

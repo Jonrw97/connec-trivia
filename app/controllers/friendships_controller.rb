@@ -13,10 +13,11 @@ class FriendshipsController < ApplicationController
     respond_to do |format|
       if @friendship.save
         format.html { redirect_to users_path, { message: 'Friend added successfully' }, status: :created }
+        format.json
       else
         format.html { render users_path, { message: 'Error' }, status: :unprocessable_entity }
+        format.json
       end
-      format.json
     end
   end
 
