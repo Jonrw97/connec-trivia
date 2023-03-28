@@ -1,5 +1,5 @@
-meta_product_name: 'Konnec-trivia'
-meta_title: 'Konnec-trivia - General knowledge for all'
-meta_description: 'General knowledge for all'
-meta_image: 'logo.png' # should exist in `app/assets/images/`
-twitter_account: '@Konnec-trivia_twitter_account' # required for Twitter Cards
+meta_product_name: "Konnec-trivia"
+meta_title: "Konnec-trivia - General knowledge for all"
+meta_description: "General knowledge for all"
+meta_image: "logo.png" # should exist in `app/assets/images/`
+twitter_account: "@Konnec-trivia_twitter_account" # required for Twitter Cards
