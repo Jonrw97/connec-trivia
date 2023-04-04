@@ -1,0 +1,9 @@
+<%= simple_form_for(@user_choice,
+            data: {correct_answers_target: "form",
+            action: "submit->correct-answers#send"}) do |f| %>
+  <%= f.input :choice_id,
+            collection: [[@answers[0].content, @answers[0].id],
+            [@answers[1].content, @answers[1].id]],
+            as: :radio_buttons %>
+  <%= f.submit 'Confirm Answer', id: 'confirm-button' %>
+<% end %>

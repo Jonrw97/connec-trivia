@@ -1,7 +1,6 @@
 require 'pg_search'
 
 class User < ApplicationRecord
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,7 +24,15 @@ class User < ApplicationRecord
   pg_search_scope :search_by_username, against: [:username]
   # , using: { search: { prefix: true } }
   validates :username, presence: true, uniqueness: true, length: { maximum: 12,
-    too_long: "12 characters is the maximum allowed" }
+                                                                   too_long: "12 characters is the maximum allowed" }
+
+  def answered
+    choices.count
+  end
+
+  def answered_today
+    choices.count { |c| c.question.question_date == Date.today }
+  end
 
   def next_question
     questions = []
@@ -47,10 +54,6 @@ class User < ApplicationRecord
     choices.count(&:correct)
   end
 
-  def answered
-    choices.count
-  end
-
   def score_today
     score_today = []
     choices.each do |choice|
@@ -67,16 +70,11 @@ class User < ApplicationRecord
       # if user has choice for the q
       next nil unless question_choice
 
-
       question_choice.correct
       # if choice is correct - true
       # if incorrect - false
       # if user doesnt have choice for q - nil
     end
-  end
-
-  def answered_today
-    choices.count { |c| c.question.question_date == Date.today }
   end
 
   def all_friends
@@ -93,12 +91,12 @@ class User < ApplicationRecord
 
   def all_friends_confirmed
     users = []
-    friendships_as_asker.where(status: 1).each do |friendship|
-      users << User.find(friendship.receiver_id)
+    friendships_as_asker.where(status: :accept).each do |friendship|
+      users << friendship.receiver
     end
 
-    friendships_as_receiver.where(status: 1).each do |friendship|
-      users << User.find(friendship.asker_id)
+    friendships_as_receiver.where(status: :accept).each do |friendship|
+      users << friendship.asker
     end
     users
   end
@@ -106,11 +104,11 @@ class User < ApplicationRecord
   def all_pending_friends
     users = []
     friendships_as_asker.each do |friendship|
-      users << User.find(friendship.receiver_id)
+      users << friendship.receiver
     end
 
     friendships_as_receiver.each do |friendship|
-      users << User.find(friendship.asker_id)
+      users << friendship.asker
     end
     users
   end
