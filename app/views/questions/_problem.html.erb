@@ -1,2 +1,12 @@
+<p>Uh Oh!</p>
 <p>There was a problem with the answer to this question.</p>
-<p>Apologies you can try again later.</p>
+<p>Please proceed to the next question while we investigate</p>
+<%= link_to "Next Question", question_path(current_user.next_question), class: "btn-next" if !current_user.unanswered_questions.to_a.pop.nil? %>
+<div class="questions-return d-flex justify-content-space-between">
+  <div class="return-btn">
+    <%= link_to "Home", root_path(@current_user) %>
+  </div>
+  <div class="profile-return-btn">
+    <%= link_to "Profile", user_path(current_user) %>
+  </div>
+</div>

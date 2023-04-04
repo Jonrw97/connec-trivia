@@ -1,10 +1,9 @@
 .answers-card {
   font-size: 20px;
-  border: #112847;
+  color: #f0d8b2;
   border-radius: 8px;
-  padding: 10px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  background-color: #112847;
+  padding: 18px 20px;
   margin-top: 20px;
   margin-left: 4px;
   box-shadow: 2px 2px 4px 2px #8a9db6;
@@ -68,7 +67,7 @@
   width: 80%;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 @keyframes next-glowing {
@@ -95,9 +94,7 @@ legend {
   color: #f0d8b2;
   border-radius: 8px;
   background-color: #112847;
-  padding: 10px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding: 18px 20px;
   margin-top: 20px;
   margin-left: 4px;
   box-shadow: 2px 2px 4px 2px #8a9db6;

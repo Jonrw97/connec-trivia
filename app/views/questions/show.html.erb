@@ -18,15 +18,7 @@
     class="card-answers"></div>
     <div data-correct-answers-target="answersdiv">
       <% if params[:query] == "50-50" %>
-        <%= simple_form_for(@user_choice,
-            data: {correct_answers_target: "form",
-            action: "submit->correct-answers#send"}) do |f| %>
-          <%= f.input :choice_id,
-            collection: [[@answers[0].content, @answers[0].id],
-            [@answers[1].content, @answers[1].id]],
-            as: :radio_buttons %>
-          <%= f.submit 'Confirm Answer', id: 'confirm-button' %>
-        <% end %>
+        <%= render "fifty_fifty" %>
       <% else %>
         <%= simple_form_for(@user_choice,
               data: {correct_answers_target: "form",
@@ -38,24 +30,7 @@
             [@choices[3].content, @choices[3].id]],
               as: :radio_buttons %>
           <div class="buttons-question">
-            <div class="dropdown">
-              <button class="dropdown-toggle lifeline-btn" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-heart-pulse"></i>
-              </button>
-              <ul class="dropdown-menu">
-                <% if current_user.lifeline_count > 0 %>
-                  <li><%= link_to "50/50", question_path(@question, :query => "50-50"), class: "dropdown-item" %></li>
-                  <% if @assist.empty? %>
-                    <li><%= link_to "Ask a Friend", new_question_assist_path(@question), class: "dropdown-item" %></li>
-                  <% end %>
-                  <% unless @ask_the_players.empty? %>
-                    <li><%= link_to "Ask The Players", question_path(@question, :query => "ask-the-players"), class: "dropdown-item" %></li>
-                  <% end %>
-                <% else %>
-                  <li><a class="dropdown-item" href="#">Sorry, you dont have enough tokens!!!</a></li>
-                <% end %>
-              </ul>
-            </div>
+            <%= render "dropdown" %>
             <%= f.submit 'Confirm Answer' %>
           </div>
         <% end %>
