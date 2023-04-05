@@ -26,57 +26,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 12,
                                                                    too_long: "12 characters is the maximum allowed" }
 
-  def answered
-    choices.count
-  end
-
-  def answered_today
-    choices.count { |c| c.question.question_date == Date.today }
-  end
-
-  def next_question
-    questions = []
-    unanswered_questions.each do |question|
-      if assists_as_asker.find_by(question_id: question.id).nil?
-        questions.push(question)
-      else
-        questions.unshift(question)
-      end
-    end
-    questions.pop
-  end
-
-  def unanswered_questions
-    Question.where.not(id: choices.map(&:question_id)).where(question_date: Date.today)
-  end
-
-  def score
-    choices.count(&:correct)
-  end
-
-  def score_today
-    score_today = []
-    choices.each do |choice|
-      score_today.push(choice) if choice.question.question_date == Date.today
-    end
-    score_today.count(&:correct)
-  end
-
-  def answered_today_block
-    # get 10 qs for the day
-    questions = Question.today
-    questions.map do |question|
-      question_choice = choices.find { |choice| choice.question == question }
-      # if user has choice for the q
-      next nil unless question_choice
-
-      question_choice.correct
-      # if choice is correct - true
-      # if incorrect - false
-      # if user doesnt have choice for q - nil
-    end
-  end
-
   def all_friends
     users = []
     friendships_as_asker.each do |friendship|
@@ -111,5 +60,56 @@ class User < ApplicationRecord
       users << friendship.asker
     end
     users
+  end
+
+  def answered
+    choices.count
+  end
+
+  def answered_today
+    choices.count { |c| c.question.question_date == Date.today }
+  end
+
+  def answered_today_block
+    # get 10 qs for the day
+    questions = Question.today
+    questions.map do |question|
+      question_choice = choices.find { |choice| choice.question == question }
+      # if user has choice for the q
+      next nil unless question_choice
+
+      question_choice.correct
+      # if choice is correct - true
+      # if incorrect - false
+      # if user doesnt have choice for q - nil
+    end
+  end
+
+  def next_question
+    questions = []
+    unanswered_questions.each do |question|
+      if assists_as_asker.find_by(question_id: question.id).nil?
+        questions.unshift(question)
+      else
+        questions.push(question)
+      end
+    end
+    questions[0]
+  end
+
+  def score
+    choices.count(&:correct)
+  end
+
+  def score_today
+    score_today = []
+    choices.each do |choice|
+      score_today.push(choice) if choice.question.question_date == Date.today
+    end
+    score_today.count(&:correct)
+  end
+
+  def unanswered_questions
+    Question.where.not(id: choices.map(&:question_id)).where(question_date: Date.today)
   end
 end

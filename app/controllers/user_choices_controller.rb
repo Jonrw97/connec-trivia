@@ -9,11 +9,10 @@ class UserChoicesController < ApplicationController
     respond_to do |format|
       if @user_choice.save
         format.html { redirect_to question_path(current_user.next_question) }
-        format.json # Follow the classic Rails flow and look for a create.json view
       else
         format.html { render "questions/show", status: :unprocessable_entity }
-        format.json # Follow the classic Rails flow and look for a create.json view
       end
+      format.json
     end
   end
 end

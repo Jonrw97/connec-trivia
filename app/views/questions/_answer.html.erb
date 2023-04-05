@@ -23,11 +23,7 @@
     <p>Thanks for playing! See you tomorrow!</p>
   <% end %>
   <div class="questions-return d-flex justify-content-space-between">
-    <div class="return-btn">
-      <%= link_to "Home", root_path(@current_user) %>
-    </div>
-    <div class="profile-return-btn">
-      <%= link_to "Profile", user_path(current_user) %>
-    </div>
+    <%= link_to "Home", root_path(@current_user), class: "return-btn" %>
+    <%= link_to "Profile", user_path(current_user), class: "profile-return-btn" %>
   </div>
 </div>
