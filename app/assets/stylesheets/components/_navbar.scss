@@ -28,15 +28,15 @@
 
 @keyframes notification {
   0% {
-    background-color: $lightblue;
-    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-  }
-  50% {
     background-color: transparent;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   }
+  50% {
+    background-color: $red;
+    box-shadow: 0 0 20px hsl(13, 98%, 51%);
+  }
   100% {
-    background-color: $lightblue;
+    background-color: transparent;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   }
 }

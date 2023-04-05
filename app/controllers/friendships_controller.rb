@@ -4,20 +4,15 @@ class FriendshipsController < ApplicationController
   # make a new frienship instances
   # render updated friend row
   def create
-    receiver = User.find(params[:user_id])
     @friends = []
-
-    @friendship = Friendship.new
-    @friendship.receiver = receiver
-    @friendship.asker = current_user
+    @friendship = Friendship.new(receiver_id: params[:user_id], asker_id: current_user.id)
     respond_to do |format|
       if @friendship.save
         format.html { redirect_to users_path, { message: 'Friend added successfully' }, status: :created }
-        format.json
       else
         format.html { render users_path, { message: 'Error' }, status: :unprocessable_entity }
-        format.json
       end
+      format.json
     end
   end
 

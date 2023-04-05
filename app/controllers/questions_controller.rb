@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def show
     # view variables
+    navbar_notify
     @question = Question.find(params[:id])
     @answered_today = User.includes(choices: :question).find(current_user.id).answered_today + 1
     @choices = @question.choices
