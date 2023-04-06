@@ -86,13 +86,9 @@ class User < ApplicationRecord
   end
 
   def next_question
-    questions = []
+    questions = unanswered_questions.select { |question| assists_as_asker.find_by(question_id: question.id).nil? }
     unanswered_questions.each do |question|
-      if assists_as_asker.find_by(question_id: question.id).nil?
-        questions.unshift(question)
-      else
-        questions.push(question)
-      end
+      questions.push(question) unless assists_as_asker.find_by(question_id: question.id).nil?
     end
     questions[0]
   end
