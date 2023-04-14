@@ -22,9 +22,11 @@
         <p><%= @lifeline_count %>/3</p>
       </div>
     </div>
-      <% if current_user.next_question.nil? %>
-        <%= render "countdown" %>
-      <% end %>
+      <div class="countdown-card">
+        <% if current_user.next_question.nil? %>
+          <%= render "countdown" %>
+        <% end %>
+      </div>
   </div>
   <div class="leaderboard-main">
     <h2>Leaderboard</h2>

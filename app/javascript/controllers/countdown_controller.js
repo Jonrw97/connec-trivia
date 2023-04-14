@@ -34,6 +34,6 @@ export default class extends Controller {
     const minutes = Math.floor((secondsRemaining % secondsPerHour) / secondsPerMinute);
     const seconds = Math.floor(secondsRemaining % secondsPerMinute);
 
-    this.countdownTarget.innerHTML = `${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    this.countdownTarget.innerHTML = `New Questions in ${hours}H ${minutes}M ${seconds}S`;
   }
 }
