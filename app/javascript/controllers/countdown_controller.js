@@ -8,7 +8,7 @@ export default class extends Controller {
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(0, 0, 0, 0);
+    tomorrow.setHours(2, 0, 0, 0);
     this.secondsUntilEnd = tomorrow.getTime() / 1000 - today.getTime() / 1000;
 
     const now = new Date().getTime();
