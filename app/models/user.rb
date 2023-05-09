@@ -1,6 +1,8 @@
 require 'pg_search'
 
 class User < ApplicationRecord
+  attr_accessor :login
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,8 +25,17 @@ class User < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_username, against: [:username]
   # , using: { search: { prefix: true } }
-  validates :username, presence: true, uniqueness: true, length: { maximum: 12,
-                                                                   too_long: "12 characters is the maximum allowed" }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 12,
+                                                                                        too_long: "12 characters is the maximum allowed" }
+
+  def self.find_for_database_authentication(warden_condition)
+    conditions = warden_condition.dup
+    login = conditions.delete(:login)
+    where(conditions).where(
+      ["lower(username) = :value OR lower(email) = :value",
+       { value: login.strip.downcase }]
+    ).first
+  end
 
   def all_friends
     users = []
