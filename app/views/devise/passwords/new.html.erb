@@ -1,18 +1,28 @@
-<h2>Forgot your password?</h2>
+<div class="cards-question text-start">
+  <h2>Forgot your password?</h2>
+  <br>
+  <p>Please send an email to jonrw97@gmail.com along with your username and email requesting a password reset.</p>
+  <p>We will notify you when your password has been reset.</p>
+  <p>Thank you</p>
+  <%# commenting this code for later use when mailer is setup %>
+  <% if false %>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Send me reset password instructions" %>
+      </div>
+    <% end %>
+  <% end %>
+  <%# ends here %>
+  <br>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
