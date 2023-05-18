@@ -22,11 +22,11 @@
         <p><%= @lifeline_count %>/3</p>
       </div>
     </div>
-      <% if current_user.next_question.nil? %>
-        <div class="countdown-card">
-          <%= render "countdown" %>
-        </div>
-      <% end %>
+    <% if current_user.next_question.nil? %>
+      <div class="countdown-card">
+        <%= render "countdown" %>
+      </div>
+    <% end %>
   </div>
   <div class="leaderboard-main">
     <h2>Leaderboard</h2>
@@ -61,7 +61,13 @@
         </div>
       <% end %>
     </div>
-    <% if !current_user.unanswered_questions.to_a.pop.nil? %>
+    <% if current_user.unanswered_questions.to_a.pop.nil? %>
+      <%= link_to results_path do%>
+        <div class="play-btn center-div">
+          Results
+        </div>
+      <% end %>
+    <% else %>
       <%= link_to question_path(current_user.next_question) do%>
         <div class="play-btn center-div">
           PLAY

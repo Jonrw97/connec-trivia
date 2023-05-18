@@ -1,0 +1,13 @@
+<div class="main-card">
+  <% @questions.each do |q| %>
+    <div class="d-flex justify-content-between align-items-center secondary-card">
+      <div class="text-start">
+        <p><%= q.prompt %></p>
+        <p> <%= q.correct_choice.content %></p>
+      </div>
+      <%= current_user.user_choices.where(choice_id: Choice.where(id: q.correct_choice.id) ).empty? ? "❌" : "✅" %>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to "Home", root_path(@current_user), class: "return-btn" %>
+</div>

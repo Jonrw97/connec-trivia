@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :friendships, only: [:create]
   end
 
+  resources :results, only: [:index]
+
   resources :user_choices, only: [:create]
 
   resources :questions, only: [:show] do
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
   end
 
   resources :assists, only: %i[index edit update]
-
-  resource :users, only: [:show]
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do

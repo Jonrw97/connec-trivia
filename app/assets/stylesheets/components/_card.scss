@@ -45,3 +45,22 @@
   display: flex;
   justify-content: end;
 }
+
+.main-card {
+  background-color: $lightblue;
+  padding: 20px;
+  margin: 5px 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-card {
+  font-size: 18px;
+  background-color: #f0d8b2;
+  color: #112847;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+}

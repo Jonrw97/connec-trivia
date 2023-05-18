@@ -2,19 +2,19 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import AddFriendshipController from "./add_friendship_controller"
-application.register("add-friendship", AddFriendshipController)
+import AddFriendshipController from "./add_friendship_controller";
+application.register("add-friendship", AddFriendshipController);
 
-import CorrectAnswersController from "./correct_answers_controller"
-application.register("correct-answers", CorrectAnswersController)
+import CorrectAnswersController from "./correct_answers_controller";
+application.register("correct-answers", CorrectAnswersController);
 
-import CountdownController from "./countdown_controller"
-application.register("countdown", CountdownController)
+import CountdownController from "./countdown_controller";
+application.register("countdown", CountdownController);
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import HelloController from "./hello_controller";
+application.register("hello", HelloController);
 
-import HighlightAnswersController from "./highlight_answers_controller"
-application.register("highlight-answers", HighlightAnswersController)
+import HighlightAnswersController from "./highlight_answers_controller";
+application.register("highlight-answers", HighlightAnswersController);
