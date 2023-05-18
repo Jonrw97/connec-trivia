@@ -49,7 +49,7 @@
 .main-card {
   background-color: $lightblue;
   padding: 20px;
-  margin: 5px 15px;
+  margin: 0px 15px 24px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
@@ -59,8 +59,18 @@
   font-size: 18px;
   background-color: #f0d8b2;
   color: #112847;
-  margin-top: 20px;
-  padding: 10px;
+  padding: 16px;
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tertiary-card {
+  font-size: 16px;
+  color: #f0d8b2;
+  border-radius: 8px;
+  background-color: #112847;
+  padding: 18px 20px;
+  margin-top: 20px;
+  margin-left: 4px;
+  box-shadow: 2px 2px 4px 2px #8a9db6;
 }
