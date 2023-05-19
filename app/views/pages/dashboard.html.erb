@@ -61,7 +61,7 @@
         </div>
       <% end %>
     </div>
-    <% if current_user.unanswered_questions.to_a.pop.nil? %>
+    <% if current_user.next_question.nil? %>
       <%= link_to results_path do%>
         <div class="play-btn center-div">
           Results
