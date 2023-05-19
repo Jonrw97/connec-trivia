@@ -2,7 +2,7 @@
   <p data-result-target="button">Friend's Answers</p>
   <div class="d-none d-flex flex-column" data-result-target="list">
     <% friends.each do |friend| %>
-      <div class="d-flex text-start m-2 align-items-center">
+      <div class="d-flex m-2 align-items-center justify-content-between">
         <% if friend.photo.attached? %>
           <%= cl_image_tag friend.photo.key, :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
         <% else %>
