@@ -17,6 +17,22 @@
         <p>✅ <%= q.correct_choice.content %></p>
       <% end %>
     </div>
+    <div class="tertiary-card" data-controller="result" data-action="click->result#toggle">
+      <p data-result-target="button">Friends</p>
+      <div class="d-none d-flex flex-column" data-result-target="list">
+        <% @friends.each do |friend| %>
+          <div class="d-flex text-start m-2 align-items-center">
+            <% if friend.photo.attached? %>
+              <%= cl_image_tag friend.photo.key, :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
+            <% else %>
+              <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-leaderboard") %>
+            <% end %>
+            <p class="mx-3"><%= friend.username %></p>
+            <%=  friend.user_choices.where(choice_id: Choice.where(id: q.correct_choice.id) ).empty? ? "❌" : "✅ " %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
 <br>
