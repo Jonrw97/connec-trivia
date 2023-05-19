@@ -17,6 +17,13 @@
         <p>✅ <%= q.correct_choice.content %></p>
       <% end %>
     </div>
+    <% if @friends.empty? %>
+      <div class="tertiary-card">
+        <p>No friends have answered yet!</p>
+      </div>
+    <% else %>
+      <%= render "friends", q: q, friends: @friends %>
+    <% end %>
   </div>
 <% end %>
 <br>
