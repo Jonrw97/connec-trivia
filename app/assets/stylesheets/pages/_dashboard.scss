@@ -1,18 +1,9 @@
 // Specific CSS for your home-page
-.container {
-  padding: 0px 30px;
-}
-
 .greeting {
-  padding: 1px;
-  border-radius: 8px;
   text-align: center;
-  background-color: $beige;
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-
   h1 {
     color: $blue;
-    margin-top: 10px;
+    margin: 0px;
   }
 }
 
@@ -105,7 +96,7 @@
 }
 
 .player-info-cards {
-  margin-bottom: 120px;
+  margin: 0px 4px 120px;
 }
 
 #player-name {
