@@ -21,20 +21,24 @@ class QuestionsController < ApplicationController
 
   def fifty_fifty
     # remove 2 inccorect answers from choices
-    redirect_to question_path(current_user.next_question) if current_user.lifeline_count < 1
-
-    current_user.update(lifeline_count: current_user.lifeline_count - 1)
-    correct_answer = @question.choices.select(&:correct)
-    incorrect_answers = @question.choices.reject(&:correct)
-    @answers = [correct_answer[0], incorrect_answers.sample]
+    if current_user.lifeline_count < 1
+      redirect_to question_path(current_user.next_question)
+    else
+      current_user.update(lifeline_count: current_user.lifeline_count - 1)
+      correct_answer = @question.choices.select(&:correct)
+      incorrect_answers = @question.choices.reject(&:correct)
+      @answers = [correct_answer[0], incorrect_answers.sample]
+    end
   end
 
   def ask_the_players(grouped_choices)
     # group the choices by the amount of people who have answered with that choice
-    redirect_to question_path(current_user.next_question) if current_user.lifeline_count < 1
-
-    current_user.update(lifeline_count: current_user.lifeline_count - 1)
-    @ask_the_players = {}
-    @choices.each { |c| @ask_the_players[c.content] = grouped_choices[c].nil? ? 0 : grouped_choices[c].count }
+    if current_user.lifeline_count < 1
+      redirect_to question_path(current_user.next_question)
+    else
+      current_user.update(lifeline_count: current_user.lifeline_count - 1)
+      @ask_the_players = {}
+      @choices.each { |c| @ask_the_players[c.content] = grouped_choices[c].nil? ? 0 : grouped_choices[c].count }
+    end
   end
 end

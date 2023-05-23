@@ -1,55 +1,7 @@
-.friend-request {
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-  background-color: $green;
-  border-radius: 8px;
-  color: $blue;
-  padding: 5px 10px;
-  margin: -4px 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.friend-request h4 {
-  margin-top: 12px;
-  color: $blue;
-}
-
-.add-friend {
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-  background-color: $green;
-  border-radius: 8px;
-  color: $blue;
-  padding: 10px;
-  margin: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.add-friend h3 {
-  margin-top: 15px;
-  color: $blue;
-}
-.friend-request-header {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.form-control {
-  border-radius: 8px;
-}
-
-.request-btn {
-  display: flex;
-  justify-content: end;
-}
-
 .main-card {
   background-color: $lightblue;
   padding: 20px;
-  margin: 0px 15px 24px;
+  margin-bottom: 24px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
@@ -59,17 +11,17 @@
   font-size: 18px;
   background-color: $beige;
   color: $blue;
-  padding: 16px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .tertiary-card {
-  font-size: 20px;
+  font-size: 18px;
   color: $beige;
   border-radius: 8px;
   background-color: $blue;
-  padding: 18px 20px;
+  padding: 20px;
   margin-top: 20px;
   margin-left: 4px;
   box-shadow: 2px 2px 4px 2px #8a9db6;

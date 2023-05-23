@@ -1,77 +1,31 @@
-<div class="container">
-  <div class="greeting">
-    <h1><%="Welcome #{current_user.username}"%></h1>
-  </div>
-  <div class="stats-board">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class:"avatar-main" %>
-    <% else %>
-      <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-main") %>
-    <% end %>
-    <div class="stats">
-      <div class="stat">
-        <h3><i class="fa-solid fa-circle-question"></i></h3>
-        <p><%= 10 - @answered %></p>
-      </div>
-      <div class="stat">
-        <h3><i class="fa-solid fa-circle-check"></i></h3>
-        <p><%= @score %>/10</p>
-      </div>
-      <div class="stat">
-        <h3><i class="fa-solid fa-heart-pulse"></i></h3>
-        <p><%= @lifeline_count %>/3</p>
-      </div>
+<div class="secondary-card greeting">
+  <h1><%="Welcome #{current_user.username}"%></h1>
+</div>
+<div class="stats-board">
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, class:"avatar-main" %>
+  <% else %>
+    <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-main") %>
+  <% end %>
+  <div class="stats">
+    <div class="stat">
+      <h3><i class="fa-solid fa-circle-question"></i></h3>
+      <p><%= 10 - @answered %></p>
     </div>
-    <% if current_user.next_question.nil? %>
-      <div class="countdown-card">
-        <%= render "countdown" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="leaderboard-main">
-    <h2>Leaderboard</h2>
-  </div>
-  <div class="leaderboard">
-    <% @users.each_with_index do |user, index| %>
-      <div class="player-info-cards">
-        <div class="player-info-card">
-          <div class="player-info">
-            <%= index + 1 %>
-            <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
-            <% else %>
-              <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-leaderboard") %>
-            <% end %>
-            <p id= "player-name"><%= user.username %></p>
-            <div class="player-score">
-              <p><%= user.score_today %>/10</p>
-            </div>
-          </div>
-          <div class = "blocks">
-            <% user.answered_today_block.each do |block| %>
-              <% if block %>
-                <%= "✅" %>
-              <% elsif block == nil %>
-                <%= "❔" %>
-              <% else %>
-                <%= "❌" %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+    <div class="stat">
+      <h3><i class="fa-solid fa-circle-check"></i></h3>
+      <p><%= @score %>/10</p>
     </div>
-    <% if current_user.next_question.nil? %>
-      <%= link_to results_path do%>
-        <div class="play-btn center-div">
-          Results
-        </div>
-      <% end %>
-    <% else %>
-      <%= link_to question_path(current_user.next_question) do%>
-        <div class="play-btn center-div">
-          PLAY
-        </div>
-      <% end %>
-    <% end %>
+    <div class="stat">
+      <h3><i class="fa-solid fa-heart-pulse"></i></h3>
+      <p><%= @lifeline_count %>/3</p>
+    </div>
   </div>
+  <% if current_user.next_question.nil? %>
+    <div class="countdown-card">
+      <%= render "countdown" %>
+    </div>
+  <% end %>
+</div>
+<%= render "leaderboard" %>
+<%= render "flashingbtn" %>

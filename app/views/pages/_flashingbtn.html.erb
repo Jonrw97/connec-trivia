@@ -1,0 +1,13 @@
+<% if current_user.next_question.nil? %>
+  <%= link_to results_path do%>
+    <div class="play-btn center-div">
+      Results
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to question_path(current_user.next_question) do%>
+    <div class="play-btn center-div">
+      PLAY
+    </div>
+  <% end %>
+<% end %>
