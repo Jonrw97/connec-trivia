@@ -1,17 +1,18 @@
 {
-  "background_color": "white",
-  "description": ""General knowledge for all, wordle style!",
-  "display": "fullscreen",
-  "name": "konnec-trivia",
-  "icons": [
-    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
-    <% files.each_with_index do |file, index| %>
-      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
-      {
-        "src": "<%= image_path "icons/#{file}" %>",
-        "sizes": "<%= match && match[:size] %>",
-        "type": "image/png"
-      }<%= "," unless (files.size - 1) == index %>
-    <% end %>
-  ]
+"background_color": "white",
+"description": "General knowledge for all, wordle style!",
+"display": "fullscreen",
+"name": "konnec-trivia",
+"icons": [
+<% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+<% matched_files = files.select {|file| file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/)} %>
+<% matched_files.each_with_index do |file, index| %>
+  <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+  {
+  "src": "<%= image_path "icons/#{file}" %>",
+  "sizes": "<%= match && match[:size] %>",
+  "type": "image/png"
+  }<%= "," unless (matched_files.size - 1) == index %>
+<% end %>
+]
 }
