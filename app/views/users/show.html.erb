@@ -1,66 +1,63 @@
-<div class="container">
-  <div class="profile-game">
-    <div class="avatar-div">
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class:"avatar-profile" %>
-      <% else %>
-        <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-profile") %>
+<div class="profile-game">
+  <div class="avatar-div">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, :width=>"72", :height=>"72", :gravity=>"auto", :crop=>"fill", class:"avatar-profile" %>
+    <% else %>
+      <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", :width=>"72", :height=>"72", :gravity=>"auto", :crop=>"fill", class:"avatar-profile") %>
+    <% end %>
+  </div>
+  <div class="triv-results">
+    <h5>Today's Results</h5>
+    <div class = "blocks">
+      <% current_user.answered_today_block.slice(0,5).each do |block| %>
+        <% if block %>
+          <%= "✅" %>
+        <% elsif block == nil %>
+          <%= "❔" %>
+        <% else %>
+          <%= "❌" %>
+        <% end %>
       <% end %>
     </div>
-    <div class="triv-results">
-      <h5>Today's Results</h5>
-      <div class = "blocks">
-        <% current_user.answered_today_block.slice(0,5).each do |block| %>
-          <% if block %>
-            <%= "✅" %>
-          <% elsif block == nil %>
-            <%= "❔" %>
-          <% else %>
-            <%= "❌" %>
-          <% end %>
+    <div class = "blocks">
+      <% current_user.answered_today_block.slice(5,5).each do |block| %>
+        <% if block %>
+          <%= "✅" %>
+        <% elsif block == nil %>
+          <%= "❔" %>
+        <% else %>
+          <%= "❌" %>
         <% end %>
-      </div>
-      <div class = "blocks">
-        <% current_user.answered_today_block.slice(5,5).each do |block| %>
-          <% if block %>
-            <%= "✅" %>
-          <% elsif block == nil %>
-            <%= "❔" %>
-          <% else %>
-            <%= "❌" %>
-          <% end %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
-  <div class="profile-stats">
-    <div class="profile-stat profile-stat-mb">
-      <h1>All Time Stats</h1>
+</div>
+<div class="profile-stats">
+  <div class="profile-stat profile-stat-mb">
+    <h1>All Time Stats</h1>
+  </div>
+  <div class="profile-stat">
+    <h4>Questions Answered</h4>
+    <h5><%= "Total:" %><%= @total_a %></h5>
+    <div class="pie-chart">
+      <% incorrect = @total_a - @total_correct %>
+      <%= pie_chart({"Correct Answers" => @total_correct, "Incorrect Answers" => incorrect }, colors: ["#008000 ", "#d34934"]) %>
     </div>
-    <div class="profile-stat">
-      <h4>Questions Answered</h4>
-      <h5><%= "Total:" %><%= @total_a %></h5>
-      <div class="pie-chart">
-        <% incorrect = @total_a - @total_correct %>
-        <%= pie_chart({"Correct Answers" => @total_correct,
-  "Incorrect Answers" => incorrect }, colors: ["#008000 ", "#d34934"]) %>
-      </div>
+  </div>
+  <div class="badges profile-stat">
+    <div class="badge-header">
+      <h1>Badges <i class="fa-solid fa-award"></i></h1>
     </div>
-    <div class="badges profile-stat">
-      <div class="badge-header">
-        <h1>Badges <i class="fa-solid fa-award"></i></h1>
-      </div>
-      <% @badges.each do |badge| %>
-        <div class="badge">
-          <div class="badge-main">
-            <%= image_tag(badge[:url], class: "avatar-badge")%>
-            <div class="badge-info">
-              <h3><%=badge[:header]%></h3>
-              <p><%=badge[:title]%></p>
-            </div>
+    <% @badges.each do |badge| %>
+      <div class="badge">
+        <div class="badge-main">
+          <%= image_tag(badge[:url], class: "avatar-badge")%>
+          <div class="badge-info">
+            <h3><%=badge[:header]%></h3>
+            <p><%=badge[:title]%></p>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
