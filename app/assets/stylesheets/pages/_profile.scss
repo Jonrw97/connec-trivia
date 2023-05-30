@@ -11,9 +11,10 @@
 }
 
 .avatar-div {
-  padding: 5px;
-  margin: 7px;
-  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 }
 
 .avatar-profile {
@@ -32,7 +33,7 @@
   background-color: $lightblue;
   padding: 10px;
   margin: 5px;
-  width: 150%;
+  width: 70%;
 }
 
 h1 {
