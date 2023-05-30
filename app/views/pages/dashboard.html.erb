@@ -3,9 +3,9 @@
 </div>
 <div class="stats-board">
   <% if current_user.photo.attached? %>
-    <%= cl_image_tag current_user.photo.key, class:"avatar-main" %>
+    <%= cl_image_tag current_user.photo.key, :width=>"75", :height=>"75", :gravity=>"auto", :crop=>"fill", class:"avatar-main" %>
   <% else %>
-    <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-main") %>
+    <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", :width=>"75", :height=>"75", :gravity=>"auto", :crop=>"fill", class:"avatar-main") %>
   <% end %>
   <div class="stats">
     <div class="stat">
