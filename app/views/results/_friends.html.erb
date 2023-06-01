@@ -4,7 +4,7 @@
     <% friends.each do |friend| %>
       <div class="d-flex m-2 align-items-center justify-content-between">
         <% if friend.photo.attached? %>
-          <%= cl_image_tag friend.photo.key, :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
+          <%= cl_image_tag friend.photo.key, :width=>"60", :height=>"60", :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
         <% else %>
           <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-leaderboard") %>
         <% end %>
