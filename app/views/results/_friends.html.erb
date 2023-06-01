@@ -6,7 +6,7 @@
         <% if friend.photo.attached? %>
           <%= cl_image_tag friend.photo.key, :width=>"60", :height=>"60", :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
         <% else %>
-          <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", class:"avatar-leaderboard") %>
+          <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", :width=>"60", :height=>"60", class:"avatar-leaderboard") %>
         <% end %>
         <p class="mx-3 results-name"><%= friend.username %></p>
         <%=  friend.user_choices.where(choice_id: Choice.where(id: q.correct_choice.id) ).empty? ? "❌" : "✅" %>
