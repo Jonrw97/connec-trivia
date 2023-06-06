@@ -78,16 +78,16 @@
 .leaderboard-secondary {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  align-items: center;
   padding: 5px;
   border-radius: 8px;
-  background-color: $beige;
+  background-color: $lightblue;
   width: 40%;
   margin-top: 20px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 
   h4 {
-    color: $blue;
+    color: $beige;
     margin-bottom: 0px;
   }
 }
@@ -160,4 +160,8 @@
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   width: 75%;
   padding: 10px 5px 0px;
+}
+
+.selected-day {
+  border: 2px solid $beige;
 }
