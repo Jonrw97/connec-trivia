@@ -1,6 +1,10 @@
-<div class="player-info-cards">
-  <% @users.each_with_index do |user, index| %>
-    <div class="player-info-card">
+<div class="player-info-card">
+  <% if users %>
+    <div class="player-info">
+      <p id="no-player">No one played yesterday</p>
+    </div>
+  <% else %>
+    <% users.each_with_index do |user, index| %>
       <div class="player-info">
         <%= index + 1 %>
         <% if user.photo.attached? %>
@@ -10,11 +14,11 @@
         <% end %>
         <p id= "player-name"><%= user.username %></p>
         <div class="player-score">
-          <p><%= user.score_today %>/10</p>
+          <p><%= user.score_yesterday %>/10</p>
         </div>
       </div>
       <div class = "blocks">
-        <% user.answered_today_block.each do |block| %>
+        <% user.answered_yesterday_block.each do |block| %>
           <% if block %>
             <%= "✅" %>
           <% elsif block == nil %>
@@ -24,6 +28,6 @@
           <% end %>
         <% end %>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

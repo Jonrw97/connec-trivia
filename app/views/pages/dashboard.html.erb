@@ -27,5 +27,17 @@
     </div>
   <% end %>
 </div>
+<div class="leaderboard-main">
+  <h2>Leaderboard</h2>
+</div>
+<div class="d-flex justify-content-between">
+  <div class="leaderboard-secondary">
+    <h4>Today</h4>
+  </div>
+  <div class="leaderboard-secondary">
+    <h4>Yesterday</h4>
+  </div>
+</div>
+<%= render "yesterday_results", users: @users_yesterday %>
 <%= render "leaderboard" %>
 <%= render "flashingbtn" %>
