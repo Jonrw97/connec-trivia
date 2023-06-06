@@ -83,9 +83,14 @@ class User < ApplicationRecord
     choices.count { |c| c.question.question_date == Date.today }
   end
 
-  def answered_today_block
+  def answered_block(day)
     # get 10 qs for the day
-    questions = Question.today
+    case day
+    when "today"
+      questions = Question.today
+    when "yesterday"
+      questions = Question.yesterday
+    end
     questions.map do |question|
       question_choice = choices.find { |choice| choice.question == question }
       # if user has choice for the q
@@ -96,6 +101,14 @@ class User < ApplicationRecord
       # if incorrect - false
       # if user doesnt have choice for q - nil
     end
+  end
+
+  def answered_today_block
+    answered_block("today")
+  end
+
+  def answered_yesterday_block
+    answered_block("yesterday")
   end
 
   def next_question
@@ -118,7 +131,19 @@ class User < ApplicationRecord
     score_today.count(&:correct)
   end
 
+  def score_yesterday
+    score_today = []
+    choices.each do |choice|
+      score_today.push(choice) if choice.question.question_date == Date.yesterday
+    end
+    score_today.count(&:correct)
+  end
+
   def unanswered_questions
     Question.where.not(id: choices.map(&:question_id)).today
+  end
+
+  def unanswered_questions_yesterday
+    Question.where.not(id: choices.map(&:question_id)).yesterday
   end
 end

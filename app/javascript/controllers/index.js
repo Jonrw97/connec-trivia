@@ -19,5 +19,8 @@ application.register("hello", HelloController)
 import HighlightAnswersController from "./highlight_answers_controller"
 application.register("highlight-answers", HighlightAnswersController)
 
+import LeaderboardController from "./leaderboard_controller"
+application.register("leaderboard", LeaderboardController)
+
 import ResultController from "./result_controller"
 application.register("result", ResultController)

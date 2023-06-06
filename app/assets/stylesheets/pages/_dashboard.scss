@@ -75,6 +75,23 @@
   }
 }
 
+.leaderboard-secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: $lightblue;
+  width: 40%;
+  margin-top: 20px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+
+  h4 {
+    color: $beige;
+    margin-bottom: 0px;
+  }
+}
+
 .player-info-card {
   background-color: $lightblue;
   margin: 20px 0px;
@@ -109,6 +126,16 @@
   font-weight: bolder;
 }
 
+#no-player {
+  background-color: $beige;
+  padding: 2px 20px;
+  border-radius: 8px;
+  opacity: 80%;
+  color: $blue;
+  font-weight: bolder;
+  margin: 0 auto;
+}
+
 .center-div {
   margin: 30px auto;
   position: fixed;
@@ -133,4 +160,8 @@
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   width: 75%;
   padding: 10px 5px 0px;
+}
+
+.selected-day {
+  border: 2px solid $beige;
 }

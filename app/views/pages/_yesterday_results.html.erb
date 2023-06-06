@@ -1,29 +1,37 @@
 <div class="player-info-cards">
-  <% @users.each_with_index do |user, index| %>
+  <% if users.empty? %>
     <div class="player-info-card">
       <div class="player-info">
-        <%= index + 1 %>
-        <% if user.photo.attached? %>
-          <%= cl_image_tag user.photo.key, :width=>"60", :height=>"60", :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
-        <% else %>
-          <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", :width=>"60", :height=>"60", :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard") %>
-        <% end %>
-        <p id= "player-name"><%= user.username %></p>
-        <div class="player-score">
-          <p><%= user.score_today %>/10</p>
-        </div>
-      </div>
-      <div class = "blocks">
-        <% user.answered_today_block.each do |block| %>
-          <% if block %>
-            <%= "✅" %>
-          <% elsif block == nil %>
-            <%= "❔" %>
-          <% else %>
-            <%= "❌" %>
-          <% end %>
-        <% end %>
+        <p id="no-player">No one played yesterday</p>
       </div>
     </div>
+  <% else %>
+    <% users.each_with_index do |user, index| %>
+      <div class="player-info-card">
+        <div class="player-info">
+          <%= index + 1 %>
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, :width=>"60", :height=>"60", :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard" %>
+          <% else %>
+            <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679837891/download_itt7fw.png", :width=>"60", :height=>"60", :gravity=>"auto", :crop=>"fill", class:"avatar-leaderboard") %>
+          <% end %>
+          <p id= "player-name"><%= user.username %></p>
+          <div class="player-score">
+            <p><%= user.score_yesterday %>/10</p>
+          </div>
+        </div>
+        <div class = "blocks">
+          <% user.answered_yesterday_block.each do |block| %>
+            <% if block %>
+              <%= "✅" %>
+            <% elsif block == nil %>
+              <%= "❔" %>
+            <% else %>
+              <%= "❌" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
