@@ -1,0 +1,22 @@
+<div class="menubar-container">
+  <div class="menubar-item">
+    <i class="fa-solid fa-house"></i>
+  </div>
+  <div class="menubar-item">
+    <i class="fa-regular fa-bell"></i>
+  </div>
+  <div class="menubar-item">
+    <% if controller_name == "questions" %>
+      <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png") %>
+    <% else %>
+      <i class="fa-regular fa-circle-play"></i>
+      <i class="fa-solid fa-square-poll-vertical"></i>
+    <% end %>
+  </div>
+  <div class="menubar-item">
+    <i class="fa-solid fa-user-plus"></i>
+  </div>
+  <div class="menubar-item">
+    <i class="fa-solid fa-user"></i>
+  </div>
+</div>
