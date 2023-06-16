@@ -1,10 +1,10 @@
 <div class="menubar-container">
-  <div class="menubar-item">
+  <div class="menubar-item <%= "selected-menubar-item" if current_page?(root_path) %>">
     <%= link_to root_path do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
   </div>
-  <div class="menubar-item">
+  <div class="menubar-item <%= "selected-menubar-item" if current_page?(assists_path) %>">
     <%= link_to assists_path do %>
       <i class="fa-solid fa-bell"></i>
     <% end %>
@@ -16,12 +16,12 @@
       <%= render "shared/flashingbtn" %>
     <% end %>
   </div>
-  <div class="menubar-item">
+  <div class="menubar-item <%= "selected-menubar-item" if current_page?(users_path) %>">
     <%= link_to users_path do %>
       <i class="fa-solid fa-user-plus"></i>
     <% end %>
   </div>
-  <div class="menubar-item">
+  <div class="menubar-item <%= "selected-menubar-item" if current_page?(user_path(current_user)) %>">
     <%= link_to user_path(current_user) do %>
       <i class="fa-solid fa-user"></i>
     <% end %>
