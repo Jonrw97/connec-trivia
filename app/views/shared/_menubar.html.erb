@@ -12,7 +12,7 @@
       <i class="fa-solid fa-bell"></i>
     <% end %>
   </div>
-  <div class="menubar-main-item">
+  <div class="menubar-main-item <%= "selected-menubar-item" if current_page?(results_path) %>">
     <% if controller_name == "questions" %>
       <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png") %>
     <% else %>
