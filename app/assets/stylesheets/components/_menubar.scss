@@ -1,0 +1,55 @@
+.menubar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("background.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 65px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+
+
+}
+
+.menubar-item {
+  i {
+    color: $blue;
+    font-size: 32px;
+  }
+}
+
+.menubar-main-item {
+  i {
+    color: $blue;
+    font-size: 50px;
+  }
+
+  img{
+    height: 80px;
+  }
+}
+
+.flashing-btn {
+  animation: glowing 1300ms infinite;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+@keyframes glowing {
+  0% {
+    color: #d34934;
+    text-shadow: 0 0 5px #d34934;
+  }
+  50% {
+    color: hsl(21, 98%, 51%);
+    text-shadow: 0 0 20px hsl(13, 98%, 51%);
+  }
+  100% {
+    color: #d34934;
+    text-shadow: 0 0 5px #d34934;
+  }
+}

@@ -1,44 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid d-flex justify-content-between">
-    <div class="navbar-brand logo">
-      <%= link_to image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png"), root_path %>
-    </div>
-    <% if @notify_friendships.nil? && @notify_receiver.nil? && @notify_asker.nil? %>
-      <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    <% else %>
-      <button class="navbar-toggler hamburger notify" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    <% end %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Profile",user_path(current_user), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to @notify_friendships.nil? ? "Add Friend":"❕ Add Friend", users_path, class: "nav-link" %>
-          </li>
-          <% notification =  @notify_receiver.nil? && @notify_asker.nil? %>
-          <li class="nav-item">
-            <%= link_to  notification ? "Notifications":"❕ Notifications", assists_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://forms.gle/Sr1jhqNv7WQmMVfz8">Report a Bug</a>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+<div class="container-fluid d-flex justify-content-between">
+  <div class="navbar-brand logo">
+    <%= link_to image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png"), root_path %>
   </div>
+  <div class="dropdown">
+    <button class="lifeline-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-gear"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li><%= link_to "Edit Account", edit_user_registration_path, class: "nav-item" %></li>
+      <li><a class="nav-item" href="https://forms.gle/Sr1jhqNv7WQmMVfz8">Report a Bug</a></li>
+      <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-item" %></li>
+    </ul>
+  </div>
+</div>
