@@ -47,6 +47,9 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
+    <% if user_signed_in? && current_page?(user_path(current_user)) %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <div class="container-main">
       <%= yield %>
