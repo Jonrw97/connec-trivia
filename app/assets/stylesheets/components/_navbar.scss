@@ -1,47 +1,28 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  padding: 0px;
+
+.logo img{
+  width: 70px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-  text-align: right;
-  padding: 10px;
-}
+// .hamburger {
+//   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+//   margin-top: 5px;
+// }
 
-.navbar-lewagon .navbar-brand img {
-  width: 88px;
-  margin-top: 8px;
-}
+// .notify {
+//   animation: notification 1300ms infinite;
+// }
 
-.logo {
-  width: 40px;
-}
-
-.hamburger {
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-  margin-top: 5px;
-}
-
-.notify {
-  animation: notification 1300ms infinite;
-}
-
-@keyframes notification {
-  0% {
-    background-color: transparent;
-    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-  }
-  50% {
-    background-color: $red;
-    box-shadow: 0 0 20px hsl(13, 98%, 51%);
-  }
-  100% {
-    background-color: transparent;
-    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-  }
-}
-
-.nav-item {
-  font-size: larger;
-}
+// @keyframes notification {
+//   0% {
+//     background-color: transparent;
+//     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+//   }
+//   50% {
+//     background-color: $red;
+//     box-shadow: 0 0 20px hsl(13, 98%, 51%);
+//   }
+//   100% {
+//     background-color: transparent;
+//     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+//   }
+// }

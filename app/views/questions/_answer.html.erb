@@ -22,8 +22,4 @@
     <p>You used <%= 3 - current_user.lifeline_count %> lifelines</p>
     <p>Thanks for playing! See you tomorrow!</p>
   <% end %>
-  <div class="questions-return d-flex justify-content-space-between">
-    <%= link_to "Home", root_path(@current_user), class: "return-btn" %>
-    <%= link_to "Profile", user_path(current_user), class: "profile-return-btn" %>
-  </div>
 </div>

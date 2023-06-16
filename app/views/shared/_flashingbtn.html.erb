@@ -1,13 +1,9 @@
 <% if current_user.next_question.nil? %>
   <%= link_to results_path do%>
-    <div class="play-btn center-div">
-      Results
-    </div>
+    <i class="fa-solid fa-square-poll-vertical flashing-btn"></i>
   <% end %>
 <% else %>
   <%= link_to question_path(current_user.next_question) do%>
-    <div class="play-btn center-div">
-      PLAY
-    </div>
+    <i class="fa-regular fa-circle-play flashing-btn"></i>
   <% end %>
 <% end %>

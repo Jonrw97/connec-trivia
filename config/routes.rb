@@ -17,9 +17,10 @@ Rails.application.routes.draw do
 
   resources :assists, only: %i[index edit update]
 
+  resources :friendships, only: %i[destroy update]
+
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
-  resources :friendships, only: %i[destroy update]
 end

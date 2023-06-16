@@ -1,0 +1,29 @@
+<div class="menubar-container">
+  <div class="menubar-item">
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+  </div>
+  <div class="menubar-item">
+    <%= link_to assists_path do %>
+      <i class="fa-solid fa-bell"></i>
+    <% end %>
+  </div>
+  <div class="menubar-main-item">
+    <% if controller_name == "questions" %>
+      <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png") %>
+    <% else %>
+      <%= render "shared/flashingbtn" %>
+    <% end %>
+  </div>
+  <div class="menubar-item">
+    <%= link_to users_path do %>
+      <i class="fa-solid fa-user-plus"></i>
+    <% end %>
+  </div>
+  <div class="menubar-item">
+    <%= link_to user_path(current_user) do %>
+      <i class="fa-solid fa-user"></i>
+    <% end %>
+  </div>
+</div>
