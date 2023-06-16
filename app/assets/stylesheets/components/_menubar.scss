@@ -59,3 +59,28 @@
     color: $beige;
   }
 }
+
+.notify {
+  animation: notification 1300ms infinite;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+@keyframes notification {
+  0% {
+    background-color: #d34934;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    background-color:  hsl(21, 98%, 51%);
+    box-shadow: 0 0 20px hsl(13, 98%, 51%);
+  }
+  100% {
+    background-color: #d34934;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  }
+}

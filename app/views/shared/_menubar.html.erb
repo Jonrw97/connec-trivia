@@ -6,6 +6,9 @@
   </div>
   <div class="menubar-item <%= "selected-menubar-item" if current_page?(assists_path) %>">
     <%= link_to assists_path do %>
+      <% unless @notify_receiver.nil? && @notify_asker.nil?%>
+        <div class="notify"></div>
+      <% end %>
       <i class="fa-solid fa-bell"></i>
     <% end %>
   </div>
@@ -18,6 +21,9 @@
   </div>
   <div class="menubar-item <%= "selected-menubar-item" if current_page?(users_path) %>">
     <%= link_to users_path do %>
+      <% unless @notify_friendships.nil? %>
+        <div class="notify"></div>
+      <% end %>
       <i class="fa-solid fa-user-plus"></i>
     <% end %>
   </div>
