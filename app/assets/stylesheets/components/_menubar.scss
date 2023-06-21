@@ -2,17 +2,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url("background.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 65px;
+  height: 40px;
   width: 100%;
   position: fixed;
   bottom: 0px;
-
-
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  background-color: #398694;
 }
 
 .menubar-item {
@@ -23,13 +19,31 @@
 }
 
 .menubar-main-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -50%;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
+  background-image: url("background.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+
   i {
     color: $blue;
     font-size: 50px;
   }
 
   img{
-    height: 80px;
+    height: 67px;
+    position: relative;
+    top: 1px;
+    left: 1px;
   }
 }
 
