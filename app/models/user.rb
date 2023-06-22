@@ -22,13 +22,16 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  include PgSearch::Model
-  pg_search_scope :search_by_username, against: [:username]
-  # , using: { search: { prefix: true } }
   validates :username,
             presence: true,
             uniqueness: { case_sensitive: false },
             length: { maximum: 12, too_long: "12 characters is the maximum allowed" }
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_username,
+                  against: [:username],
+                  using: { tsearch: { prefix: true } }
 
   def self.find_for_database_authentication(warden_condition)
     conditions = warden_condition.dup

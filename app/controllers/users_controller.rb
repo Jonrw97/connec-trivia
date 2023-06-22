@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:query].present?
-      users = User.where("username ILIKE ?", "%#{params[:query]}%")
+      users = User.search_by_username(params[:query])
       friends = current_user.all_friends
       @users = []
       users.each { |user| @users.push(user) unless friends.include?(user) || user == current_user }
