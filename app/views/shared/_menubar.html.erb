@@ -1,41 +1,43 @@
-<div class="menubar-container">
-  <div class="menubar-side">
-    <div class="menubar-item <%= "selected-menubar-item" if current_page?(root_path) %>">
-      <%= link_to root_path do %>
-        <i class="fa-solid fa-house"></i>
-      <% end %>
-    </div>
-    <div class="menubar-item <%= "selected-menubar-item" if current_page?(assists_path) %>">
-      <%= link_to assists_path do %>
-        <% unless @notify_receiver.nil? && @notify_asker.nil?%>
-          <div class="notify"></div>
+<div data-turbo="false">
+  <div class="menubar-container">
+    <div class="menubar-side">
+      <div class="menubar-item <%= "selected-menubar-item" if current_page?(root_path) %>">
+        <%= link_to root_path do %>
+          <i class="fa-solid fa-house"></i>
         <% end %>
-        <i class="fa-solid fa-bell"></i>
-      <% end %>
-    </div>
-  </div>
-  <div class="half-circle-menubar">
-    <div class="menubar-main-item <%= "selected-menubar-item" if current_page?(results_path) %>">
-      <% if controller_name == "questions" %>
-        <%= image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png") %>
-      <% else %>
-        <%= render "shared/flashingbtn" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="menubar-side">
-    <div class="menubar-item <%= "selected-menubar-item" if current_page?(users_path) %>">
-      <%= link_to users_path do %>
-        <% unless @notify_friendships.nil? %>
-          <div class="notify"></div>
+      </div>
+      <div class="menubar-item <%= "selected-menubar-item" if current_page?(assists_path) %>">
+        <%= link_to assists_path do %>
+          <% unless @notify_receiver.nil? && @notify_asker.nil?%>
+            <div class="notify"></div>
+          <% end %>
+          <i class="fa-solid fa-bell"></i>
         <% end %>
-        <i class="fas fa-user-friends"></i>
-      <% end %>
+      </div>
     </div>
-    <div class="menubar-item <%= "selected-menubar-item" if current_page?(user_path(current_user)) %>">
-      <%= link_to user_path(current_user) do %>
-        <i class="fa-solid fa-user"></i>
-      <% end %>
+    <div class="half-circle-menubar">
+      <div class="menubar-main-item <%= "selected-menubar-item" if current_page?(results_path) %>">
+        <% if controller_name == "questions" %>
+          <%= link_to image_tag("https://res.cloudinary.com/dvvbk1j65/image/upload/v1679838907/konnec-transparent_k659qq.png"), root_path %>
+        <% else %>
+          <%= render "shared/flashingbtn" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="menubar-side">
+      <div class="menubar-item <%= "selected-menubar-item" if current_page?(users_path) %>">
+        <%= link_to users_path do %>
+          <% unless @notify_friendships.nil? %>
+            <div class="notify"></div>
+          <% end %>
+          <i class="fas fa-user-friends"></i>
+        <% end %>
+      </div>
+      <div class="menubar-item <%= "selected-menubar-item" if current_page?(user_path(current_user)) %>">
+        <%= link_to user_path(current_user) do %>
+          <i class="fa-solid fa-user"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
