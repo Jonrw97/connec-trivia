@@ -20,8 +20,8 @@
 }
 
 .menubar-item {
+  color: $blue;
   i {
-    color: $blue;
     font-size: 32px;
   }
 }
@@ -42,9 +42,9 @@
   bottom: 30px;
   height: 60px;
   width: 70px;
+  color: $blue;
 
   i {
-    color: $blue;
     font-size: 50px;
   }
 
@@ -78,6 +78,7 @@
 }
 
 .selected-menubar-item {
+  color: $beige;
   i {
     color: $beige;
   }

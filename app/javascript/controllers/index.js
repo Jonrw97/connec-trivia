@@ -22,5 +22,8 @@ application.register("highlight-answers", HighlightAnswersController)
 import LeaderboardController from "./leaderboard_controller"
 application.register("leaderboard", LeaderboardController)
 
+import MenubarSelectController from "./menubar_select_controller"
+application.register("menubar-select", MenubarSelectController)
+
 import ResultController from "./result_controller"
 application.register("result", ResultController)

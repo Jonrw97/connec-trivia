@@ -1,0 +1,23 @@
+.loading {
+  background-color: $lightblue;
+  border-radius: 8px;
+  padding: 20px;
+  width: 360px;
+  height: 320px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -180px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  h3 {
+    color: $beige;
+    text-align: center;
+  }
+
+  iframe {
+    border-radius: 8px;
+  }
+}
