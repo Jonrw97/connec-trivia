@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_22_162644) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_141038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_162644) do
     t.date "question_date"
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.boolean "mute", default: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_settings_on_user_id"
+  end
+
   create_table "user_choices", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -113,6 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_162644) do
   add_foreign_key "choices", "questions"
   add_foreign_key "friendships", "users", column: "asker_id"
   add_foreign_key "friendships", "users", column: "receiver_id"
+  add_foreign_key "settings", "users"
   add_foreign_key "user_choices", "choices"
   add_foreign_key "user_choices", "users"
 end
