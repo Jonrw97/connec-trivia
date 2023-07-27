@@ -1,9 +1,13 @@
-<div class="d-flex justify-content-end">
-  <%= simple_form_for current_user.setting do |f| %>
-    <% new_mute = current_user.setting.mute ? false : true %>
-    <%= f.hidden_field :mute, value: new_mute %>
-    <%= f.button :submit, '', class: "mute-btn" %>
+<div class="d-flex justify-content-end" data-controller="mute">
+  <%= simple_form_for(current_user.setting,
+  data: {
+    mute_target: "form",
+    action: "submit->mute#send"
+  }) do |f| %>
+    <%= f.hidden_field :mute, value: current_user.setting.mute ? false : true %>
+    <button type="submit" class="mute-btn" title="mute-btn">
+      <i class="fa-solid fa-volume-xmark mute-icon <%= current_user.setting.mute ? "" : "d-none" %>"></i>
+      <i class="fa-solid fa-volume-high mute-icon <%= current_user.setting.mute ? "d-none" : "" %>"></i>
+    </button>
   <% end %>
-  <i class="fa-solid fa-volume-xmark mute-icon <%= current_user.setting.mute ? "" : "d-none" %>"></i>
-  <i class="fa-solid fa-volume-high mute-icon <%= current_user.setting.mute ? "d-none" : "" %>"></i>
 </div>

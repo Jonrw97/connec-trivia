@@ -25,5 +25,8 @@ application.register("leaderboard", LeaderboardController)
 import MenubarSelectController from "./menubar_select_controller"
 application.register("menubar-select", MenubarSelectController)
 
+import MuteController from "./mute_controller"
+application.register("mute", MuteController)
+
 import ResultController from "./result_controller"
 application.register("result", ResultController)
