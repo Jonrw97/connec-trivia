@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   has_many :users
 
-  has_one :setting
+  has_one :setting, dependent: :destroy
 
   has_one_attached :photo
 

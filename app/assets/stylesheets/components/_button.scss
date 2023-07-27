@@ -134,3 +134,24 @@ a {
   margin-left: 5px;
   text-align: center;
 }
+
+.mute-btn {
+  background-color: #112847;
+  color: #f0d8b2;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.mute-icon {
+  color: $beige;
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  right: 16px;
+}

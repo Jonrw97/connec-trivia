@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   resources :friendships, only: %i[destroy update]
 
+  resources :settings, only: :update
+
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'

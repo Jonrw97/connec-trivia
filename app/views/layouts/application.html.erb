@@ -50,6 +50,9 @@
     <% if user_signed_in? && current_page?(user_path(current_user)) %>
       <%= render "shared/navbar" %>
     <% end %>
+    <% if user_signed_in? %>
+      <%= render "settings/form" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <div class="container-main">
       <%= yield %>
