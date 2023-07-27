@@ -1,9 +1,10 @@
 <div data-turbo="false">
-  <% @user_choice.choice %>
-  <% if @user_choice.choice.correct %>
-    <%= audio_tag("correct.mp3", autoplay: true) %>
-  <% else %>
-    <%= audio_tag("incorrect.mp3", autoplay: true) %>
+  <% unless current_user.setting.mute %>
+    <% if @user_choice.choice.correct %>
+      <%= audio_tag("correct.mp3", autoplay: true) %>
+    <% else %>
+      <%= audio_tag("incorrect.mp3", autoplay: true) %>
+    <% end %>
   <% end %>
   <% @choices.each do |choice| %>
     <% if choice.correct %>
