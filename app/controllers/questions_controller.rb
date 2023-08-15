@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
       current_user.update(lifeline_count: current_user.lifeline_count - 1)
       correct_answer = @question.choices.select(&:correct)
       incorrect_answers = @question.choices.reject(&:correct)
-      @answers = [correct_answer[0], incorrect_answers.sample]
+      @answers = [correct_answer[0], incorrect_answers.sample].shuffle
     end
   end
 
