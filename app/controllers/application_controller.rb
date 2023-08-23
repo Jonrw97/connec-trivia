@@ -2,6 +2,7 @@ require 'date'
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :create_settings
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -24,5 +25,14 @@ class ApplicationController < ActionController::Base
     @notify_asker = current_user.assists_as_asker.reject do |a|
                       a.message.nil? || !current_user.choices.where(question_id: a.question.id).first.nil?
                     end[0]
+  end
+
+  def create_settings
+    return unless user_signed_in?
+
+    return unless current_user.setting.nil?
+
+    current_user.setting = Setting.new
+    current_user.save
   end
 end
